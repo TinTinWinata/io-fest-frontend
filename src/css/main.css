@@ -10,6 +10,13 @@
   box-sizing: border-box;
 }
 
-.button{
+.center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.screen-max{
+  width: 100%;
+  max-width: 1920px;
 }

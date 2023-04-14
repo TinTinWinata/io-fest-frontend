@@ -1,12 +1,9 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState } from 'react';
+import { ChildrenOnly } from '../types/children-only';
 
 const userContext = createContext({} as any);
 
-type ContentLayout = {
-  children: JSX.Element;
-};
-
-export function UserProvider({ children }: ContentLayout) {
+export function UserProvider({ children }: ChildrenOnly) {
   const [auth, setAuth] = useState(false);
 
   // Authenticate logic here VVV
