@@ -5,6 +5,8 @@ import MainLayout from './layouts/layout';
 import MiddlewareRoutes from './middlewares/middleware-routes';
 import { default as Home } from './pages/home/home';
 import Landing from './pages/landing/landing';
+import Login from './pages/login';
+import Register from './pages/register';
 
 function App() {
   return (
@@ -16,8 +18,10 @@ function App() {
           <MainLayout>
             <Routes>
               {/* All Routes [Login] (no need authenticate routes) (login.tsx) */}
-              <Route path="/" element={<Landing></Landing>}></Route>
-              <Route path="/home" element={<Home></Home>}></Route>
+              <Route path="/" element={<Landing />}></Route>
+              <Route path="/home" element={<Home />}></Route>
+              <Route path="/register" element={<Register />}></Route>
+              <Route path="/login" element={<Login />}></Route>
 
               {/* First Authentication Method Using Authenticate Routes VVV */}
               {/* 

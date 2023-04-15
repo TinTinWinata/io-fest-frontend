@@ -1,5 +1,5 @@
-import LeftLanding from './left-landing';
-import RightLanding from './right-landing';
+import LeftLanding from './first-left-landing';
+import RightLanding from './first-right-landing';
 
 export default function Landing() {
   return (
@@ -9,7 +9,7 @@ export default function Landing() {
         <LeftLanding />
         <RightLanding />
       </div>
-      <div className="h-screen"></div>
+      <div className="h-screen bg-blue-100 w-full"></div>
     </div>
   );
 }
