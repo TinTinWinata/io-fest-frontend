@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Route, Routes, useNavigate } from 'react-router-dom';
-import { useUserAuth } from '../hooks/UserContext';
+import { useUserAuth } from '../hooks/user-context';
 import Detail from '../pages/detail';
 
 export default function MiddlewareRoutes() {

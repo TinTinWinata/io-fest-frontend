@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { ThemeProvider } from './hooks/ThemeContext';
-import { UserProvider } from './hooks/UserContext';
+import { ThemeProvider } from './hooks/theme-context';
+import { UserProvider } from './hooks/user-context';
 import MainLayout from './layouts/layout';
-import MiddlewareRoutes from './middlewares/MiddlewareRoutes';
-import Home from './pages/home/home';
-import Login from './pages/login';
+import MiddlewareRoutes from './middlewares/middleware-routes';
+import { default as Home } from './pages/home/home';
+import Landing from './pages/landing/landing';
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
           <MainLayout>
             <Routes>
               {/* All Routes [Login] (no need authenticate routes) (login.tsx) */}
-              <Route path="/" element={<Login></Login>}></Route>
+              <Route path="/" element={<Landing></Landing>}></Route>
               <Route path="/home" element={<Home></Home>}></Route>
 
               {/* First Authentication Method Using Authenticate Routes VVV */}

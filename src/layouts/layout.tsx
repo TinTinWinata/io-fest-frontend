@@ -11,7 +11,7 @@ export default function MainLayout({ children }: ContentLayout) {
     transition-all
     "
     >
-      <div className="w-screen relative min-h-screen">
+      <div className="screen-max w-screen relative min-h-screen">
         <Navbar></Navbar>
         {/* Navigation Bar VVV */}
 

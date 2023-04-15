@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import Search from './search';
-import ThemeChanger from './themeChanger';
+import ThemeChanger from './theme-changer';
 
 export default function Navbar() {
   return (
-    <div className="absolute w-full flex justify-around font-semibold h-20 center">
+    <div className="z-[100] absolute w-full flex justify-around font-semibold h-20 center">
       <div className="w-full">
         <Search></Search>
       </div>

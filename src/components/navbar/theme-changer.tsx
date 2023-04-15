@@ -1,5 +1,5 @@
 import { ChangeEvent, createRef, useEffect } from 'react';
-import { useTheme } from '../../hooks/ThemeContext';
+import { useTheme } from '../../hooks/theme-context';
 
 export default function ThemeChanger() {
   const { setTheme, isDarkTheme } = useTheme();
