@@ -2,7 +2,7 @@ import SimpleButton from '../../components/simple-button';
 
 export default function LeftLanding() {
   return (
-    <div className="center">
+    <div className="center" data-aos="fade-up">
       <div className="">
         <h1 className="font-bold text-7xl">Yuk Cari Tahu</h1>
         <h1 className="font-bold text-blue-500 dark:text-orange-600 text-7xl">

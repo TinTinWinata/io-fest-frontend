@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from './hooks/theme-context';
 import { UserProvider } from './hooks/user-context';
@@ -8,7 +9,17 @@ import Landing from './pages/landing/landing';
 import Login from './pages/login';
 import Register from './pages/register';
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import CreateForum from './pages/create-forum/create-forum';
+
 function App() {
+  useEffect(() => {
+    // Initiate AOS
+    AOS.init();
+    AOS.refresh();
+  }, []);
+
   return (
     <BrowserRouter>
       <ThemeProvider>

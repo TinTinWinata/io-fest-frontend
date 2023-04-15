@@ -1,3 +1,3 @@
-export type ChildrenOnly = {
+export type IChildrenOnly = {
   children: JSX.Element;
 };

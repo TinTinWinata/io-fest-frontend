@@ -1,3 +1,4 @@
+import Footer from '../components/footer/footer';
 import Navbar from '../components/navbar/navbar';
 
 type ContentLayout = {
@@ -7,11 +8,11 @@ type ContentLayout = {
 export default function MainLayout({ children }: ContentLayout) {
   return (
     <div
-      className="text-secondary center bg-gray-100 text-gray-700 dark:bg-gray-900 dark:text-gray-100
+      className="text-secondary bg-gray-100 text-gray-700 dark:bg-gray-900 dark:text-gray-100
     transition-all
     "
     >
-      <div className=" w-screen relative min-h-screen">
+      <div className="center w-full relative min-h-screen overflow-hidden">
         <Navbar></Navbar>
         {/* Navigation Bar VVV */}
 
@@ -23,6 +24,7 @@ export default function MainLayout({ children }: ContentLayout) {
 
         {/* ----------------------------------- */}
       </div>
+      <Footer />
     </div>
   );
 }

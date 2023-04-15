@@ -1,9 +1,9 @@
 import { createContext, useContext, useState } from 'react';
-import { ChildrenOnly } from '../types/children-only';
+import { IChildrenOnly } from '../types/children-only';
 
 const userContext = createContext({} as any);
 
-export function UserProvider({ children }: ChildrenOnly) {
+export function UserProvider({ children }: IChildrenOnly) {
   const [auth, setAuth] = useState(false);
 
   // Authenticate logic here VVV

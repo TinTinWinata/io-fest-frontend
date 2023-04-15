@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react';
-import { ChildrenOnly } from '../types/children-only';
+import { IChildrenOnly } from '../types/children-only';
 
 type ThemeContextType = {
   isDarkTheme: boolean;
@@ -10,7 +10,7 @@ type ThemeContextType = {
 const themeKey = 'CARI_TAHU_THEME_KEY';
 const themeContext = createContext({} as ThemeContextType);
 
-export function ThemeProvider({ children }: ChildrenOnly) {
+export function ThemeProvider({ children }: IChildrenOnly) {
   const [isDarkTheme, setIsDarkTheme] = useState<boolean>(false);
 
   const toggleTheme = () => {

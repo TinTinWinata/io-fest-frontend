@@ -12,7 +12,7 @@ export default function Navbar() {
   return (
     <div
       className={
-        ' transition-all backdrop-blur-md z-[100] w-[80%] mt-2 rounded-3xl translate-x-[-50%] left-[50%] top-0 fixed flex justify-around font-semibold h-20 center ' +
+        ' transition-all backdrop-blur-md z-30 w-[80%] mt-2 rounded-3xl translate-x-[-50%] left-[50%] top-0 fixed flex justify-around font-semibold h-20 center ' +
         getClass()
       }
     >
@@ -26,7 +26,11 @@ export default function Navbar() {
         <Link className="mx-3" to="/register">
           Register
         </Link>
-        <Link className="mx-3" to="/login">
+        <Link
+          className="mx-3"
+          to="/login
+        "
+        >
           Login
         </Link>
       </div>

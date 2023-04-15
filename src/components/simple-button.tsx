@@ -1,6 +1,6 @@
-import { Button } from '../types/button';
+import { IButton } from '../types/button';
 
-export default function SimpleButton({ text, handler, moreClass }: Button) {
+export default function SimpleButton({ text, handler, moreClass }: IButton) {
   return (
     <button
       onClick={handler}

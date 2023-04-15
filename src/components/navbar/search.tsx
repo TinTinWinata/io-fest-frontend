@@ -7,7 +7,7 @@ export default function Search() {
       >
         Search
       </label>
-      <div className="relative">
+      <div className="relative z-10">
         <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
           <svg
             aria-hidden="true"
