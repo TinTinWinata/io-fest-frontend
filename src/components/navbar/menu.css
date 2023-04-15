@@ -1,0 +1,20 @@
+.custom-hover-menu{
+  position: relative;
+  z-index: 10;
+}
+
+
+.custom-hover-menu:hover::before{
+  width: 100%;
+}
+
+.custom-hover-menu::before{
+  z-index: 5;
+  transition: all 0.5s ease;
+  width: 0%;
+  bottom: 0;
+  content: ' ';
+  position: absolute;
+  background-color: rgb(59, 148, 250);
+  height: 10%;
+}

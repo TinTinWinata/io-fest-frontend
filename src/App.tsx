@@ -11,7 +11,6 @@ import Register from './pages/register';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import CreateForum from './pages/create-forum/create-forum';
 
 function App() {
   useEffect(() => {

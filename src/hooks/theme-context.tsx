@@ -33,7 +33,6 @@ export function ThemeProvider({ children }: IChildrenOnly) {
   }, []);
 
   const setTheme = (bool: boolean) => {
-    console.log('set theme to : ', bool);
     localStorage.setItem(themeKey, bool.toString());
     setIsDarkTheme(bool);
   };

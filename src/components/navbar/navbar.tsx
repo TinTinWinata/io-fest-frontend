@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
 import useScroll from '../../hooks/use-scroll';
+import Menu from './menu';
 import Search from './search';
 import ThemeChanger from './theme-changer';
 
@@ -19,20 +19,10 @@ export default function Navbar() {
       <div className="w-full">
         <Search></Search>
       </div>
-      <div className="w-full center">
-        <Link className="mx-3" to="/home">
-          Home
-        </Link>
-        <Link className="mx-3" to="/register">
-          Register
-        </Link>
-        <Link
-          className="mx-3"
-          to="/login
-        "
-        >
-          Login
-        </Link>
+      <div className="w-full center text-gray-700 dark:text-gray-100">
+        <Menu name="Home" url="/home" />
+        <Menu name="Register" url="/register" />
+        <Menu name="Login" url="/login" />
       </div>
       <div className="center w-full">
         <ThemeChanger></ThemeChanger>

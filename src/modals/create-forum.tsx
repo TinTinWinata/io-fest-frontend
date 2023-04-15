@@ -1,5 +1,6 @@
 import { Dialog, Transition } from '@headlessui/react';
-import { Fragment, createRef } from 'react';
+import EmojiPicker, { EmojiStyle } from 'emoji-picker-react';
+import { Fragment, createRef, useState } from 'react';
 import HandleIcon from '../components/footer/handle-icon';
 // import { CheckIcon } from '@heroicons/react/outline'
 
@@ -12,12 +13,17 @@ export default function CreateForum({
 }) {
   const imageInputRef = createRef<HTMLInputElement>();
   const videoInputRef = createRef<HTMLInputElement>();
+  const descInputRef = createRef<HTMLTextAreaElement>();
+  const [isOpenEmoji, setIsOpenEmoji] = useState<boolean>(false);
 
-  const handleImage = () => {
-    imageInputRef.current?.click();
-  };
-  const handleVideo = () => {
-    videoInputRef.current?.click();
+  const handleImage = () => imageInputRef.current?.click();
+  const handleVideo = () => videoInputRef.current?.click();
+  const getEmojiClass = () => (isOpenEmoji ? '' : 'hidden');
+  const handleEmoji = () => setIsOpenEmoji(!isOpenEmoji);
+  const handleEmojiClick = (e: any) => {
+    if (descInputRef.current && 'value' in descInputRef.current) {
+      descInputRef.current.value = descInputRef.current.value + e.emoji;
+    }
   };
 
   return (
@@ -58,7 +64,7 @@ export default function CreateForum({
             leaveFrom="opacity-100 translate-y-0 sm:scale-100"
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
-            <div className="inline-block align-bottom relative z-50 bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl  transform transition-all sm:my-8 sm:align-middle w-[675px] sm:p-6">
+            <div className="inline-block align-bottom relative z-50 bg-white rounded-lg px-4 pt-5 pb-4 text-left  shadow-xl  transform transition-all sm:my-8 sm:align-middle w-[675px] sm:p-6">
               <div>
                 <div className="">
                   <Dialog.Title
@@ -80,11 +86,21 @@ export default function CreateForum({
                       <div className="center">
                         <div className="">
                           <div className="font-semibold">Justine Winata</div>
-                          <div className="text-sm text-gray-500">Dokter</div>
+                          <div className="text-sm text-gray-500">
+                            ( Dokter )
+                          </div>
                         </div>
                       </div>
                     </div>
+                    <input
+                      className="box-border 
+                      rounded-3xl
+                      border-gray-300
+                      align-top w-full p-3 text-lg text-gray-600 font-semibold  border-none focus:outline-none"
+                      placeholder="Judul cerita"
+                    />
                     <textarea
+                      ref={descInputRef}
                       className="box-border align-top w-full h-40 p-3 text-lg text-gray-500 border-none focus:outline-none"
                       placeholder="Tuliskan kendala anda..."
                     />
@@ -104,6 +120,7 @@ export default function CreateForum({
                   </div>
                 </div>
               </div>
+              <hr className="w-full h-1 mt-2"></hr>
               <div className="mt-5 sm:mt-6">
                 <div className="flex justify-between">
                   <div className="flex">
@@ -121,13 +138,24 @@ export default function CreateForum({
                         more_class: 'bg-sky-100',
                       }}
                     />
-                    <HandleIcon
-                      icon={{
-                        image_url: '/assets/icon/dipper-pines-96.png',
-                        handle: handleVideo,
-                        more_class: 'bg-orange-100',
-                      }}
-                    />
+                    <div className="relative">
+                      <HandleIcon
+                        icon={{
+                          image_url: '/assets/icon/dipper-pines-96.png',
+                          handle: handleEmoji,
+                          more_class: 'bg-orange-100',
+                        }}
+                      />
+                      <div
+                        className={`absolute bottom-[70%] left-10 transition-all ${getEmojiClass()}`}
+                      >
+                        <EmojiPicker
+                          emojiStyle={EmojiStyle.GOOGLE}
+                          lazyLoadEmojis={true}
+                          onEmojiClick={handleEmojiClick}
+                        />
+                      </div>
+                    </div>
                   </div>
                   <button
                     type="button"

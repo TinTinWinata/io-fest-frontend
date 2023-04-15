@@ -12,7 +12,6 @@ export default function ThemeChanger() {
   useEffect(() => {
     // To Do Check First Them
     if (checkRef && isDarkTheme) {
-      console.log('theme changer : ', isDarkTheme);
       checkRef.current!!.checked = isDarkTheme;
     }
   }, [isDarkTheme]);

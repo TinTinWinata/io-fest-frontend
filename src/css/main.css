@@ -10,6 +10,29 @@
   box-sizing: border-box;
 }
 
+/* Custom Scrollbar */
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #339cff #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #339cff;
+    border-radius: 11px;
+    border: 3px solid #339cff;
+  }
+
 .center{
   display: flex;
   align-items: center;
