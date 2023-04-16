@@ -1,5 +1,4 @@
 import { Dialog, Transition } from '@headlessui/react';
-import EmojiPicker, { EmojiStyle } from 'emoji-picker-react';
 import { Fragment, createRef, useState } from 'react';
 import HandleIcon from '../components/footer/handle-icon';
 // import { CheckIcon } from '@heroicons/react/outline'
@@ -7,9 +6,13 @@ import HandleIcon from '../components/footer/handle-icon';
 export default function CreateForum({
   open,
   setOpen,
+  title,
+  handleTitle,
 }: {
   open: boolean;
   setOpen: (bool: boolean) => void;
+  title: string;
+  handleTitle: Dispatch<SetStateAction<string>>;
 }) {
   const imageInputRef = createRef<HTMLInputElement>();
   const videoInputRef = createRef<HTMLInputElement>();
@@ -20,6 +23,7 @@ export default function CreateForum({
   const handleVideo = () => videoInputRef.current?.click();
   const getEmojiClass = () => (isOpenEmoji ? '' : 'hidden');
   const handleEmoji = () => setIsOpenEmoji(!isOpenEmoji);
+
   const handleEmojiClick = (e: any) => {
     if (descInputRef.current && 'value' in descInputRef.current) {
       descInputRef.current.value = descInputRef.current.value + e.emoji;
@@ -93,6 +97,8 @@ export default function CreateForum({
                       </div>
                     </div>
                     <input
+                      value={title}
+                      onChange={handleTitle}
                       className="box-border 
                       rounded-3xl
                       border-gray-300
@@ -149,11 +155,11 @@ export default function CreateForum({
                       <div
                         className={`absolute bottom-[70%] left-10 transition-all ${getEmojiClass()}`}
                       >
-                        <EmojiPicker
+                        {/* <EmojiPicker
                           emojiStyle={EmojiStyle.GOOGLE}
                           lazyLoadEmojis={true}
                           onEmojiClick={handleEmojiClick}
-                        />
+                        /> */}
                       </div>
                     </div>
                   </div>

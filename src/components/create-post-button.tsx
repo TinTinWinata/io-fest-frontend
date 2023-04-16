@@ -31,7 +31,12 @@ export default function CreatePostButton() {
 
   return (
     <>
-      <CreateForum open={open} setOpen={setOpen}></CreateForum>
+      <CreateForum
+        handleTitle={handleOnChange}
+        title={text}
+        open={open}
+        setOpen={setOpen}
+      ></CreateForum>
       <form
         noValidate
         onSubmit={handleOnSubmit}
