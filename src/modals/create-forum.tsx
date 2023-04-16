@@ -165,7 +165,7 @@ export default function CreateForum({
                   </div>
                   <button
                     type="button"
-                    className="w-1/4 center inline-flex justify-center rounded-3xl border border-transparent shadow-sm px-4 py-2 bg-white text-base font-medium text-blue-700 border-blue-700 hover:text-white transition-all hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:text-sm"
+                    className="w-1/4 center inline-flex justify-center rounded-3xl border border-transparent shadow-sm px-4 py-2 bg-white  text-base font-medium dark:hover:text-gray-50 dark:text-orange-700 dark:border-orange-700 text-blue-700 border-blue-700 hover:text-white transition-all dark:hover:bg-orange-700 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-orange-500 focus:ring-blue-500 sm:text-sm"
                     onClick={() => setOpen(false)}
                   >
                     Create

@@ -51,7 +51,7 @@ export default function CreatePostButton() {
             onFocus={handleOnFocus}
             type="search"
             id="default-search"
-            className=" italic font-medium w-[230px] block p-4 pl-10 text-xl text-gray-50 border placeholder-gray-50 border-blue-500 rounded-lg bg-blue-400 dark:bg-orange-400 dark:border-orange-500 focus:none focus:outline-none focus:w-[400px] transition-all"
+            className="italic font-medium w-[230px] block p-4 pl-10 text-xl text-gray-50 border placeholder-gray-50 border-blue-500 rounded-lg bg-blue-400 dark:bg-orange-400 dark:border-orange-500 focus:none focus:outline-none focus:w-[400px] transition-all"
             placeholder="Create Post"
             required
           />
