@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.css';
 import { ThemeProvider } from './hooks/theme-context';
 import { UserProvider } from './hooks/user-context';
 import MainLayout from './layouts/layout';
@@ -11,6 +12,7 @@ import Register from './pages/register';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   useEffect(() => {
@@ -21,6 +23,8 @@ function App() {
 
   return (
     <BrowserRouter>
+      {/* Toast container */}
+      <ToastContainer />
       <ThemeProvider>
         {/* Bundled with User Provider for getting user context (UserContext.tsx) */}
         <UserProvider>

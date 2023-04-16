@@ -1,12 +1,15 @@
 import { Player } from '@lottiefiles/react-lottie-player';
 import { ChangeEvent, createRef, useState } from 'react';
+import { useUserAuth } from '../hooks/user-context';
 import CreateForum from '../modals/create-forum';
+import { toastError } from '../utils/toast';
 
 export default function CreatePostButton() {
   const playerRef = createRef<any>();
   const inputRef = createRef<HTMLInputElement>();
   const [text, setText] = useState<string>('');
   const [open, setOpen] = useState<boolean>(false);
+  const { isAuth } = useUserAuth();
   const handleOnFocus = () => {
     if (inputRef.current) inputRef.current.value = text;
     playerRef.current.play();
@@ -16,7 +19,11 @@ export default function CreatePostButton() {
   };
   const handleOnSubmit = (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setOpen(true);
+    if (isAuth) {
+      setOpen(true);
+    } else {
+      toastError("You're not authorized to make post forum!");
+    }
   };
   const handleOnBlur = () => {
     if (inputRef.current) inputRef.current.value = '';
@@ -39,13 +46,13 @@ export default function CreatePostButton() {
             onFocus={handleOnFocus}
             type="search"
             id="default-search"
-            className=" italic w-[230px] block p-4 pl-10 text-xl text-gray-50 border placeholder-gray-50 border-blue-500 rounded-lg bg-blue-400 focus:none focus:outline-none focus:w-[400px] transition-all"
+            className=" italic font-medium w-[230px] block p-4 pl-10 text-xl text-gray-50 border placeholder-gray-50 border-blue-500 rounded-lg bg-blue-400 dark:bg-orange-400 dark:border-orange-500 focus:none focus:outline-none focus:w-[400px] transition-all"
             placeholder="Create Post"
             required
           />
           <div className="relative">
             <button
-              className="cursor-pointer absolute left-[-40px] rounded-[100%] w-20 h-20 top-[50%] translate-y-[-50%]  hover:bg-blue-600 transition-all bg-blue-500"
+              className="dark:bg-orange-500 dark:hover:bg-orange-600 cursor-pointer absolute left-[-40px] rounded-[100%] w-20 h-20 top-[50%] translate-y-[-50%]  hover:bg-blue-600 transition-all bg-blue-500"
               type="submit"
             >
               <Player

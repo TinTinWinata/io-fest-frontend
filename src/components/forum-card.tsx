@@ -5,7 +5,7 @@ export default function ForumCard({ forum }: { forum: IForum }) {
   return (
     <div
       data-aos="fade-up"
-      className="cursor-pointer p-4 m-4 border border-blue-500 rounded-xl w-80 h-80"
+      className="cursor-pointer p-4 m-4 border dark:border-orange-600 border-blue-500 rounded-xl w-80 h-80"
     >
       <div className="flex">
         <img

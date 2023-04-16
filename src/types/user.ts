@@ -1,6 +1,10 @@
 export type IUser = {
-  email: string;
+  id?: string;
+  isActive: boolean;
   name: string;
-  role: string;
-  imageUrl: string;
-};
+  username: string;
+  password: string;
+  email: string;
+  role?: string;
+  imageUrl?: string;
+};  

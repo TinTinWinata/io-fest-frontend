@@ -15,6 +15,6 @@
   bottom: 0;
   content: ' ';
   position: absolute;
-  background-color: rgb(59, 148, 250);
-  height: 10%;
+  /* background-color: rgb(59, 148, 250); */
+  height: 8%;
 }
