@@ -8,7 +8,7 @@ import MiddlewareRoutes from './middlewares/middleware-routes';
 import { default as Home } from './pages/home/home';
 import Landing from './pages/landing/landing';
 import Login from './pages/login';
-import Register from './pages/register';
+import Register from './pages/register/register';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';

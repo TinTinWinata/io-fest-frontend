@@ -1,11 +1,18 @@
 import { createContext, useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Id } from 'react-toastify';
 import { ILoginForm, IRegisterForm } from '../types/auth';
 import { IChildrenOnly } from '../types/children-only';
 import { IUser } from '../types/user';
 import { endpoints } from '../utils/endpoint';
 import Service from '../utils/service';
-import { toastError, toastSuccess } from '../utils/toast';
+import {
+  toastError,
+  toastLoading,
+  toastSuccess,
+  toastUpdateFailed,
+  toastUpdateSuccess,
+} from '../utils/toast';
 
 const userContext = createContext({} as any);
 const USER_LOCAL_STORAGE_KEY = 'USER';
@@ -50,17 +57,19 @@ export function UserProvider({ children }: IChildrenOnly) {
     return response;
   }
 
-  async function register(data: IRegisterForm) {
+  async function register(data: IRegisterForm): Promise<boolean> {
     const service = new Service();
+    const id: Id = toastLoading('Loading');
     const response = await service.request(endpoints.register, undefined, data);
     if (!response.isError) {
-      toastSuccess('Succesfully register an account!');
-      navigate('/login');
-    } else toastError('Failed to register the account!');
+      toastUpdateSuccess(id, 'Succesfully register an account!');
+      return true;
+    }
+    toastUpdateFailed(id, 'Succesfully register an account!');
+    return false;
   }
 
   function isAuth() {
-    console.log(user !== DEFAULT_USER);
     return user !== DEFAULT_USER;
   }
 

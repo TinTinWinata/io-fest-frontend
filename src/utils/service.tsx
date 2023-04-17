@@ -7,7 +7,8 @@ class Service {
   protected axios: AxiosInstance;
 
   constructor(accessToken?: string) {
-    const baseURL = 'http://localhost:3000/';
+    const baseURL = import.meta.env.VITE_API_URL;
+    console.log('base url : ', baseURL);
     const axiosConfig: AxiosRequestConfig = {
       baseURL,
       headers: { Authorization: accessToken ? `Bearer ${accessToken}` : '' },
