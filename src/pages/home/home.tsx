@@ -1,5 +1,6 @@
 import CreatePostButton from '../../components/create-post-button';
 import ForumCardContainer from '../../components/forum-card-container';
+import Sidebar from '../../components/sidebar/sidebar';
 import { IForum } from '../../types/forum';
 import { IUser } from '../../types/user';
 
@@ -39,13 +40,14 @@ const EXAMPLE_FORUMS: IForum[] = [
 
 export default function Home() {
   return (
-    <div className="">
+    <>
+      <Sidebar />
       <div className="h-screen center">
         <div className="">
           <ForumCardContainer forums={EXAMPLE_FORUMS}></ForumCardContainer>
         </div>
         <CreatePostButton />
       </div>
-    </div>
+    </>
   );
 }

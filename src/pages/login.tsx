@@ -53,7 +53,7 @@ export default function Login() {
                   type="email"
                   autoComplete="email"
                   required
-                  className="dark:bg-transparent appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                  className="dark:bg-transparent appearance-none block w-full px-3 py-2 border border-gray-400 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                 />
               </div>
             </div>
@@ -72,7 +72,7 @@ export default function Login() {
                   type="password"
                   autoComplete="current-password"
                   required
-                  className="dark:bg-transparent  appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                  className="dark:bg-transparent  appearance-none block w-full px-3 py-2 border border-gray-400 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                 />
               </div>
             </div>
@@ -83,7 +83,7 @@ export default function Login() {
                   id="remember_me"
                   name="remember_me"
                   type="checkbox"
-                  className="h-4 w-4 text-blue-600  focus:ring-blue-500 border-gray-300 rounded"
+                  className="h-4 w-4 text-blue-600  focus:ring-blue-500 border-gray-400 rounded"
                 />
                 <label
                   htmlFor="remember_me"

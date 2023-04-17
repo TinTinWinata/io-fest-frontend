@@ -7,7 +7,7 @@ class Service {
   protected axios: AxiosInstance;
 
   constructor(accessToken?: string) {
-    const baseURL = 'http://localhost:5000/';
+    const baseURL = 'http://localhost:3000/';
     const axiosConfig: AxiosRequestConfig = {
       baseURL,
       headers: { Authorization: accessToken ? `Bearer ${accessToken}` : '' },

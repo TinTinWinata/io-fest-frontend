@@ -9,11 +9,35 @@ import { toastError, toastSuccess } from '../utils/toast';
 
 const userContext = createContext({} as any);
 const USER_LOCAL_STORAGE_KEY = 'USER';
+const DEFAULT_USER: IUser = {
+  email: 'guest@gmail.com',
+  isActive: false,
+  name: 'guest',
+  password: 'guest',
+  username: 'guest',
+  id: 'guest',
+  imageUrl: 'https://picsum.photos/200',
+  role: 'guest',
+};
 
 export function UserProvider({ children }: IChildrenOnly) {
-  const [user, setUser] = useState<IUser>();
+  const [user, setUserState] = useState<IUser>(getFromStorage());
 
   const navigate = useNavigate();
+
+  function setUser(user: IUser) {
+    setUserState(user);
+    localStorage.setItem(USER_LOCAL_STORAGE_KEY, JSON.stringify(user));
+  }
+
+  function getFromStorage(): IUser {
+    const userString = localStorage.getItem(USER_LOCAL_STORAGE_KEY);
+    if (userString) {
+      const userObject = JSON.parse(userString) as IUser;
+      return userObject;
+    }
+    return DEFAULT_USER;
+  }
 
   async function login(data: ILoginForm) {
     const service = new Service();
@@ -36,7 +60,8 @@ export function UserProvider({ children }: IChildrenOnly) {
   }
 
   function isAuth() {
-    return user !== undefined && user !== null;
+    console.log(user !== DEFAULT_USER);
+    return user !== DEFAULT_USER;
   }
 
   const data = { isAuth, login, register };
