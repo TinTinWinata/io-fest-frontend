@@ -8,7 +8,6 @@ class Service {
 
   constructor(accessToken?: string) {
     const baseURL = import.meta.env.VITE_API_URL;
-    console.log('base url : ', baseURL);
     const axiosConfig: AxiosRequestConfig = {
       baseURL,
       headers: { Authorization: accessToken ? `Bearer ${accessToken}` : '' },
@@ -17,6 +16,7 @@ class Service {
   }
 
   public async request(endpoint: Endpoint, id: string = '', data: any = {}) {
+    console.log('data : ', data);
     let result: ResponseType;
     try {
       const url = endpoint.url + (id ? `/${id}` : ``);
@@ -29,7 +29,7 @@ class Service {
       const { response } = error as AxiosError;
       const errorMessage = response
         ? `[${response.status} ${response.statusText}] ${response.data!}`
-        : '[500 Internal Server Error] Please contact academic team.';
+        : '[500 Internal Server Error].';
       result = { data: errorMessage, isError: true };
     }
     return result;

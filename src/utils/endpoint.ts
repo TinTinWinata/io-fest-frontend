@@ -12,7 +12,16 @@ const authEndpoints: EndpointList = {
   },
 };
 
+const userEndpoints : EndpointList = {
+  verification: {
+    url: '/activation-link',
+    method: Method.POST,
+  },
+}
+
+
 
 export const endpoints: EndpointList = {
   ...authEndpoints,
+  ...userEndpoints
 };
