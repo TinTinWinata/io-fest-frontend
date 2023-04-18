@@ -2,9 +2,9 @@ import { IComment } from '../../types/comment';
 
 export default function Comment({ comment }: { comment: IComment }) {
   return (
-    <div className="flex p-2 my-10 ">
+    <div className="flex p-2 my-10  rounded-lg">
       {/* User's who Comment */}
-      <div className="center flex w-36">
+      <div className="center flex w-36 ">
         <img
           src={comment.user.imageUrl}
           className="w-10 h-10 rounded-full"
@@ -16,7 +16,7 @@ export default function Comment({ comment }: { comment: IComment }) {
         </div>
 
         {/* Right Line */}
-        <div className="h-full w-[0.5px] bg-gray-500 opacity-50 ml-3"></div>
+        {/* <div className="h-full w-[0.5px] bg-gray-500 opacity-50 ml-3"></div> */}
       </div>
       {/* Comment */}
       <div className="y-center  w-full ml-2 text-sm leading-6 tracking-wide text-gray-500 dark:text-gray-200">

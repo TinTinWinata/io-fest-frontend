@@ -7,7 +7,7 @@ export default function RegisterForm({
   handleSubmit: FormEventHandler;
 }) {
   const getInputClass = () =>
-    'dark:bg-transparent mb-3 ml-[3px] appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-500 placeholder-gray-500  rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm';
+    'dark:border-gray-500 dark:border-opacity-40 dark:bg-transparent mb-3 ml-[3px] appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-500 placeholder-gray-500  rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm';
 
   return (
     <>
