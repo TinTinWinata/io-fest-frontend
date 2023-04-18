@@ -36,6 +36,30 @@ const EXAMPLE_FORUMS: IForum[] = [
     user: EXAMPLE_USER,
     seen: 3000,
   },
+  {
+    comment: 20,
+    description:
+      'Selamat pagi Dok, mau tanya.saya sudah telat haid 6 hari. Saya test negatif. Dan tadi pagi saya keluar flek coklat. Apakah saya mau haid atau saya hamil dok? Mohon penjelasannya.terimakasih Selamat pagi Dok, mau tanya.saya sudah telat haid 6 hari. Saya test negatif. Dan tadi pagi saya keluar flek coklat. Apakah saya mau haid atau saya hamil dok? Mohon penjelasannya.terimakasih',
+    title: 'Sakit Berdarah',
+    user: EXAMPLE_USER,
+    seen: 3000,
+  },
+  {
+    comment: 20,
+    description:
+      'Selamat pagi Dok, mau tanya.saya sudah telat haid 6 hari. Saya test negatif. Dan tadi pagi saya keluar flek coklat. Apakah saya mau haid atau saya hamil dok? Mohon penjelasannya.terimakasih Selamat pagi Dok, mau tanya.saya sudah telat haid 6 hari. Saya test negatif. Dan tadi pagi saya keluar flek coklat. Apakah saya mau haid atau saya hamil dok? Mohon penjelasannya.terimakasih',
+    title: 'Sakit Berdarah',
+    user: EXAMPLE_USER,
+    seen: 3000,
+  },
+  {
+    comment: 20,
+    description:
+      'Selamat pagi Dok, mau tanya.saya sudah telat haid 6 hari. Saya test negatif. Dan tadi pagi saya keluar flek coklat. Apakah saya mau haid atau saya hamil dok? Mohon penjelasannya.terimakasih Selamat pagi Dok, mau tanya.saya sudah telat haid 6 hari. Saya test negatif. Dan tadi pagi saya keluar flek coklat. Apakah saya mau haid atau saya hamil dok? Mohon penjelasannya.terimakasih',
+    title: 'Sakit Berdarah',
+    user: EXAMPLE_USER,
+    seen: 3000,
+  },
 ];
 
 export default function Home() {

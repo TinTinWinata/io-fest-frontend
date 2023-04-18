@@ -39,6 +39,17 @@
   justify-content: center;
 }
 
+.x-center{
+  display: flex;
+  justify-content: center;
+}
+
+.y-center{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .screen-max{
   width: 100%;
   max-width: 1920px;

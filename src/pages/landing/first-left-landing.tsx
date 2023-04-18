@@ -1,6 +1,9 @@
+import { useNavigate } from 'react-router-dom';
 import SimpleButton from '../../components/simple-button';
 
 export default function LeftLanding() {
+  const navigate = useNavigate();
+  const handleClick = () => navigate('/form');
   return (
     <div className="center" data-aos="fade-up">
       <div className="">
@@ -15,6 +18,7 @@ export default function LeftLanding() {
           <SimpleButton
             moreClass="text-2xl py-5 px-20"
             text="Cari Tahu"
+            handler={handleClick}
           ></SimpleButton>
         </div>
         <p className="my-3 text-gray-400 tracking-wide">
