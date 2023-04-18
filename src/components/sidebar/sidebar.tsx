@@ -1,7 +1,17 @@
 import { useState } from 'react';
+import { FaLandmark } from 'react-icons/fa';
 import { useUserAuth } from '../../hooks/user-context';
 import SidebarBottom from './sidebar-bottom';
 import SidebarButton from './sidebar-button';
+import SidebarMenu from './sidebar-menu';
+
+const MENUS = [
+  {
+    menu: 'Landing Page',
+    icon: <FaLandmark />,
+    link: '/',
+  },
+];
 
 export default function Sidebar() {
   const { isAuth } = useUserAuth();
@@ -21,6 +31,18 @@ export default function Sidebar() {
         }
       >
         <SidebarButton handler={handleClick} />
+
+        {/* Menu List */}
+        <div className="p-2">
+          {MENUS.map((menu, index) => (
+            <SidebarMenu
+              icon={menu.icon}
+              link={menu.link}
+              menu={menu.menu}
+              key={index}
+            />
+          ))}
+        </div>
         {/* Bottom */}
         <SidebarBottom />
       </div>
