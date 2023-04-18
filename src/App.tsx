@@ -13,6 +13,7 @@ import Register from './pages/register/register';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { ToastContainer } from 'react-toastify';
+import Admin from './pages/admin/admin';
 import Detail from './pages/detail/detail';
 import Diabetes from './pages/form/diabetes';
 import Verification from './pages/verification/verification';
@@ -42,6 +43,7 @@ function App() {
               <Route path="/form" element={<Diabetes />}></Route>
               <Route path="/login" element={<Login />}></Route>
               <Route path="/activation/:id" element={<Verification />}></Route>
+              <Route path="/admin" element={<Admin />}></Route>
 
               {/* First Authentication Method Using Authenticate Routes VVV */}
               {/* 

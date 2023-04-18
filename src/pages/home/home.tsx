@@ -1,5 +1,6 @@
 import CreatePostButton from '../../components/create-post-button';
 import ForumCardContainer from '../../components/forum-card-container';
+import InvicibleNavbar from '../../components/invicible-navbar';
 import Sidebar from '../../components/sidebar/sidebar';
 import { IForum } from '../../types/forum';
 import { IUser } from '../../types/user';
@@ -65,9 +66,11 @@ const EXAMPLE_FORUMS: IForum[] = [
 export default function Home() {
   return (
     <>
+      <InvicibleNavbar />
       <Sidebar />
-      <div className="h-screen center">
+      <div className="h-screen">
         <div className="">
+          <h1 className="text-center text-3xl font-semibold mb-4">Top Forum</h1>
           <ForumCardContainer forums={EXAMPLE_FORUMS}></ForumCardContainer>
         </div>
         <CreatePostButton />
