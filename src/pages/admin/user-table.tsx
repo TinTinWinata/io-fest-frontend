@@ -1,16 +1,16 @@
-import TableHeader from './table-header';
+import { IUser } from '../../types/user';
 import UserContainer from './user-container';
 
 const EXAMPLE_USERS: IUser[] = [
   {
     email: 'tintin@gmail.com',
-    isActive: true,
+    isActive: false,
     name: 'winata',
     password: 'asd',
     username: 'ads',
     id: '1',
     imageUrl: 'https://picsum.photos/200',
-    role: '',
+    role: 'dokter',
   },
   {
     email: 'tintin@gmail.com',
@@ -20,14 +20,15 @@ const EXAMPLE_USERS: IUser[] = [
     username: 'ads',
     id: '1',
     imageUrl: 'https://picsum.photos/200',
-    role: '',
+    role: 'dokter',
   },
 ];
 
 export default function UserTable() {
   return (
     <div className="w-full relative overflow-x-auto shadow-md sm:rounded-lg">
-      <TableHeader />
+      {/* To Do : Make Table Header */}
+      {/* <TableHeader /> */}
       <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
@@ -35,7 +36,7 @@ export default function UserTable() {
               Name
             </th>
             <th scope="col" className="px-6 py-3">
-              Position
+              Role
             </th>
             <th scope="col" className="px-6 py-3">
               Status
