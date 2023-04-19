@@ -13,10 +13,10 @@ import Register from './pages/register/register';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { ToastContainer } from 'react-toastify';
-import './css/react-tab.css';
 import Admin from './pages/admin/admin';
 import Detail from './pages/detail/detail';
 import Diabetes from './pages/form/diabetes';
+import Profile from './pages/profile/profile';
 import Verification from './pages/verification/verification';
 
 function App() {
@@ -45,6 +45,7 @@ function App() {
               <Route path="/login" element={<Login />}></Route>
               <Route path="/activation/:id" element={<Verification />}></Route>
               <Route path="/admin" element={<Admin />}></Route>
+              <Route path="/profile" element={<Profile />}></Route>
 
               {/* First Authentication Method Using Authenticate Routes VVV */}
               {/* 

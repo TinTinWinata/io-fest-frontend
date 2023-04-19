@@ -10,7 +10,7 @@ export default function ForumCard({ forum }: { forum: IForum }) {
       <div
         data-aos="fade-up"
         onClick={handleClick}
-        className="cursor-pointer p-4 m-4 border dark:border-orange-600 border-blue-500 rounded-lg w-[400px] h-80"
+        className="cursor-pointer p-4 m-4 border bg-gray-50 dark:bg-transparent dark:border-orange-600 border-blue-500 rounded-lg w-[400px] h-80"
       >
         <div className="flex">
           <img

@@ -1,5 +1,5 @@
 import { Dialog, Transition } from '@headlessui/react';
-import { Fragment, createRef, useState } from 'react';
+import { ChangeEventHandler, Fragment, createRef, useState } from 'react';
 import HandleIcon from '../components/footer/handle-icon';
 // import { CheckIcon } from '@heroicons/react/outline'
 
@@ -12,7 +12,7 @@ export default function CreateForum({
   open: boolean;
   setOpen: (bool: boolean) => void;
   title: string;
-  handleTitle: Dispatch<SetStateAction<string>>;
+  handleTitle: ChangeEventHandler<HTMLInputElement>;
 }) {
   const imageInputRef = createRef<HTMLInputElement>();
   const videoInputRef = createRef<HTMLInputElement>();

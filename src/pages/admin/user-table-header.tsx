@@ -1,4 +1,4 @@
-export default function TableHeader() {
+export default function UserTableHeader() {
   return (
     <>
       <div className="flex items-center justify-between pb-4 w-full  dark:bg-gray-900">
