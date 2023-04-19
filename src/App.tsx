@@ -13,6 +13,7 @@ import Register from './pages/register/register';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { ToastContainer } from 'react-toastify';
+import './css/react-tab.css';
 import Admin from './pages/admin/admin';
 import Detail from './pages/detail/detail';
 import Diabetes from './pages/form/diabetes';
