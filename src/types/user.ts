@@ -9,9 +9,15 @@ export type IUser = {
   imageUrl?: string;
 };  
 
-// <th></th>
-// <th>ID</th>
-// <th>Email</th>
-// <th>Active</th>
-// <th>Username</th>
-// <th>Role</th>
+
+
+export const EXAMPLE_USER: IUser = {
+  isActive: true,
+  password: 'tintin',
+  username: 'TinTin',
+  id: '1',
+  email: 'tintin6892@gmail.com',
+  name: 'TinTin Winata',
+  role: 'Doctor',
+  imageUrl: '/assets/login-background-3.jpg',
+};

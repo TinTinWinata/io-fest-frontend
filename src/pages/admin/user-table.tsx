@@ -26,7 +26,7 @@ const EXAMPLE_USERS: IUser[] = [
 
 export default function UserTable() {
   return (
-    <div className="w-full relative overflow-x-auto border border-t-0 dark:border-orange-600 rounded-b-lg">
+    <div className="w-full relative  overflow-x-auto border border-t-0 dark:border-orange-600 rounded-b-lg">
       {/* To Do : Make Table Header */}
       {/* <UserTableHeader /> */}
       <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">

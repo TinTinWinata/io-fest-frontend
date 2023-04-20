@@ -23,7 +23,7 @@ export default function TabContainer({ tabs }: { tabs: ITab[] }) {
             key={index}
             onClick={() => handleClick(index)}
             className={
-              'cursor-pointer py-3 px-10  w-full font-semibold rounded-t-md  border-b-0 border border-l-blue-500 border-r-blue-500 border-t-blue-500  hover:bg-blue-500 hover:text-white transition-all dark:border-l-orange-500 dark:border-r-orange-500 dark:border-t-orange-500  dark:hover:text-white dark:hover:bg-orange-600' +
+              'cursor-pointer py-3 px-10 text-center w-full font-semibold rounded-md mx-2 border border-blue-500  hover:bg-blue-500 hover:text-white transition-all mb-2 dark:border-orange-500 dark:text-gray-200  dark:hover:text-white dark:hover:bg-orange-600' +
               getActiveHeaderTabClass(index)
             }
           >
@@ -37,7 +37,7 @@ export default function TabContainer({ tabs }: { tabs: ITab[] }) {
         {tabs.map((tab, index) => (
           <div
             className={
-              'transition-all absolute w-full h-full ' +
+              ' p-2 transition-all absolute w-full h-full ' +
               getActiveTabClass(index)
             }
             key={index}
