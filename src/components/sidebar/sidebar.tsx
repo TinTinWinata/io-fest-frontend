@@ -51,6 +51,7 @@ export default function Sidebar() {
         <div className="p-2">
           {MENUS.map((menu, index) => (
             <SidebarMenu
+              handle={handleClick}
               icon={menu.icon}
               link={menu.link}
               menu={menu.menu}
