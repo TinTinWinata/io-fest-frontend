@@ -49,7 +49,7 @@ export default function Detail() {
   return (
     <div className="">
       <InvicibleNavbar />
-      <div className="bg-gray-50 max-w-[80vw] p-3 rounded-md dark:border-orange-500 border-blue-500 border">
+      <div className="mb-12 bg-gray-50 dark:bg-transparent max-w-[80vw] p-3 rounded-md  dark:border-orange-500 border-blue-500 border">
         {/* User */}
         <div className="flex ">
           <div className="center">

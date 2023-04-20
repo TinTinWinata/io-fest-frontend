@@ -9,21 +9,21 @@ export default function TabContainer({ tabs }: { tabs: ITab[] }) {
 
   const getActiveHeaderTabClass = (index: number) =>
     tabIndex === index
-      ? ' bg-blue-500 text-white dark:bg-orange-500  '
-      : ' text-blue-500  dark:text-orange-500 ';
+      ? ' bg-blue-500 text-white dark:bg-orange-600  '
+      : ' text-blue-500  dark:text-orange-600 ';
 
   const handleClick = (index: number) => setTabIndex(index);
 
   return (
     <div className="">
       {/* Tab Header */}
-      <div className="flex center">
+      <div className="flex center ">
         {tabs.map((tab, index) => (
           <div
             key={index}
             onClick={() => handleClick(index)}
             className={
-              'mx-2 cursor-pointer py-3 px-10 mb-3 font-semibold rounded-full  border border-blue-500  hover:bg-blue-500 hover:text-white transition-all dark:border-orange-500  dark:hover:text-white dark:hover:bg-orange-500' +
+              'cursor-pointer py-3 px-10  w-full font-semibold rounded-t-md  border-b-0 border border-l-blue-500 border-r-blue-500 border-t-blue-500  hover:bg-blue-500 hover:text-white transition-all dark:border-l-orange-500 dark:border-r-orange-500 dark:border-t-orange-500  dark:hover:text-white dark:hover:bg-orange-600' +
               getActiveHeaderTabClass(index)
             }
           >

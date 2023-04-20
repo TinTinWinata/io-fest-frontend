@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FaHome, FaLock, FaPersonBooth } from 'react-icons/fa';
+import { useLocation } from 'react-router-dom';
 import { useUserAuth } from '../../hooks/user-context';
 import SidebarBottom from './sidebar-bottom';
 import SidebarButton from './sidebar-button';
@@ -23,16 +24,20 @@ const MENUS = [
   },
 ];
 
+const ALLOWED_LINK = ['/detail', '/home', '/admin', '/profile'];
+
 export default function Sidebar() {
+  const location = useLocation();
   const { isAuth } = useUserAuth();
   const [close, setClose] = useState<boolean>(true);
   const handleClick = () => {
     setClose(!close);
   };
+  const isLocationAllowed = () =>
+    ALLOWED_LINK.some((link) => location.pathname.includes(link));
   const getClass = () => (close ? 'left-[-225px]' : 'left-0');
-
-  if (!isAuth()) return <></>;
-  else
+  // console.log('result : ', isAuth(), ' | ', isLocationAllowed());
+  if (isAuth() && isLocationAllowed())
     return (
       <div
         className={
@@ -57,4 +62,5 @@ export default function Sidebar() {
         <SidebarBottom />
       </div>
     );
+  else return <></>;
 }

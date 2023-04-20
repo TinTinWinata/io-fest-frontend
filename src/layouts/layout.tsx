@@ -1,5 +1,6 @@
 import Footer from '../components/footer/footer';
 import Navbar from '../components/navbar/navbar';
+import Sidebar from '../components/sidebar/sidebar';
 
 type ContentLayout = {
   children: JSX.Element;
@@ -15,6 +16,7 @@ export default function MainLayout({ children }: ContentLayout) {
       <div className="center w-full relative min-h-screen overflow-hidden">
         <Navbar></Navbar>
         {/* Navigation Bar VVV */}
+        <Sidebar />
 
         {/* ---------------------------------- */}
 
