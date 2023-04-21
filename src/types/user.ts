@@ -7,7 +7,7 @@ export type IUser = {
   email: string;
   role?: string;
   imageUrl?: string;
-};  
+};
 
 
 

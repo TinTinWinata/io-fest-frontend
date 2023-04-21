@@ -1,6 +1,6 @@
 export default function CreateComment() {
   return (
-    <div className="w-full">
+    <div className="w-full px-2 pb-3">
       {/* Button */}
       <input
         type="text"

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaHome, FaLock, FaPersonBooth } from 'react-icons/fa';
+import { FaHome, FaLock, FaPersonBooth, FaWarehouse } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom';
 import { useUserAuth } from '../../hooks/user-context';
 import SidebarBottom from './sidebar-bottom';
@@ -8,19 +8,24 @@ import SidebarMenu from './sidebar-menu';
 
 const MENUS = [
   {
-    menu: 'Landing Page',
+    menu: 'Caritahu',
     icon: <FaHome />,
     link: '/',
   },
   {
-    menu: 'Admin Page',
+    menu: 'Admin',
     icon: <FaLock />,
     link: '/admin',
   },
   {
-    menu: 'Profile Page',
+    menu: 'Profile',
     icon: <FaPersonBooth />,
     link: '/profile',
+  },
+  {
+    menu: 'Home',
+    icon: <FaWarehouse />,
+    link: '/home',
   },
 ];
 

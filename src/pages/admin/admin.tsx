@@ -18,7 +18,7 @@ export default function Admin() {
   return (
     <>
       <InvicibleNavbar />
-      <div className="w-[80vh] h-screen x-center">
+      <div className="w-[80vw]  min-h-screen x-center">
         <div className="w-full">
           <TabContainer tabs={TAB_LIST} />
         </div>
