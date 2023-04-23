@@ -25,15 +25,15 @@ const userEndpoints : EndpointList = {
 
 const forumEndpoints : EndpointList = {
   forumNewest: {
-    url:'/forum/newest',
+    url:'/forums/newest',
     method: Method.GET
   },
   forumTop: {
-    url:'/forum/top',
+    url:'/forums/top',
     method: Method.GET
   },
   forumCreate : {
-    url: "/forum/create",
+    url: "/forums/create",
     method: Method.POST
   }
 }

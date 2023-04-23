@@ -9,8 +9,6 @@ export type IUser = {
   imageUrl?: string;
 };
 
-
-
 export const EXAMPLE_USER: IUser = {
   isActive: true,
   password: 'tintin',

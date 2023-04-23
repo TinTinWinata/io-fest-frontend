@@ -20,7 +20,7 @@ export default function useForum() {
     const service = new Service();
     if (filter === FORUM_FILTER.Top) {
       const response = await service.request(endpoints.forumNewest);
-      setData(response.data);
+      setData(response.data.forums);
       setSuccess(!response.isError);
     } else if (filter === FORUM_FILTER.Newest) {
       const response = await service.request(endpoints.forumTop);

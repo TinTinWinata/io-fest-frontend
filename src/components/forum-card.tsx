@@ -1,6 +1,7 @@
 import { FaComment, FaEye } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { IForum } from '../types/forum';
+import { getImageUrl } from '../utils/helper';
 
 export default function ForumCard({ forum }: { forum: IForum }) {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ export default function ForumCard({ forum }: { forum: IForum }) {
       >
         <div className="flex">
           <img
-            src={forum.user.imageUrl}
+            src={getImageUrl(forum.creator.imageUrl)}
             className="w-16 h-16 rounded-[100%]"
             alt=""
           />
@@ -22,7 +23,7 @@ export default function ForumCard({ forum }: { forum: IForum }) {
             <div className="ml-2">
               <h1 className="font-bold">{forum.title}</h1>
               <h3 className="text-gray-500 dark:text-gray-400">
-                {forum.user.name}
+                {forum.creator.name}
               </h3>
             </div>
           </div>
@@ -44,7 +45,7 @@ export default function ForumCard({ forum }: { forum: IForum }) {
             <FaComment className="w-5 h-5 " />
           </div>
           <div className="center text-semibold  ">
-            <p className="ml-2">{forum.comment}</p>
+            <p className="ml-2">{forum.forumComments.length}</p>
           </div>
         </div>
       </div>
