@@ -19,9 +19,23 @@ const userEndpoints : EndpointList = {
   },
 }
 
-
+const forumEndpoints : EndpointList = {
+  forumNewest: {
+    url:'/forum/newest',
+    method: Method.GET
+  },
+  forumTop: {
+    url:'/forum/top',
+    method: Method.GET
+  },
+  forumCreate : {
+    url: "/forum/create",
+    method: Method.POST
+  }
+}
 
 export const endpoints: EndpointList = {
   ...authEndpoints,
-  ...userEndpoints
+  ...userEndpoints,
+  ...forumEndpoints
 };

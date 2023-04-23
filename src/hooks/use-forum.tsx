@@ -1,25 +1,55 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { IForum } from '../types/forum';
 import { endpoints } from '../utils/endpoint';
 import Service from '../utils/service';
 
+enum FORUM_FILTER {
+  Top,
+  Newest,
+}
+
 export default function useForum() {
-  const { id } = useParams();
+  const [data, setData] = useState<IForum[]>([]);
+  const [filter, setFilter] = useState<FORUM_FILTER>(FORUM_FILTER.Top);
+
   const [loading, setLoading] = useState<boolean>(true);
   const [success, setSuccess] = useState<boolean>(false);
 
-  const handleId = async (id: string) => {
+  const fetchData = async () => {
+    setLoading(true);
     const service = new Service();
-    const response = await service.request(endpoints.verification, id);
-    setSuccess(!response.isError);
+    if (filter === FORUM_FILTER.Top) {
+      const response = await service.request(endpoints.forumNewest);
+      setData(response.data);
+      setSuccess(!response.isError);
+    } else if (filter === FORUM_FILTER.Newest) {
+      const response = await service.request(endpoints.forumTop);
+      setData(response.data);
+      setSuccess(!response.isError);
+    }
     setLoading(false);
   };
 
+  const createForum = async (title: string, description: string) => {
+    const data = {
+      title,
+      description,
+    };
+    const service = new Service();
+    const response = await service.request(
+      endpoints.forumCreate,
+      undefined,
+      data
+    );
+    console.log('response : ', response);
+    setSuccess(!response.isError);
+    setLoading(false);
+    await fetchData();
+  };
+
   useEffect(() => {
-    if (id) {
-      setLoading(true);
-      handleId(id);
-    }
-  }, [id]);
-  return { loading, success };
+    fetchData();
+  }, [filter]);
+
+  return { loading, success, setFilter, data, createForum };
 }

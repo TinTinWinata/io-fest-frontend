@@ -1,6 +1,6 @@
 import CreatePostButton from '../../components/create-post-button';
-import ForumCardContainer from '../../components/forum-card-container';
 import InvicibleNavbar from '../../components/invicible-navbar';
+import useForum from '../../hooks/use-forum';
 import { IForum } from '../../types/forum';
 import { IUser } from '../../types/user';
 
@@ -67,15 +67,16 @@ const EXAMPLE_FORUMS: IForum[] = [
 ];
 
 export default function Home() {
+  const { data, createForum } = useForum();
   return (
     <>
       <InvicibleNavbar />
       <div className="h-screen">
         <div className="">
           <h1 className="text-center text-3xl font-semibold mb-4">Top Forum</h1>
-          <ForumCardContainer forums={EXAMPLE_FORUMS}></ForumCardContainer>
+          {/* <ForumCardContainer forums={data}></ForumCardContainer> */}
         </div>
-        <CreatePostButton />
+        <CreatePostButton handler={createForum} />
       </div>
     </>
   );

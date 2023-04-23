@@ -4,7 +4,7 @@ import { useUserAuth } from '../hooks/user-context';
 import CreateForum from '../modals/create-forum';
 import { toastError } from '../utils/toast';
 
-export default function CreatePostButton() {
+export default function CreatePostButton({ handler }: { handler: any }) {
   const playerRef = createRef<any>();
   const inputRef = createRef<HTMLInputElement>();
   const [text, setText] = useState<string>('');
@@ -32,6 +32,7 @@ export default function CreatePostButton() {
   return (
     <>
       <CreateForum
+        handler={handler}
         handleTitle={handleOnChange}
         title={text}
         open={open}

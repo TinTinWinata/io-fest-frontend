@@ -16,7 +16,6 @@ class Service {
   }
 
   public async request(endpoint: Endpoint, id: string = '', data: any = {}) {
-    console.log('data : ', data);
     let result: ResponseType;
     try {
       const url = endpoint.url + (id ? `/${id}` : ``);

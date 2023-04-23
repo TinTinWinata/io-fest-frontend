@@ -19,5 +19,5 @@ export const EXAMPLE_USER: IUser = {
   email: 'tintin6892@gmail.com',
   name: 'TinTin Winata',
   role: 'Doctor',
-  imageUrl: '/assets/home-background.jpg',
+  imageUrl: '/assets/default_profile_picture.webp',
 };
