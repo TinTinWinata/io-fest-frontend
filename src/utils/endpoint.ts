@@ -10,6 +10,10 @@ const authEndpoints: EndpointList = {
     url: '/auth/login',
     method: Method.POST,
   },
+  logout: {
+    url : '/auth/logout',
+    method: Method.DELETE,
+  }
 };
 
 const userEndpoints : EndpointList = {

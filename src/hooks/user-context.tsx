@@ -3,8 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { Id } from 'react-toastify';
 import { ILoginForm, IRegisterForm } from '../types/auth';
 import { IChildrenOnly } from '../types/children-only';
-import { IUser } from '../types/user';
+import { EXAMPLE_USER, IUser } from '../types/user';
 import { endpoints } from '../utils/endpoint';
+import { displayError } from '../utils/helper';
 import Service from '../utils/service';
 import {
   toastLoading,
@@ -37,7 +38,7 @@ export function UserProvider({ children }: IChildrenOnly) {
 
   function getFromStorage(): IUser {
     const userString = localStorage.getItem(USER_LOCAL_STORAGE_KEY);
-    if (userString) {
+    if (userString && userString !== '') {
       const userObject = JSON.parse(userString) as IUser;
       return userObject;
     }
@@ -48,12 +49,15 @@ export function UserProvider({ children }: IChildrenOnly) {
     const id: Id = toastLoading('Loading');
     const service = new Service();
     const response = await service.request(endpoints.login, undefined, data);
+    console.log('login response : ', response);
     if (!response.isError) {
       toastUpdateSuccess(id, 'Succesfully logged in!');
       setUser(response.data.user);
       navigate('/home');
+    } else {
+      if (response.data) displayError(response.data);
+      toastUpdateFailed(id, 'Failed Authentication!');
     }
-    toastUpdateFailed(id, 'Failed Authentication!');
     return response;
   }
 
@@ -64,16 +68,29 @@ export function UserProvider({ children }: IChildrenOnly) {
     if (!response.isError) {
       toastUpdateSuccess(id, 'Succesfully register an account!');
       return true;
+    } else {
+      if (response.data) displayError(response.data);
+      toastUpdateFailed(id, 'Failed to register an new account!');
     }
 
     return false;
   }
 
+  function logout() {
+    const id: Id = toastLoading('Loading');
+    const tempUser = user;
+    setUser(EXAMPLE_USER);
+    localStorage.setItem(USER_LOCAL_STORAGE_KEY, '');
+    toastUpdateSuccess(id, `Succesfully log out! Good Bye ${tempUser.name}!`);
+    navigate('/');
+  }
+
   function isAuth() {
+    console.log('is auth : ', user !== DEFAULT_USER);
     return user !== DEFAULT_USER;
   }
 
-  const data = { isAuth, login, register };
+  const data = { isAuth, login, register, user, logout };
 
   return <userContext.Provider value={data}>{children}</userContext.Provider>;
 }
