@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import '../css/gradient.css';
 import { useTheme } from '../hooks/theme-context';
 import { useUserAuth } from '../hooks/user-context';
@@ -7,7 +7,6 @@ import { ILoginForm } from '../types/auth';
 export default function Login() {
   const { isDarkTheme } = useTheme();
   const { login } = useUserAuth();
-  const navigate = useNavigate();
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();

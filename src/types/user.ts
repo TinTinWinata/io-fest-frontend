@@ -6,6 +6,7 @@ export type IUser = {
   password: string;
   email: string;
   role?: string;
+  token?: string;
   imageUrl?: string;
 };
 

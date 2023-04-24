@@ -1,6 +1,7 @@
 import { IUser } from "./user";
 
 export type IComment = {
-  user: IUser;
-  text: string;
+  commenter: IUser;
+  comment: string;
+  createdAt: Date;
 };

@@ -29,6 +29,11 @@ const DEFAULT_USER: IUser = {
 export function UserProvider({ children }: IChildrenOnly) {
   const [user, setUserState] = useState<IUser>(getFromStorage());
 
+  // !Debugging Purpose
+  // useEffect(() => {
+  // console.log('user : ', user);
+  // }, [user]);
+
   const navigate = useNavigate();
 
   function setUser(user: IUser) {
@@ -45,14 +50,19 @@ export function UserProvider({ children }: IChildrenOnly) {
     return DEFAULT_USER;
   }
 
+  function responseConverter(response: any): IUser {
+    const user: IUser = response.data.user;
+    user.token = response.data.accessToken;
+    return user;
+  }
+
   async function login(data: ILoginForm) {
     const id: Id = toastLoading('Loading');
     const service = new Service();
     const response = await service.request(endpoints.login, undefined, data);
-    console.log('login response : ', response);
     if (!response.isError) {
       toastUpdateSuccess(id, 'Succesfully logged in!');
-      setUser(response.data.user);
+      setUser(responseConverter(response));
       navigate('/home');
     } else {
       if (response.data) displayError(response.data);
@@ -86,7 +96,6 @@ export function UserProvider({ children }: IChildrenOnly) {
   }
 
   function isAuth() {
-    console.log('is auth : ', user !== DEFAULT_USER);
     return user !== DEFAULT_USER;
   }
 

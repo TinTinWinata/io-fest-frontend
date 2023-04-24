@@ -35,11 +35,23 @@ const forumEndpoints : EndpointList = {
   forumCreate : {
     url: "/forums/create",
     method: Method.POST
+  },
+  forumId : {
+    url: "/forums/get",
+    method: Method.GET,
   }
 }
+
+const commentEndpoints : EndpointList = {
+  commentCreate : {
+    url: '/forum-comments/create',
+    method: Method.POST,
+  }
+} 
 
 export const endpoints: EndpointList = {
   ...authEndpoints,
   ...userEndpoints,
-  ...forumEndpoints
+  ...forumEndpoints,
+  ...commentEndpoints
 };

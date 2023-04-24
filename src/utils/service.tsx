@@ -36,7 +36,13 @@ class Service {
       result = { data: response.data, isError: false };
     } catch (error) {
       const { response } = error as any;
-      result = { data: response.data.errors, isError: true };
+      console.log('error : ', error);
+      result = response
+        ? { data: response.data.errors, isError: true }
+        : {
+            data: 'Sorry we have technical issues, please try again later. Have a nice day.',
+            isError: true,
+          };
     }
     return result;
   }
