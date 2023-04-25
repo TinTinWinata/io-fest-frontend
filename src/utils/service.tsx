@@ -3,14 +3,31 @@ import axios from 'axios';
 import { Endpoint, Method } from '../types/endpoint';
 import { ResponseType } from '../types/response';
 
+export const enum ContentType {
+  MULTIPART,
+  JSON,
+}
+
 class Service {
   protected axios: AxiosInstance;
 
-  constructor(accessToken?: string) {
+  private getContentType(contentType: ContentType): string {
+    return contentType == ContentType.JSON
+      ? 'application/json'
+      : 'multipart/form-data';
+  }
+
+  constructor(
+    accessToken?: string,
+    contentType: ContentType = ContentType.JSON
+  ) {
     const baseURL = import.meta.env.VITE_API_URL;
     const axiosConfig: AxiosRequestConfig = {
       baseURL,
-      headers: { Authorization: accessToken ? `Bearer ${accessToken}` : '' },
+      headers: {
+        Authorization: accessToken ? `Bearer ${accessToken}` : '',
+        ContentType: this.getContentType(contentType),
+      },
     };
     this.axios = axios.create(axiosConfig);
   }
@@ -24,6 +41,7 @@ class Service {
     if (method === Method.GET) return await this.axios.get(url, data);
     else if (method === Method.POST) return await this.axios.post(url, data);
     else if (method === Method.PUT) return await this.axios.put(url, data);
+    else if (method === Method.PATCH) return await this.axios.patch(url, data);
     else if (method === Method.DELETE)
       return await this.axios.delete(url, data);
   }

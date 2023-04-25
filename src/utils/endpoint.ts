@@ -21,6 +21,18 @@ const userEndpoints : EndpointList = {
     url: '/activation-link',
     method: Method.POST,
   },
+  updateProfilePicture: {
+    url: '/users/update-profile-picture',
+    method: Method.PATCH,
+  },
+  updateProfile: {
+    url: '/users/update-profile',
+    method: Method.PATCH,
+  },
+  fetch: {
+    url: '/users/fetch',
+    method: Method.GET
+  }
 }
 
 const forumEndpoints : EndpointList = {

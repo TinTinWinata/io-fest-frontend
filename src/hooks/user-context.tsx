@@ -6,7 +6,7 @@ import { IChildrenOnly } from '../types/children-only';
 import { EXAMPLE_USER, IUser } from '../types/user';
 import { endpoints } from '../utils/endpoint';
 import { displayError } from '../utils/helper';
-import Service from '../utils/service';
+import Service, { ContentType } from '../utils/service';
 import {
   toastLoading,
   toastUpdateFailed,
@@ -50,10 +50,23 @@ export function UserProvider({ children }: IChildrenOnly) {
     return DEFAULT_USER;
   }
 
-  function responseConverter(response: any): IUser {
+  function responseAdapter(response: any): IUser {
     const user: IUser = response.data.user;
     user.token = response.data.accessToken;
     return user;
+  }
+
+  function updateUser(updatedUser: IUser) {
+    const newUser: IUser = { ...user, ...updatedUser };
+    setUser(newUser);
+  }
+
+  async function refetch() {
+    if (user.id) {
+      const service = new Service(user.token);
+      const response = await service.request(endpoints.fetch, undefined);
+      if (!response.isError) updateUser(response.data);
+    }
   }
 
   async function login(data: ILoginForm) {
@@ -62,7 +75,7 @@ export function UserProvider({ children }: IChildrenOnly) {
     const response = await service.request(endpoints.login, undefined, data);
     if (!response.isError) {
       toastUpdateSuccess(id, 'Succesfully logged in!');
-      setUser(responseConverter(response));
+      setUser(responseAdapter(response));
       navigate('/home');
     } else {
       if (response.data) displayError(response.data);
@@ -95,11 +108,36 @@ export function UserProvider({ children }: IChildrenOnly) {
     navigate('/');
   }
 
+  async function changeProfilePicture(e: File) {
+    const id: Id = toastLoading(
+      'Please wait were changing youre profile picture'
+    );
+    const formData = new FormData();
+    formData.append('profilePicture', e);
+    const service = new Service(user.token, ContentType.MULTIPART);
+    const response = await service.request(
+      endpoints.updateProfilePicture,
+      undefined,
+      formData
+    );
+    if (response.isError) {
+      toastUpdateFailed(
+        id,
+        'Failed to update your profile picture, please try again later!'
+      );
+    } else {
+      await refetch();
+      toastUpdateSuccess(id, 'Succesfully change your profile picture!');
+    }
+  }
+
+  async function changeProfile() {}
+
   function isAuth() {
     return user !== DEFAULT_USER;
   }
 
-  const data = { isAuth, login, register, user, logout };
+  const data = { isAuth, login, register, user, logout, changeProfilePicture };
 
   return <userContext.Provider value={data}>{children}</userContext.Provider>;
 }
