@@ -15,7 +15,7 @@ export default function ForumCard({ forum }: { forum: IForum }) {
       >
         <div className="flex">
           <img
-            src={getImageUrl(forum.creator.imageUrl)}
+            src={getImageUrl(forum.creator.profilePicture)}
             className="w-16 h-16 rounded-[100%]"
             alt=""
           />

@@ -23,7 +23,7 @@ export default function UserContainer({
       >
         <img
           className="w-10 h-10 rounded-full"
-          src={getImageUrl(user.imageUrl)}
+          src={getImageUrl(user.profilePicture)}
           alt="Jese image"
         />
         <div className="pl-3">

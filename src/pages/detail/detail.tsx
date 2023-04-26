@@ -20,7 +20,7 @@ export default function Detail() {
           <div className="center">
             <img
               className="w-20 h-20 rounded-full"
-              src={getImageUrl(data.creator.imageUrl)}
+              src={getImageUrl(data.creator.profilePicture)}
               alt=""
             />
           </div>

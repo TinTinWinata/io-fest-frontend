@@ -22,7 +22,7 @@ const DEFAULT_USER: IUser = {
   password: 'guest',
   username: 'guest',
   id: 'guest',
-  imageUrl: 'https://picsum.photos/200',
+  profilePicture: 'https://picsum.photos/200',
   role: 'guest',
 };
 

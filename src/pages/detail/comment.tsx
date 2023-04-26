@@ -7,7 +7,7 @@ export default function Comment({ comment }: { comment: IComment }) {
       {/* User's who Comment */}
       <div className="center flex w-36 ">
         <img
-          src={getImageUrl(comment.commenter.imageUrl)}
+          src={getImageUrl(comment.commenter.profilePicture)}
           className="w-10 h-10 rounded-full"
           alt=""
         />

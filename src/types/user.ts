@@ -7,7 +7,7 @@ export type IUser = {
   email: string;
   role?: string;
   token?: string;
-  imageUrl?: string;
+  profilePicture?: string;
 };
 
 export const EXAMPLE_USER: IUser = {
@@ -18,7 +18,7 @@ export const EXAMPLE_USER: IUser = {
   email: 'tintin6892@gmail.com',
   name: 'TinTin Winata',
   role: 'Doctor',
-  imageUrl: '/assets/default_profile_picture.webp',
+  profilePicture: '/assets/default_profile_picture.webp',
 };
 
 export type IUserFilterContainer = {

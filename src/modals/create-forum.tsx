@@ -102,7 +102,7 @@ export default function CreateForum({
                     <div className="flex mt-2 mb-4">
                       <div className="center">
                         <img
-                          src={getImageUrl(user.imageUrl)}
+                          src={getImageUrl(user.profilePicture)}
                           className="w-12 h-12 rounded-3xl mr-2"
                           alt=""
                         />
