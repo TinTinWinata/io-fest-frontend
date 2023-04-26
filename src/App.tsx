@@ -20,10 +20,23 @@ import Profile from './pages/profile/profile';
 import Verification from './pages/verification/verification';
 
 function App() {
+  const handleCallback = () => {};
+
   useEffect(() => {
     // Initiate AOS
     AOS.init();
     AOS.refresh();
+
+    // // Initiate Google (for linter)
+    google.accounts.id.initalize({
+      client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID,
+      callback: handleCallback,
+    });
+
+    google.accounts.id.renderButton(document.getElementById('signInDiv'), {
+      theme: 'outline',
+      size: 'large',
+    });
   }, []);
 
   return (
@@ -31,6 +44,7 @@ function App() {
       {/* Toast container */}
       <ToastContainer />
       <ThemeProvider>
+        <div className="" id="signInDiv"></div>
         {/* Bundled with User Provider for getting user context (UserContext.tsx) */}
         <UserProvider>
           {/* Bundled with Main Layout (layout.tsx) */}
