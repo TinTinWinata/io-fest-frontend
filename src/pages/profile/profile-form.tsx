@@ -1,9 +1,18 @@
+import { ChangeEvent } from 'react';
+import { useUserAuth } from '../../hooks/user-context';
 import { IUser } from '../../types/user';
 
 export default function ProfileForm({ user }: { user: IUser }) {
+  const { updateUserData } = useUserAuth();
+  const handleOnSubmit = (e: ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const username = e.target.username.value;
+    const name = e.target.name.value;
+    updateUserData(username, name);
+  };
   return (
     <div className="p-20">
-      <form action="">
+      <form onSubmit={handleOnSubmit}>
         <div className="mt-10 divide-y divide-gray-200">
           <div className="space-y-1">
             <h3 className="dark:text-gray-50 text-lg leading-6 font-medium text-gray-900">
@@ -21,12 +30,13 @@ export default function ProfileForm({ user }: { user: IUser }) {
                 </dt>
                 <dd className="mt-1  flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                   <input
+                    name="name"
                     defaultValue={user.name}
                     className="flex-grow dark:text-gray-200 focus:none focus:outline-none focus:border-none"
                   />
                   <span className="ml-4 flex-shrink-0">
                     <button
-                      type="button"
+                      type="submit"
                       className="bg-white dark:bg-transparent rounded-md font-medium text-blue-600 dark:text-orange-500 dark:hover:text-orange-600 hover:text-blue-500 focus:outline-none   "
                     >
                       Update
@@ -41,13 +51,14 @@ export default function ProfileForm({ user }: { user: IUser }) {
                 <dd className="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                   <span className="flex-grow dark:text-gray-200">
                     <input
+                      name="username"
                       defaultValue={user.username}
                       className="flex-grow dark:text-gray-200 focus:none focus:outline-none focus:border-none"
                     />
                   </span>
                   <span className="ml-4 flex-shrink-0 flex items-start space-x-4">
                     <button
-                      type="button"
+                      type="submit"
                       className="bg-white dark:bg-transparent rounded-md font-medium text-blue-600 dark:text-orange-500 dark:hover:text-orange-600 hover:text-blue-500 focus:outline-none   "
                     >
                       Update
@@ -64,14 +75,14 @@ export default function ProfileForm({ user }: { user: IUser }) {
                     defaultValue={user.email}
                     className="flex-grow dark:text-gray-200 focus:none focus:outline-none focus:border-none"
                   />
-                  <span className="ml-4 flex-shrink-0">
+                  {/* <span className="ml-4 flex-shrink-0">
                     <button
-                      type="button"
+                      type="submit"
                       className="bg-white dark:bg-transparent rounded-md font-medium text-blue-600 dark:text-orange-500 dark:hover:text-orange-600 hover:text-blue-500 focus:outline-none   "
                     >
                       Update
                     </button>
-                  </span>
+                  </span> */}
                 </dd>
               </div>
               <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:border-b sm:border-gray-200">
@@ -83,14 +94,6 @@ export default function ProfileForm({ user }: { user: IUser }) {
                     defaultValue={user.role}
                     className="flex-grow dark:text-gray-200 focus:none focus:outline-none focus:border-none"
                   />
-                  <span className="ml-4 flex-shrink-0">
-                    <button
-                      type="button"
-                      className="bg-white dark:bg-transparent rounded-md font-medium text-blue-600 dark:text-orange-500 dark:hover:text-orange-600 hover:text-blue-500 focus:outline-none   "
-                    >
-                      Update
-                    </button>
-                  </span>
                 </dd>
               </div>
             </dl>

@@ -108,6 +108,13 @@ export function UserProvider({ children }: IChildrenOnly) {
     navigate('/');
   }
 
+  function setUserData(name: string, username: string) {
+    const updatedUser = user;
+    updatedUser.name = name;
+    updatedUser.username = username;
+    setUser(updatedUser);
+  }
+
   async function changeProfilePicture(e: File) {
     const id: Id = toastLoading(
       'Please wait were changing youre profile picture'
@@ -131,13 +138,44 @@ export function UserProvider({ children }: IChildrenOnly) {
     }
   }
 
-  async function changeProfile() {}
+  async function updateUserData(name: string, username: string) {
+    setUserData(name, username);
+    await update();
+  }
+
+  async function update() {
+    const id = toastLoading('Please wait were updating youre profile');
+    const service = new Service(user.token);
+    const response = await service.request(
+      endpoints.updateProfile,
+      undefined,
+      user
+    );
+    if (response.isError) {
+      toastUpdateFailed(
+        id,
+        'Failed to update your profile, please try again later!'
+      );
+      if (response.data) displayError(response.data);
+    } else {
+      await refetch();
+      toastUpdateSuccess(id, 'Succesfully change your profile!');
+    }
+  }
 
   function isAuth() {
     return user !== DEFAULT_USER;
   }
 
-  const data = { isAuth, login, register, user, logout, changeProfilePicture };
+  const data = {
+    isAuth,
+    login,
+    register,
+    user,
+    logout,
+    changeProfilePicture,
+    updateUserData,
+  };
 
   return <userContext.Provider value={data}>{children}</userContext.Provider>;
 }
