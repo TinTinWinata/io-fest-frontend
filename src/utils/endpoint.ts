@@ -32,6 +32,10 @@ const userEndpoints : EndpointList = {
   fetch: {
     url: '/users/fetch',
     method: Method.GET
+  },
+  adminPage: {
+    url: '/users/admin-page',
+    method: Method.GET
   }
 }
 

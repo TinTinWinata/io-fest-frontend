@@ -11,21 +11,25 @@ const MENUS = [
     menu: 'Caritahu',
     icon: <FaHome />,
     link: '/',
+    blockedRoles: [],
   },
   {
     menu: 'Admin',
     icon: <FaLock />,
     link: '/admin',
+    blockedRoles: ['Doctor', 'User'],
   },
   {
     menu: 'Profile',
     icon: <FaPersonBooth />,
     link: '/profile',
+    blockedRoles: [],
   },
   {
     menu: 'Home',
     icon: <FaWarehouse />,
     link: '/home',
+    blockedRoles: [],
   },
 ];
 
@@ -56,6 +60,7 @@ export default function Sidebar() {
         <div className="p-2">
           {MENUS.map((menu, index) => (
             <SidebarMenu
+              blockedRoles={menu.blockedRoles}
               handle={handleClick}
               icon={menu.icon}
               link={menu.link}
