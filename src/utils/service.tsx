@@ -46,10 +46,31 @@ class Service {
       return await this.axios.delete(url, data);
   }
 
-  public async request(endpoint: Endpoint, id: string = '', data: any = {}) {
+  public generateUrl(
+    endpoint: Endpoint,
+    id: string = '',
+    data: any = {},
+    param: any = {}
+  ) {
+    let url = endpoint.url;
+    url += id ? `/${id}` : ``;
+
+    Object.keys(param).forEach((key) => {
+      url += `?${key}=${param[key]}`;
+    });
+    return url;
+  }
+
+  public async request(
+    endpoint: Endpoint,
+    id: string = '',
+    data: any = {},
+    param: any = {}
+  ) {
     let result: ResponseType;
     try {
-      const url = endpoint.url + (id ? `/${id}` : ``);
+      const url = this.generateUrl(endpoint, id, data, param);
+      console.log('url : ', url);
       const response = await this.getResponse(endpoint.method, data, url);
       result = { data: response.data, isError: false };
     } catch (error) {

@@ -6,6 +6,7 @@ import { IChildrenOnly } from '../types/children-only';
 import { EXAMPLE_USER, IUser } from '../types/user';
 import { endpoints } from '../utils/endpoint';
 import { displayError } from '../utils/helper';
+import { ROLE } from '../utils/role';
 import Service, { ContentType } from '../utils/service';
 import {
   toastLoading,
@@ -167,6 +168,10 @@ export function UserProvider({ children }: IChildrenOnly) {
     return user !== DEFAULT_USER;
   }
 
+  function isDoctor() {
+    return isAuth() && user.role === ROLE.doctor;
+  }
+
   const data = {
     isAuth,
     login,
@@ -175,6 +180,7 @@ export function UserProvider({ children }: IChildrenOnly) {
     logout,
     changeProfilePicture,
     updateUserData,
+    isDoctor,
   };
 
   return <userContext.Provider value={data}>{children}</userContext.Provider>;

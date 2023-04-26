@@ -8,4 +8,5 @@ export type IForum = {
   description: string;
   forumComments: IComment[];
   seen: number;
+  createdAt: Date;
 };
