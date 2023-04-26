@@ -41,7 +41,6 @@ export default function useForum() {
       undefined,
       data
     );
-    console.log('response : ', response);
     setSuccess(!response.isError);
     setLoading(false);
     await fetchData();
