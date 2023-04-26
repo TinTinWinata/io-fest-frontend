@@ -1,6 +1,15 @@
 import { Dialog, Transition } from '@headlessui/react';
-import { ChangeEventHandler, Fragment, createRef, useState } from 'react';
+import {
+  ChangeEvent,
+  ChangeEventHandler,
+  Fragment,
+  createRef,
+  useState,
+} from 'react';
+import EmojiContainer from '../components/emoji-picker/emoji-container';
 import HandleIcon from '../components/footer/handle-icon';
+import { useUserAuth } from '../hooks/user-context';
+import { getImageUrl } from '../utils/helper';
 // import { CheckIcon } from '@heroicons/react/outline'
 
 export default function CreateForum({
@@ -8,12 +17,15 @@ export default function CreateForum({
   setOpen,
   title,
   handleTitle,
+  handler,
 }: {
   open: boolean;
   setOpen: (bool: boolean) => void;
   title: string;
   handleTitle: ChangeEventHandler<HTMLInputElement>;
+  handler: any;
 }) {
+  const { user } = useUserAuth();
   const imageInputRef = createRef<HTMLInputElement>();
   const videoInputRef = createRef<HTMLInputElement>();
   const descInputRef = createRef<HTMLTextAreaElement>();
@@ -23,6 +35,11 @@ export default function CreateForum({
   const handleVideo = () => videoInputRef.current?.click();
   const getEmojiClass = () => (isOpenEmoji ? '' : 'hidden');
   const handleEmoji = () => setIsOpenEmoji(!isOpenEmoji);
+  const handleOnSubmit = async (e: ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (descInputRef.current) await handler(title, descInputRef.current.value);
+    setOpen(false);
+  };
 
   const handleEmojiClick = (e: any) => {
     if (descInputRef.current && 'value' in descInputRef.current) {
@@ -68,7 +85,10 @@ export default function CreateForum({
             leaveFrom="opacity-100 translate-y-0 sm:scale-100"
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
-            <div className="inline-block align-bottom relative z-50 bg-white rounded-lg px-4 pt-5 pb-4 text-left  shadow-xl  transform transition-all sm:my-8 sm:align-middle w-[675px] sm:p-6">
+            <form
+              onSubmit={handleOnSubmit}
+              className="inline-block align-bottom relative z-50 bg-white rounded-lg px-4 pt-5 pb-4 text-left  shadow-xl  transform transition-all sm:my-8 sm:align-middle w-[675px] sm:p-6"
+            >
               <div>
                 <div className="">
                   <Dialog.Title
@@ -82,16 +102,16 @@ export default function CreateForum({
                     <div className="flex mt-2 mb-4">
                       <div className="center">
                         <img
-                          src="https://picsum.photos/200"
+                          src={getImageUrl(user.profilePicture)}
                           className="w-12 h-12 rounded-3xl mr-2"
                           alt=""
                         />
                       </div>
                       <div className="center">
                         <div className="">
-                          <div className="font-semibold">Justine Winata</div>
+                          <div className="font-semibold">{user.name}</div>
                           <div className="text-sm text-gray-500">
-                            ( Dokter )
+                            ( {user.role} )
                           </div>
                         </div>
                       </div>
@@ -155,6 +175,7 @@ export default function CreateForum({
                       <div
                         className={`absolute bottom-[70%] left-10 transition-all ${getEmojiClass()}`}
                       >
+                        <EmojiContainer emojis={['😊', '🙏', '❤️', '😜']} />
                         {/* <EmojiPicker
                           emojiStyle={EmojiStyle.GOOGLE}
                           lazyLoadEmojis={true}
@@ -164,15 +185,14 @@ export default function CreateForum({
                     </div>
                   </div>
                   <button
-                    type="button"
+                    type="submit"
                     className="w-1/4 center inline-flex justify-center rounded-3xl border border-transparent shadow-sm px-4 py-2 bg-white  text-base font-medium dark:hover:text-gray-50 dark:text-orange-700 dark:border-orange-700 text-blue-700 border-blue-700 hover:text-white transition-all dark:hover:bg-orange-700 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-orange-500 focus:ring-blue-500 sm:text-sm"
-                    onClick={() => setOpen(false)}
                   >
                     Create
                   </button>
                 </div>
               </div>
-            </div>
+            </form>
           </Transition.Child>
         </div>
       </Dialog>

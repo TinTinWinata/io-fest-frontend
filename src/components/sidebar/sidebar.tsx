@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { FaHome, FaLock, FaPersonBooth, FaWarehouse } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom';
 import { useUserAuth } from '../../hooks/user-context';
+import { ROLE } from '../../utils/role';
 import SidebarBottom from './sidebar-bottom';
 import SidebarButton from './sidebar-button';
 import SidebarMenu from './sidebar-menu';
@@ -11,21 +12,25 @@ const MENUS = [
     menu: 'Caritahu',
     icon: <FaHome />,
     link: '/',
+    blockedRoles: [],
   },
   {
     menu: 'Admin',
     icon: <FaLock />,
     link: '/admin',
+    blockedRoles: [ROLE.doctor, ROLE.user],
   },
   {
     menu: 'Profile',
     icon: <FaPersonBooth />,
     link: '/profile',
+    blockedRoles: [],
   },
   {
     menu: 'Home',
     icon: <FaWarehouse />,
     link: '/home',
+    blockedRoles: [],
   },
 ];
 
@@ -56,6 +61,7 @@ export default function Sidebar() {
         <div className="p-2">
           {MENUS.map((menu, index) => (
             <SidebarMenu
+              blockedRoles={menu.blockedRoles}
               handle={handleClick}
               icon={menu.icon}
               link={menu.link}

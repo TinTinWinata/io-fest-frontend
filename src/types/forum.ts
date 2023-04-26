@@ -1,10 +1,12 @@
+import { IComment } from "./comment";
 import { IUser } from "./user";
 
 export type IForum = {
   id?: string;
-  user: IUser;
+  creator: IUser;
   title: string;
   description: string;
-  comment: number;
+  forumComments: IComment[];
   seen: number;
+  createdAt: Date;
 };

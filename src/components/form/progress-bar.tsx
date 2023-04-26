@@ -5,11 +5,8 @@ export default function ProgressBar({
   from: number;
   to: number;
 }) {
-
-  
   const calculateProgress = () => (from / to) * 100;
 
-  console.log(`w-[${calculateProgress()}%] bg-blue-600 h-2.5 rounded-full`);
   return (
     <>
       <p className="mb-1 text-md text-gray-500 dark:text-gray-200">{`Question ${from} / ${to}`}</p>

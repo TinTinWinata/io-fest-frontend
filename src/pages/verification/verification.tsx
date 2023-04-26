@@ -3,6 +3,7 @@ import VerificationResult from './verification-result';
 
 export default function Verification() {
   const { loading, success } = useVerification();
+  // const success = true;
 
   if (loading) {
     return <div className="center"></div>;

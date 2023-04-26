@@ -1,8 +1,8 @@
-import CreatePostButton from '../../components/create-post-button';
 import ForumCardContainer from '../../components/forum-card-container';
 import InvicibleNavbar from '../../components/invicible-navbar';
-import { IForum } from '../../types/forum';
+import useForum from '../../hooks/use-forum';
 import { IUser } from '../../types/user';
+import Pagination from './pagination';
 
 const EXAMPLE_USER: IUser = {
   isActive: true,
@@ -15,67 +15,43 @@ const EXAMPLE_USER: IUser = {
   imageUrl: 'https://picsum.photos/200',
 };
 
-const EXAMPLE_FORUMS: IForum[] = [
-  {
-    comment: 20,
-    description:
-      'Selamat pagi Dok, mau tanya.saya sudah telat haid 6 hari. Saya test negatif. Dan tadi pagi saya keluar flek coklat. Apakah saya mau haid atau saya hamil dok? Mohon penjelasannya.terimakasih',
-    title: 'Sakit Berdarah',
-    user: EXAMPLE_USER,
-    seen: 3000,
-  },
-  {
-    comment: 20,
-    description:
-      'Selamat pagi Dok, mau tanya.saya sudah telat haid 6 hari. Saya test negatif. Dan tadi pagi saya keluar flek coklat. Apakah saya mau haid atau saya hamil dok? Mohon penjelasannya.terimakasih',
-    title: 'Sakit Berdarah',
-    user: EXAMPLE_USER,
-    seen: 3000,
-  },
-  {
-    comment: 20,
-    description:
-      'Selamat pagi Dok, mau tanya.saya sudah telat haid 6 hari. Saya test negatif. Dan tadi pagi saya keluar flek coklat. Apakah saya mau haid atau saya hamil dok? Mohon penjelasannya.terimakasih Selamat pagi Dok, mau tanya.saya sudah telat haid 6 hari. Saya test negatif. Dan tadi pagi saya keluar flek coklat. Apakah saya mau haid atau saya hamil dok? Mohon penjelasannya.terimakasih',
-    title: 'Sakit Berdarah',
-    user: EXAMPLE_USER,
-    seen: 3000,
-  },
-  {
-    comment: 20,
-    description:
-      'Selamat pagi Dok, mau tanya.saya sudah telat haid 6 hari. Saya test negatif. Dan tadi pagi saya keluar flek coklat. Apakah saya mau haid atau saya hamil dok? Mohon penjelasannya.terimakasih Selamat pagi Dok, mau tanya.saya sudah telat haid 6 hari. Saya test negatif. Dan tadi pagi saya keluar flek coklat. Apakah saya mau haid atau saya hamil dok? Mohon penjelasannya.terimakasih',
-    title: 'Sakit Berdarah',
-    user: EXAMPLE_USER,
-    seen: 3000,
-  },
-  {
-    comment: 20,
-    description:
-      'Selamat pagi Dok, mau tanya.saya sudah telat haid 6 hari. Saya test negatif. Dan tadi pagi saya keluar flek coklat. Apakah saya mau haid atau saya hamil dok? Mohon penjelasannya.terimakasih Selamat pagi Dok, mau tanya.saya sudah telat haid 6 hari. Saya test negatif. Dan tadi pagi saya keluar flek coklat. Apakah saya mau haid atau saya hamil dok? Mohon penjelasannya.terimakasih',
-    title: 'Sakit Berdarah',
-    user: EXAMPLE_USER,
-    seen: 3000,
-  },
-  {
-    comment: 20,
-    description:
-      'Selamat pagi Dok, mau tanya.saya sudah telat haid 6 hari. Saya test negatif. Dan tadi pagi saya keluar flek coklat. Apakah saya mau haid atau saya hamil dok? Mohon penjelasannya.terimakasih Selamat pagi Dok, mau tanya.saya sudah telat haid 6 hari. Saya test negatif. Dan tadi pagi saya keluar flek coklat. Apakah saya mau haid atau saya hamil dok? Mohon penjelasannya.terimakasih',
-    title: 'Sakit Berdarah',
-    user: EXAMPLE_USER,
-    seen: 3000,
-  },
-];
-
 export default function Home() {
+  const {
+    data,
+    createForum,
+    totalForum,
+    perPage,
+    page,
+    nextPage,
+    isHasNextPage,
+    isHasPrevPage,
+    previousPage,
+    hasPage,
+    setPage,
+  } = useForum();
   return (
     <>
       <InvicibleNavbar />
-      <div className="h-screen">
+      <div className="min-h-screen ">
         <div className="">
-          <h1 className="text-center text-3xl font-semibold mb-4">Top Forum</h1>
-          <ForumCardContainer forums={EXAMPLE_FORUMS}></ForumCardContainer>
+          {/* <h1 className="text-center text-3xl font-semibold mb-4">Top Forum</h1> */}
+          <ForumCardContainer forums={data}></ForumCardContainer>
         </div>
-        <CreatePostButton />
+        {/* I think it's silly */}
+        {/* <CreatePostButton handler={createForum} /> */}
+        <div className="mt-12">
+          <Pagination
+            setPage={setPage}
+            isHasNext={isHasNextPage}
+            isHasPrev={isHasPrevPage}
+            nextPage={nextPage}
+            page={page}
+            perPage={perPage}
+            prevPage={previousPage}
+            totalForum={totalForum}
+            hasPage={hasPage}
+          />
+        </div>
       </div>
     </>
   );

@@ -6,10 +6,9 @@ export type IUser = {
   password: string;
   email: string;
   role?: string;
-  imageUrl?: string;
+  token?: string;
+  profilePicture?: string;
 };
-
-
 
 export const EXAMPLE_USER: IUser = {
   isActive: true,
@@ -19,5 +18,18 @@ export const EXAMPLE_USER: IUser = {
   email: 'tintin6892@gmail.com',
   name: 'TinTin Winata',
   role: 'Doctor',
-  imageUrl: '/assets/home-background.jpg',
+  profilePicture: '/assets/default_profile_picture.webp',
 };
+
+export type IUserFilterContainer = {
+  admins: IUser[],
+  doctors: IUser[],
+  members: IUser[]
+}
+
+export const enum USER_FILTER {
+  ALL,
+  MEMBER,
+  ADMIN,
+  DOCTOR
+}

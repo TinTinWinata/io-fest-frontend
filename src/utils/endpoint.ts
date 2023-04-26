@@ -10,18 +10,64 @@ const authEndpoints: EndpointList = {
     url: '/auth/login',
     method: Method.POST,
   },
+  logout: {
+    url : '/auth/logout',
+    method: Method.DELETE,
+  }
 };
 
 const userEndpoints : EndpointList = {
   verification: {
-    url: '/activation-link',
-    method: Method.POST,
+    url: '/activation-links/activate',
+    method: Method.PATCH,
   },
+  updateProfilePicture: {
+    url: '/users/update-profile-picture',
+    method: Method.PATCH,
+  },
+  updateProfile: {
+    url: '/users/update-profile',
+    method: Method.PATCH,
+  },
+  fetch: {
+    url: '/users/fetch',
+    method: Method.GET
+  },
+  adminPage: {
+    url: '/users/admin-page',
+    method: Method.GET
+  }
 }
 
+const forumEndpoints : EndpointList = {
+  forumNewest: {
+    url:'/forums/newest',
+    method: Method.GET
+  },
+  forumTop: {
+    url:'/forums/top',
+    method: Method.GET
+  },
+  forumCreate : {
+    url: "/forums/create",
+    method: Method.POST
+  },
+  forumId : {
+    url: "/forums/get",
+    method: Method.GET,
+  }
+}
 
+const commentEndpoints : EndpointList = {
+  commentCreate : {
+    url: '/forum-comments/create',
+    method: Method.POST,
+  }
+} 
 
 export const endpoints: EndpointList = {
   ...authEndpoints,
-  ...userEndpoints
+  ...userEndpoints,
+  ...forumEndpoints,
+  ...commentEndpoints
 };

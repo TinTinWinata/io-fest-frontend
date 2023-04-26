@@ -1,16 +1,23 @@
 import { Link } from 'react-router-dom';
+import { useUserAuth } from '../../hooks/user-context';
 
 export default function SidebarMenu({
   menu,
   icon,
   link,
   handle,
+  blockedRoles,
 }: {
   menu: string;
   icon: any;
   link: string;
+  blockedRoles: string[];
   handle: () => void;
 }) {
+  const { user } = useUserAuth();
+  if (blockedRoles.includes(user.role)) {
+    return <></>;
+  }
   return (
     <Link
       onClick={handle}

@@ -10,7 +10,14 @@ export default function useVerification() {
 
   const handleId = async (id: string) => {
     const service = new Service();
-    const response = await service.request(endpoints.verification, id);
+    const data = {
+      activationLinkId: id,
+    };
+    const response = await service.request(
+      endpoints.verification,
+      undefined,
+      data
+    );
     setSuccess(!response.isError);
     setLoading(false);
   };
@@ -20,6 +27,6 @@ export default function useVerification() {
       setLoading(true);
       handleId(id);
     }
-  }, [id]);
+  }, []);
   return { loading, success };
 }
