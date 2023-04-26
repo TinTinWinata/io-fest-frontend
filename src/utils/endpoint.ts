@@ -18,8 +18,8 @@ const authEndpoints: EndpointList = {
 
 const userEndpoints : EndpointList = {
   verification: {
-    url: '/activation-link',
-    method: Method.POST,
+    url: '/activation-links/activate',
+    method: Method.PATCH,
   },
   updateProfilePicture: {
     url: '/users/update-profile-picture',

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { FaHome, FaLock, FaPersonBooth, FaWarehouse } from 'react-icons/fa';
 import { useLocation } from 'react-router-dom';
 import { useUserAuth } from '../../hooks/user-context';
+import { ROLE } from '../../utils/role';
 import SidebarBottom from './sidebar-bottom';
 import SidebarButton from './sidebar-button';
 import SidebarMenu from './sidebar-menu';
@@ -17,7 +18,7 @@ const MENUS = [
     menu: 'Admin',
     icon: <FaLock />,
     link: '/admin',
-    blockedRoles: ['Doctor', 'User'],
+    blockedRoles: [ROLE.doctor, ROLE.user],
   },
   {
     menu: 'Profile',

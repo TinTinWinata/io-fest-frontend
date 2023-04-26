@@ -1,11 +1,19 @@
 import { IUser } from '../../types/user';
+import { getImageUrl } from '../../utils/helper';
 
-export default function UserContainer({ user }: { user: IUser }) {
-  const getTdClass = () => 'px-6 py-4';
-
+export default function UserContainer({
+  user,
+  removeHandler,
+}: {
+  user: IUser;
+  removeHandler: (user: IUser) => void;
+}) {
   const getStatusClass = (bool: boolean): string =>
     bool ? 'bg-green-500' : 'bg-red-500';
   const getStatus = (bool: boolean): string => (bool ? 'Active' : 'Not Active');
+  const handleOnClickDelete = () => {
+    removeHandler(user);
+  };
 
   return (
     <tr className="bg-white border-b dark:bg-transparent dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -15,7 +23,7 @@ export default function UserContainer({ user }: { user: IUser }) {
       >
         <img
           className="w-10 h-10 rounded-full"
-          src={user.imageUrl}
+          src={getImageUrl(user.imageUrl)}
           alt="Jese image"
         />
         <div className="pl-3">
@@ -38,12 +46,12 @@ export default function UserContainer({ user }: { user: IUser }) {
       </td>
       <td className="px-6 py-4 ">
         <div className="flex">
-          <a
-            href="#"
-            className="mx-1 font-medium text-blue-600 dark:text-blue-500 hover:underline"
+          <div
+            onClick={handleOnClickDelete}
+            className="cursor-pointer mx-1 font-medium text-blue-600 dark:text-blue-500 hover:underline"
           >
-            Edit user
-          </a>
+            Delete
+          </div>
         </div>
       </td>
     </tr>

@@ -15,7 +15,6 @@ export default function SidebarMenu({
   handle: () => void;
 }) {
   const { user } = useUserAuth();
-  console.log(blockedRoles.includes(user.role));
   if (blockedRoles.includes(user.role)) {
     return <></>;
   }

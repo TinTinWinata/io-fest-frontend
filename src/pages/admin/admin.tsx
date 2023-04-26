@@ -1,6 +1,5 @@
 import InvicibleNavbar from '../../components/invicible-navbar';
 import TabContainer from '../../components/tab/tab-container';
-import useAdmin from '../../hooks/use-admin';
 import { useUserAuth } from '../../hooks/user-context';
 import { ITab } from '../../types/tab';
 import UserTable from './user-table';
@@ -18,10 +17,10 @@ const TAB_LIST: ITab[] = [
 
 export default function Admin() {
   const { user } = useUserAuth();
-  const { data } = useAdmin(user.token);
   return (
     <>
       <InvicibleNavbar />
+
       <div className="w-[80vw]  min-h-screen x-center">
         <div className="w-full">
           <TabContainer tabs={TAB_LIST} />

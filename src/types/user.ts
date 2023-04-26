@@ -20,3 +20,16 @@ export const EXAMPLE_USER: IUser = {
   role: 'Doctor',
   imageUrl: '/assets/default_profile_picture.webp',
 };
+
+export type IUserFilterContainer = {
+  admins: IUser[],
+  doctors: IUser[],
+  members: IUser[]
+}
+
+export const enum USER_FILTER {
+  ALL,
+  MEMBER,
+  ADMIN,
+  DOCTOR
+}

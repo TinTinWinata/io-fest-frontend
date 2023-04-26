@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import UserTableContainer from '../../pages/admin/user-table-container';
 import { ITab } from '../../types/tab';
 
 export default function TabContainer({ tabs }: { tabs: ITab[] }) {
@@ -34,17 +35,8 @@ export default function TabContainer({ tabs }: { tabs: ITab[] }) {
 
       {/* Tab Component */}
       <div className="relative w-full h-full">
-        {tabs.map((tab, index) => (
-          <div
-            className={
-              ' p-2 transition-all absolute w-full h-full ' +
-              getActiveTabClass(index)
-            }
-            key={index}
-          >
-            {tab.component}
-          </div>
-        ))}
+        {tabIndex == 0 && <UserTableContainer />}
+        {/* {tabIndex == 1 && <UserTable />} */}
       </div>
     </div>
   );
