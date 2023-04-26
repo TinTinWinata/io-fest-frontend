@@ -1,7 +1,15 @@
 import { Dialog, Transition } from '@headlessui/react';
-import { ChangeEventHandler, Fragment, createRef, useState } from 'react';
+import {
+  ChangeEvent,
+  ChangeEventHandler,
+  Fragment,
+  createRef,
+  useState,
+} from 'react';
 import EmojiContainer from '../components/emoji-picker/emoji-container';
 import HandleIcon from '../components/footer/handle-icon';
+import { useUserAuth } from '../hooks/user-context';
+import { getImageUrl } from '../utils/helper';
 // import { CheckIcon } from '@heroicons/react/outline'
 
 export default function CreateForum({
@@ -17,6 +25,7 @@ export default function CreateForum({
   handleTitle: ChangeEventHandler<HTMLInputElement>;
   handler: any;
 }) {
+  const { user } = useUserAuth();
   const imageInputRef = createRef<HTMLInputElement>();
   const videoInputRef = createRef<HTMLInputElement>();
   const descInputRef = createRef<HTMLTextAreaElement>();
@@ -26,8 +35,9 @@ export default function CreateForum({
   const handleVideo = () => videoInputRef.current?.click();
   const getEmojiClass = () => (isOpenEmoji ? '' : 'hidden');
   const handleEmoji = () => setIsOpenEmoji(!isOpenEmoji);
-  const handleOnSubmit = async () => {
-    await handler();
+  const handleOnSubmit = async (e: ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (descInputRef.current) await handler(title, descInputRef.current.value);
     setOpen(false);
   };
 
@@ -92,16 +102,16 @@ export default function CreateForum({
                     <div className="flex mt-2 mb-4">
                       <div className="center">
                         <img
-                          src="https://picsum.photos/200"
+                          src={getImageUrl(user.imageUrl)}
                           className="w-12 h-12 rounded-3xl mr-2"
                           alt=""
                         />
                       </div>
                       <div className="center">
                         <div className="">
-                          <div className="font-semibold">Justine Winata</div>
+                          <div className="font-semibold">{user.name}</div>
                           <div className="text-sm text-gray-500">
-                            ( Dokter )
+                            ( {user.role} )
                           </div>
                         </div>
                       </div>

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { IForum } from '../types/forum';
 import { endpoints } from '../utils/endpoint';
 import Service from '../utils/service';
+import { useUserAuth } from './user-context';
 
 enum FORUM_FILTER {
   Top,
@@ -9,6 +10,7 @@ enum FORUM_FILTER {
 }
 
 export default function useForum() {
+  const { user } = useUserAuth();
   const [data, setData] = useState<IForum[]>([]);
   const [filter, setFilter] = useState<FORUM_FILTER>(FORUM_FILTER.Top);
 
@@ -35,7 +37,7 @@ export default function useForum() {
       title,
       description,
     };
-    const service = new Service();
+    const service = new Service(user.token);
     const response = await service.request(
       endpoints.forumCreate,
       undefined,
