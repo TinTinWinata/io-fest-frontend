@@ -1,5 +1,4 @@
-import { EndpointList, Method } from "../types/endpoint";
-
+import { EndpointList, Method } from '../types/endpoint';
 
 const authEndpoints: EndpointList = {
   register: {
@@ -11,12 +10,16 @@ const authEndpoints: EndpointList = {
     method: Method.POST,
   },
   logout: {
-    url : '/auth/logout',
+    url: '/auth/logout',
     method: Method.DELETE,
-  }
+  },
+  googleLogin: {
+    url: '/auth/login-google-token',
+    method: Method.POST,
+  },
 };
 
-const userEndpoints : EndpointList = {
+const userEndpoints: EndpointList = {
   verification: {
     url: '/activation-links/activate',
     method: Method.PATCH,
@@ -31,43 +34,43 @@ const userEndpoints : EndpointList = {
   },
   fetch: {
     url: '/users/fetch',
-    method: Method.GET
+    method: Method.GET,
   },
   adminPage: {
     url: '/users/admin-page',
-    method: Method.GET
-  }
-}
+    method: Method.GET,
+  },
+};
 
-const forumEndpoints : EndpointList = {
+const forumEndpoints: EndpointList = {
   forumNewest: {
-    url:'/forums/newest',
-    method: Method.GET
+    url: '/forums/newest',
+    method: Method.GET,
   },
   forumTop: {
-    url:'/forums/top',
-    method: Method.GET
-  },
-  forumCreate : {
-    url: "/forums/create",
-    method: Method.POST
-  },
-  forumId : {
-    url: "/forums/get",
+    url: '/forums/top',
     method: Method.GET,
-  }
-}
+  },
+  forumCreate: {
+    url: '/forums/create',
+    method: Method.POST,
+  },
+  forumId: {
+    url: '/forums/get',
+    method: Method.GET,
+  },
+};
 
-const commentEndpoints : EndpointList = {
-  commentCreate : {
+const commentEndpoints: EndpointList = {
+  commentCreate: {
     url: '/forum-comments/create',
     method: Method.POST,
-  }
-} 
+  },
+};
 
 export const endpoints: EndpointList = {
   ...authEndpoints,
   ...userEndpoints,
   ...forumEndpoints,
-  ...commentEndpoints
+  ...commentEndpoints,
 };

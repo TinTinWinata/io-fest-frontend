@@ -1,3 +1,4 @@
+import { GoogleLogin } from '@react-oauth/google';
 import { Link } from 'react-router-dom';
 import '../css/gradient.css';
 import { useTheme } from '../hooks/theme-context';
@@ -6,7 +7,7 @@ import { ILoginForm } from '../types/auth';
 
 export default function Login() {
   const { isDarkTheme } = useTheme();
-  const { login } = useUserAuth();
+  const { login, loginGoogle } = useUserAuth();
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -18,6 +19,12 @@ export default function Login() {
   };
 
   const getDarkClass = () => (isDarkTheme ? 'bg-gray-900' : 'gradient');
+
+  const handleOnSuccess = (credentialResponse: any) => {
+    if (credentialResponse.credential) {
+      loginGoogle(credentialResponse.credential);
+    }
+  };
 
   return (
     <div className="relative min-h-screen w-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -122,6 +129,13 @@ export default function Login() {
                   Or continue with
                 </span>
               </div>
+            </div>
+            <div className="w-full center mt-3">
+              <GoogleLogin
+                size="large"
+                width="375"
+                onSuccess={handleOnSuccess}
+              />
             </div>
           </div>
         </div>
