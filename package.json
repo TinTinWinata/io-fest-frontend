@@ -20,13 +20,15 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
     "react-router-dom": "^6.4.3",
-    "react-toastify": "^9.1.2"
+    "react-toastify": "^9.1.2",
+    "scrollmagic": "^2.0.8"
   },
   "devDependencies": {
     "@tailwindcss/line-clamp": "^0.4.4",
     "@types/node": "^18.15.11",
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",
+    "@types/scrollmagic": "^2.0.3",
     "@vitejs/plugin-react": "^2.2.0",
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.19",
