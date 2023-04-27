@@ -67,6 +67,13 @@ export default function Detail() {
         {data.forumComments.map((comment, index) => (
           <Comment comment={comment} key={index} />
         ))}
+        {data.forumComments.length === 0 && (
+          <div className="w-full h-full center">
+            <h1 className="p-12 font-semibold text-xl">
+              There's no comment yet!
+            </h1>
+          </div>
+        )}
 
         {isDoctor() && <CreateComment handler={createComment} />}
       </div>

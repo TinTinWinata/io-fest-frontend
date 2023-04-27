@@ -12,19 +12,23 @@ import { useUserAuth } from '../hooks/user-context';
 import { getImageUrl } from '../utils/helper';
 // import { CheckIcon } from '@heroicons/react/outline'
 
+interface ICreateForumProps {
+  open: boolean;
+  setOpen: (bool: boolean) => void;
+  title: string;
+  handleTitle: ChangeEventHandler<HTMLInputElement>;
+  handler: any;
+  resetText: () => void;
+}
+
 export default function CreateForum({
   open,
   setOpen,
   title,
   handleTitle,
   handler,
-}: {
-  open: boolean;
-  setOpen: (bool: boolean) => void;
-  title: string;
-  handleTitle: ChangeEventHandler<HTMLInputElement>;
-  handler: any;
-}) {
+  resetText,
+}: ICreateForumProps) {
   const { user } = useUserAuth();
   const imageInputRef = createRef<HTMLInputElement>();
   const videoInputRef = createRef<HTMLInputElement>();
@@ -38,6 +42,7 @@ export default function CreateForum({
   const handleOnSubmit = async (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (descInputRef.current) await handler(title, descInputRef.current.value);
+    resetText();
     setOpen(false);
   };
 
