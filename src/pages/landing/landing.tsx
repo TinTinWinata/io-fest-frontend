@@ -132,21 +132,21 @@ export default function Landing() {
       </div>
       <div
         data-aos="fade-up"
-        className="bg-gray-300 min-h-screen   w-screen center"
+        className="bg-blue-100 dark:bg-orange-600 min-h-screen  w-full center"
       >
         <TopForum />
       </div>
-      <div
-        data-aos="fade-up"
-        className="bg-gray-200 min-h-screen  w-screen center"
-      >
+      <div data-aos="fade-up" className="min-h-screen  w-screen center">
         <div className="text-center flex flex-col justify-center items-center">
-          <h1 className="font-bold text-5xl">Save time for creativity</h1>
+          <h1 className="font-bold text-5xl font-serif">
+            Cara Mengurangi Stres dengan Mudah
+          </h1>
           <p className="font-semibold mt-6 leading-6 tracking-widest text-lg -center max-w-[650px]">
-            Creating and updating user flows or design presentations takes
-            considerable time. Overflow allows you to spend less time on tedious
-            tasks and focus on improving your work and creating stunning
-            presentations.
+            Stres dapat mempengaruhi kesehatan mental dan fisik seseorang. Ada
+            beberapa cara mudah untuk mengurangi stres, seperti berolahraga,
+            melakukan meditasi atau yoga, atau menghabiskan waktu dengan
+            melakukan kegiatan yang disukai. Cobalah cari kegiatan yang dapat
+            membantu meredakan stresmu agar tubuh dan pikiranmu tetap sehat.
           </p>
           <Player
             className="mt-5 w-96 h-96"

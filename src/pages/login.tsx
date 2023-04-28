@@ -41,8 +41,8 @@ export default function Login() {
             action="#"
             method="POST"
           >
-            <h2 className="text-3xl font-bold text-gray-600 dark:text-gray-50">
-              Login
+            <h2 className="font-serif text-3xl font-bold text-gray-600 dark:text-gray-50">
+              Masuk
             </h2>
             <hr className=""></hr>
             <div>
@@ -95,7 +95,7 @@ export default function Login() {
                   htmlFor="remember_me"
                   className="ml-2 block text-sm text-gray-900 dark:text-gray-50"
                 >
-                  Remember me
+                  Ingatkan Saya
                 </label>
               </div>
 
@@ -104,7 +104,7 @@ export default function Login() {
                   to="/register"
                   className="font-medium text-blue-600 hover:text-blue-500 dark:text-orange-600"
                 >
-                  Create your account here
+                  Buat akun baru disini
                 </Link>
               </div>
             </div>
@@ -114,7 +114,7 @@ export default function Login() {
                 type="submit"
                 className="transition-all w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:bg-orange-600 hover:dark:bg-orange-500"
               >
-                Sign in
+                Masuk
               </button>
             </div>
           </form>
@@ -126,7 +126,7 @@ export default function Login() {
               </div>
               <div className="relative flex justify-center text-sm">
                 <span className=" px-2 bg-white dark:bg-gray-900 text-gray-500 dark:text-gray-100">
-                  Or continue with
+                  Atau bisa masuk menggunakan
                 </span>
               </div>
             </div>

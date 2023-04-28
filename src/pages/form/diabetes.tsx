@@ -4,7 +4,7 @@ import { IFormQuestion } from '../../types/form-question';
 const EXAMPLE_QUESTIONS: IFormQuestion[] = [
   {
     questionValue: 'high_bp',
-    question: 'Apakah anda memiliki tekanan darah yang tinggi ?',
+    question: 'Apakah anda memiliki atau di diagnosa tekanan darah tinggi ?',
     answer: ['Ya', 'Tidak'],
     answerValue: [1, 0],
   },
@@ -17,7 +17,7 @@ const EXAMPLE_QUESTIONS: IFormQuestion[] = [
   {
     questionValue: 'chol_check',
     question:
-      'Kapan terakhir kali Anda melakukan pemeriksaan kolesterol dalam 5 tahun terakhir ?',
+      'Apakah anda pernah melakukan pemeriksaan kolesterol dalam 5 tahun terakhir ?',
     answer: ['Ya', 'Tidak'],
     answerValue: [1, 0],
   },
@@ -103,15 +103,15 @@ const EXAMPLE_QUESTIONS: IFormQuestion[] = [
     questionValue: 'mental_health',
     question:
       'Berapa hari Anda merasa memiliki masalah kesehatan mental dalam 30 hari terakhir? ?',
-    answer: ['Ya', 'Tidak'],
-    answerValue: [1, 0],
+    answer: ['0 - 30'],
+    answerValue: [],
   },
   {
     questionValue: 'phys_health',
     question:
       'Berapa hari Anda merasa memiliki masalah kesehatan fisik dalam 30 hari terakhir ?',
-    answer: ['Ya', 'Tidak'],
-    answerValue: [1, 0],
+    answer: ['0 - 30'],
+    answerValue: [],
   },
   {
     questionValue: 'diff_walk',

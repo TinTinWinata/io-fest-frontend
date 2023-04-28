@@ -28,6 +28,7 @@ export default function UseDiabetics(answers: IFormAnswer[]) {
       undefined,
       data
     );
+    console.log('response : ', response);
     if (response.isError) {
       toastError(response.data);
     } else {

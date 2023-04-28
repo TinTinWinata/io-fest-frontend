@@ -15,7 +15,7 @@ interface ILandingForumProps {
 
 export default function LandingForum({ forum }: ILandingForumProps) {
   const [hover, setHover] = useState<boolean>(false);
-  const getSymbolClass = () => `w-5 h-5 mx-3 transition-all`;
+  const getSymbolClass = () => `w-6 h-6 mx-3 transition-all`;
   const navigate = useNavigate();
   const handleClick = () => {
     navigate(`/detail/${forum.id}`);
@@ -35,13 +35,13 @@ export default function LandingForum({ forum }: ILandingForumProps) {
       onMouseEnter={handleOnMouseEnter}
       onMouseLeave={handleOnMouseLeave}
       onClick={handleClick}
-      className="hover:cursor-pointer rounded-lg border border-black  m-2 relative overflow-hidden w-72 h-52 bg-gray-50"
+      className="hover:cursor-pointer rounded-lg border border-black  m-2 relative overflow-hidden w-96 h-52 bg-gray-50"
     >
       <div className={`absolute p-5 w-full h-full ${hover && 'opacity-50'}`}>
-        <div className="tracking-widest font-bold text-lg">
+        <div className="tracking-widest font-bold text-xl">
           {forum.creator.name}, {forum.creator.username}
         </div>
-        <div className="my-6 truncate text-sm text-gray-500 tracking-wide">
+        <div className="my-6 truncate text-md text-gray-500 tracking-wide">
           {forum.description}
         </div>
         <div className="center">

@@ -12,8 +12,8 @@ export default function RegisterForm({
   return (
     <>
       <div>
-        <h2 className="ml-2 mt-2 text-3xl font-bold text-gray-600 dark:text-gray-50">
-          Create Account
+        <h2 className="font-serif ml-2 mt-2 text-3xl font-bold text-gray-600 dark:text-gray-50">
+          Registrasi Akun
         </h2>
         <hr className="h-1 w-full my-3" />
       </div>
@@ -81,14 +81,14 @@ export default function RegisterForm({
             type="submit"
             className="transition-all dark:bg-orange-600 dark:hover:bg-orange-500 mt-2 group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
           >
-            Register
+            Buat Akun
           </button>
           <div className="mt-2 ml-2 text-right text-sm">
             <Link
               to="/login"
               className="transition-all font-medium dark:text-orange-600 dark:hover:text-orange-500 text-blue-600 hover:text-blue-500"
             >
-              Already have account ?
+              Sudah punya akun ?
             </Link>
           </div>
         </div>
