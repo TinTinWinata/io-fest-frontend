@@ -10,7 +10,6 @@ export const enum ContentType {
 
 class Service {
   protected axios: AxiosInstance;
-
   private getContentType(contentType: ContentType): string {
     return contentType == ContentType.JSON
       ? 'application/json'
@@ -19,9 +18,12 @@ class Service {
 
   constructor(
     accessToken?: string,
-    contentType: ContentType = ContentType.JSON
+    contentType: ContentType = ContentType.JSON,
+    aiService: boolean = false
   ) {
-    const baseURL = import.meta.env.VITE_API_URL;
+    const baseURL = !aiService
+      ? import.meta.env.VITE_API_URL
+      : import.meta.env.VITE_AI_API_URL;
     const axiosConfig: AxiosRequestConfig = {
       baseURL,
       headers: {

@@ -1,15 +1,19 @@
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, RefObject, SetStateAction } from 'react';
 import { IFormQuestion } from '../../types/form-question';
+
+interface FormDetailProps {
+  form: IFormQuestion;
+  activeBox: number;
+  setActiveBox: Dispatch<SetStateAction<number>>;
+  inputRef: RefObject<HTMLInputElement>;
+}
 
 export default function FormDetail({
   form,
   activeBox,
   setActiveBox,
-}: {
-  form: IFormQuestion;
-  activeBox: number;
-  setActiveBox: Dispatch<SetStateAction<number>>;
-}) {
+  inputRef,
+}: FormDetailProps) {
   const getAnswerClass = (index: number) =>
     `w-full border border-blue-600 dark:border-gray-700 cursor-pointer dark:border-opacity-30 border-opacity-20 rounded-md p-3 text-sm tracking-wider my-2 dark:hover:bg-orange-600 hover:bg-blue-600 hover:text-gray-50 transition-all dark:text-gray-200 ${
       index == activeBox ? getActiveClass() : ' text-gray-500 '
@@ -25,15 +29,24 @@ export default function FormDetail({
       <div className="hr"></div>
       {/* Answer */}
       <div className="">
-        {form.answer.map((answer, index) => (
-          <div
-            onClick={() => setActiveBox(index)}
-            key={index}
-            className={getAnswerClass(index)}
-          >
-            {answer}
-          </div>
-        ))}
+        {form.answerValue.length == 0 ? (
+          <input
+            ref={inputRef}
+            placeholder={form.answer[0]}
+            type=""
+            className="w-full p-2 bg-transparent rounded-md border border-blue-600 border-opacity-20"
+          />
+        ) : (
+          form.answer.map((answer, index) => (
+            <div
+              onClick={() => setActiveBox(index)}
+              key={index}
+              className={getAnswerClass(index)}
+            >
+              {answer}
+            </div>
+          ))
+        )}
       </div>
     </div>
   );

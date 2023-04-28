@@ -68,7 +68,15 @@ const commentEndpoints: EndpointList = {
   },
 };
 
+const aiEndpoints: EndpointList = {
+  diabetics: {
+    url: '/predict',
+    method: Method.POST,
+  },
+};
+
 export const endpoints: EndpointList = {
+  ...aiEndpoints,
   ...authEndpoints,
   ...userEndpoints,
   ...forumEndpoints,

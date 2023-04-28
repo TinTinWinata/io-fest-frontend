@@ -1,9 +1,9 @@
 export enum Method {
   GET,
   POST,
-  PUT, 
+  PUT,
   DELETE,
-  PATCH
+  PATCH,
 }
 
 export interface Endpoint {

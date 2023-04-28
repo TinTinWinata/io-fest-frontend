@@ -21,8 +21,6 @@ export default function Navbar() {
       : ' text-gray-700 dark:text-gray-100';
   };
 
-  return <></>;
-
   return (
     <div
       className={

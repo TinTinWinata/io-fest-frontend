@@ -7,6 +7,7 @@ import animationText2Data from '../../../public/assets/food-text-2.json';
 import { default as animationTextData } from '../../../public/assets/food-text.json';
 import LeftLanding from './first-left-landing';
 import RightLanding from './first-right-landing';
+import TopForum from './top-forum/top-forum';
 
 export default function Landing() {
   const introRef = createRef<HTMLDivElement>();
@@ -59,7 +60,9 @@ export default function Landing() {
     let delay = 0;
 
     scene.on('update', (e: any) => {
-      console.log('scrollpos : ', scrollPos);
+      // !Debugging Purpose
+      // console.log('scrollpos : ', scrollPos);
+
       if (firstRef.current)
         scrollPos = e.scrollPos - firstRef.current.offsetHeight;
       else scrollPos = e.scrollPos;
@@ -69,7 +72,7 @@ export default function Landing() {
       delay += (scrollPos - delay) * accelAmount;
       handleFrameChange(animationData, delay, lottieRef);
       handleFrameChange(animationTextData, delay, lottieTextRef);
-      handleFrameChange(animationText2Data, delay, lottieText2Ref, true);
+      handleFrameChange(animationText2Data, delay, lottieText2Ref);
     }, 1);
   }, []);
 
@@ -84,7 +87,7 @@ export default function Landing() {
       <div
         data-aos="fade-up"
         ref={introRef}
-        className="bg-white min-h-screen  min-w-screen center"
+        className=" min-h-screen  min-w-screen center"
       >
         {/* <Player autoplay keepLastFrame src={'/assets/food.json'}>
           <Controls></Controls>
@@ -126,7 +129,7 @@ export default function Landing() {
         {/* <h1>Cari Tahu</h1> */}
       </div>
       <div data-aos="fade-up" className="min-h-screen  w-screen center">
-        <h1 className="text-[100px] font-bold">CARI TAHU</h1>
+        <TopForum />
       </div>
     </div>
   );
