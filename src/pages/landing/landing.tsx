@@ -1,3 +1,4 @@
+import { Player } from '@lottiefiles/react-lottie-player';
 import Lottie, { LottieRefCurrentProps } from 'lottie-react';
 import { RefObject, createRef, useEffect } from 'react';
 import ScrollMagic from 'scrollmagic';
@@ -5,6 +6,7 @@ import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators';
 import animationData from '../../../public/assets/food-2.json';
 import animationText2Data from '../../../public/assets/food-text-2.json';
 import { default as animationTextData } from '../../../public/assets/food-text.json';
+import BeforeIntro from './before-intro/before-intro';
 import LeftLanding from './first-left-landing';
 import RightLanding from './first-right-landing';
 import TopForum from './top-forum/top-forum';
@@ -15,7 +17,7 @@ export default function Landing() {
   const lottieRef = createRef<LottieRefCurrentProps>();
   const lottieTextRef = createRef<LottieRefCurrentProps>();
   const lottieText2Ref = createRef<LottieRefCurrentProps>();
-  const INTRO_DURATION = 1500;
+  const INTRO_DURATION = 2000;
 
   const getTotalFrames = (animationData: any) => {
     return Math.floor(animationData.op);
@@ -55,7 +57,7 @@ export default function Landing() {
     });
     if (introRef && introRef.current)
       scene.addTo(controller).setPin(introRef.current);
-    let accelAmount = 0.1;
+    let accelAmount = 0.05;
     let scrollPos = 0;
     let delay = 0;
 
@@ -83,7 +85,7 @@ export default function Landing() {
         <LeftLanding />
         <RightLanding />
       </div>
-      1
+      <BeforeIntro />
       <div
         data-aos="fade-up"
         ref={introRef}
@@ -128,8 +130,32 @@ export default function Landing() {
         ></video> */}
         {/* <h1>Cari Tahu</h1> */}
       </div>
-      <div data-aos="fade-up" className="min-h-screen  w-screen center">
+      <div
+        data-aos="fade-up"
+        className="bg-gray-300 min-h-screen   w-screen center"
+      >
         <TopForum />
+      </div>
+      <div
+        data-aos="fade-up"
+        className="bg-gray-200 min-h-screen  w-screen center"
+      >
+        <div className="text-center flex flex-col justify-center items-center">
+          <h1 className="font-bold text-5xl">Save time for creativity</h1>
+          <p className="font-semibold mt-6 leading-6 tracking-widest text-lg -center max-w-[650px]">
+            Creating and updating user flows or design presentations takes
+            considerable time. Overflow allows you to spend less time on tedious
+            tasks and focus on improving your work and creating stunning
+            presentations.
+          </p>
+          <Player
+            className="mt-5 w-96 h-96"
+            autoplay
+            loop
+            src={'/assets/health.json'}
+          />
+        </div>
+        {/* <TopForum /> */}
       </div>
     </div>
   );
