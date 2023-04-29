@@ -34,10 +34,28 @@ export default function useForumDetail() {
     if (id) fetchId(id);
   };
 
+  const fetchSeen = async (id: string) => {
+    const service = new Service(user.token);
+    const data = {
+      forumId: id,
+    };
+    const response = await service.request(
+      endpoints.forumSeen,
+      undefined,
+      data
+    );
+    if (response.isError) {
+      console.error('Failed to seen foru, : ', response.data);
+    }
+  };
+
   const fetchId = async (id: string) => {
     const service = new Service();
     const response = await service.request(endpoints.forumId, id);
-    if (!response.isError) setData(response.data.forum);
+    if (!response.isError) {
+      fetchSeen(id);
+      setData(response.data.forum);
+    }
     setSuccess(!response.isError);
     setLoading(false);
   };

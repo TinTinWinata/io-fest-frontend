@@ -1,18 +1,15 @@
-import { IUser } from '../../types/user';
-import { getImageUrl } from '../../utils/helper';
+import { IForum } from '../../../types/forum';
+import { getImageUrl } from '../../../utils/helper';
 
-export default function UserContainer({
-  user,
+export default function ForumContainer({
+  forum,
   removeHandler,
 }: {
-  user: IUser;
-  removeHandler: (user: IUser) => void;
+  forum: IForum;
+  removeHandler: (forum: IForum) => void;
 }) {
-  const getStatusClass = (bool: boolean): string =>
-    bool ? 'bg-green-500' : 'bg-red-500';
-  const getStatus = (bool: boolean): string => (bool ? 'Active' : 'Not Active');
   const handleOnClickDelete = () => {
-    removeHandler(user);
+    removeHandler(forum);
   };
 
   return (
@@ -23,25 +20,18 @@ export default function UserContainer({
       >
         <img
           className="w-10 h-10 rounded-full"
-          src={getImageUrl(user.profilePicture)}
+          src={getImageUrl(forum.creator.profilePicture)}
           alt="Jese image"
         />
         <div className="pl-3">
-          <div className="text-base font-semibold">
-            {user.name} ({user.username})
-          </div>
-          <div className="font-normal text-gray-500">{user.email}</div>
+          <div className="text-base font-semibold">{forum.title}</div>
+          <div className="font-normal text-gray-500">{forum.title}</div>
         </div>
       </th>
-      <td className="px-6 py-4">{user.role}</td>
+      <td className="px-6 py-4">{forum.seen}</td>
       <td className="px-6 py-4">
         <div className="flex items-center">
-          <div
-            className={`h-2.5 w-2.5 rounded-full ${getStatusClass(
-              user.isActive
-            )} mr-2`}
-          ></div>{' '}
-          {getStatus(user.isActive)}
+          <div className={`h-2.5 w-2.5 rounded-full mr-2`}>{forum.title}</div>
         </div>
       </td>
       <td className="px-6 py-4 ">

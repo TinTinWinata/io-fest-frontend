@@ -1,19 +1,19 @@
-import { IUser } from '../../types/user';
-import UserContainer from './user-container';
+import { IForum } from '../../../types/forum';
+import ForumContainer from './forum-container';
 
-interface IUserTableProps {
-  users: IUser[];
-  handlerRemoveUserButton: (user: IUser) => void;
+interface IForumTableProps {
+  forums: IForum[];
+  handlerRemoveForumButton: (forum: IForum) => void;
 }
 
-export default function UserTable({
-  users,
-  handlerRemoveUserButton,
-}: IUserTableProps) {
-  if (!users || users === undefined || users.length === 0) {
+export default function ForumTable({
+  forums,
+  handlerRemoveForumButton,
+}: IForumTableProps) {
+  if (!forums || forums === undefined || forums.length === 0) {
     return (
       <div className="center font-semibold p-10">
-        There is no user available!
+        There is no forum available!
       </div>
     );
   }
@@ -39,10 +39,10 @@ export default function UserTable({
             </tr>
           </thead>
           <tbody>
-            {users.map((user, index) => (
-              <UserContainer
-                removeHandler={handlerRemoveUserButton}
-                user={user}
+            {forums.map((forum, index) => (
+              <ForumContainer
+                removeHandler={handlerRemoveForumButton}
+                forum={forum}
                 key={index}
               />
             ))}

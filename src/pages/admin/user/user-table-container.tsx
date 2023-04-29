@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import useAdmin from '../../hooks/use-admin';
-import { useUserAuth } from '../../hooks/user-context';
-import { EXAMPLE_USER, IUser, USER_FILTER } from '../../types/user';
+import useAdmin from '../../../hooks/use-admin';
+import { useUserAuth } from '../../../hooks/user-context';
+import { EXAMPLE_USER, IUser, USER_FILTER } from '../../../types/user';
 import UserRemoveModal from './user-remove-modal';
 import UserTable from './user-table';
 import UserTableHeader from './user-table-header';

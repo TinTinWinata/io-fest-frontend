@@ -2,7 +2,7 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { Dispatch, Fragment, SetStateAction, useRef } from 'react';
 import { FaExclamation } from 'react-icons/fa';
-import { IUser } from '../../types/user';
+import { IUser } from '../../../types/user';
 
 export default function UserRemoveModal({
   user,

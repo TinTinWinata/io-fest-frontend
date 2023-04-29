@@ -59,6 +59,14 @@ const forumEndpoints: EndpointList = {
     url: '/forums/get',
     method: Method.GET,
   },
+  forumDelete: {
+    url: '/forums/delete',
+    method: Method.DELETE,
+  },
+  forumSeen: {
+    url: '/forums/seen',
+    method: Method.PATCH,
+  },
 };
 
 const commentEndpoints: EndpointList = {

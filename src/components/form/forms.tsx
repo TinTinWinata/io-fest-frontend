@@ -97,7 +97,10 @@ export default function Forms({ forms }: { forms: IFormQuestion[] }) {
   }
 
   return (
-    <div className="relative w-96 h-[600px] p-6 dark:bg-transparent dark:border dark:border-opacity-50 dark:border-gray-600 bg-gray-50 rounded-xl">
+    <div
+      data-aos="fade-up"
+      className="relative w-96 h-[600px] p-6 dark:bg-transparent dark:border dark:border-opacity-50 dark:border-gray-600 bg-gray-50 rounded-xl"
+    >
       <ProgressBar from={index + 1} to={forms.length} />
 
       <FormDetail

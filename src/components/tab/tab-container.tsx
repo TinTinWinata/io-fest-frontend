@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import UserTableContainer from '../../pages/admin/user-table-container';
+import ForumTableContainer from '../../pages/admin/forum/forum-table-container';
+import UserTableContainer from '../../pages/admin/user/user-table-container';
 import { ITab } from '../../types/tab';
 
 export default function TabContainer({ tabs }: { tabs: ITab[] }) {
@@ -36,6 +37,7 @@ export default function TabContainer({ tabs }: { tabs: ITab[] }) {
       {/* Tab Component */}
       <div className="relative w-full h-full">
         {tabIndex == 0 && <UserTableContainer />}
+        {tabIndex == 1 && <ForumTableContainer />}
         {/* {tabIndex == 1 && <UserTable />} */}
       </div>
     </div>

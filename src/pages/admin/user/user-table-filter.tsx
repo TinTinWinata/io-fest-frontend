@@ -1,5 +1,5 @@
-import { USER_FILTER } from '../../types/user';
-import { ROLE } from '../../utils/role';
+import { USER_FILTER } from '../../../types/user';
+import { ROLE } from '../../../utils/role';
 
 interface IFilterListComponent {
   name: string;

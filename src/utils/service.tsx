@@ -45,7 +45,7 @@ class Service {
     else if (method === Method.PUT) return await this.axios.put(url, data);
     else if (method === Method.PATCH) return await this.axios.patch(url, data);
     else if (method === Method.DELETE)
-      return await this.axios.delete(url, data);
+      return await this.axios.delete(url, { data: data });
   }
 
   public generateUrl(
@@ -72,7 +72,10 @@ class Service {
     let result: ResponseType;
     try {
       const url = this.generateUrl(endpoint, id, data, param);
+
+      // !Debugging Purposes
       console.log('url : ', url);
+
       const response = await this.getResponse(endpoint.method, data, url);
       result = { data: response.data, isError: false };
     } catch (error) {

@@ -1,7 +1,13 @@
 import { useEffect, useState } from 'react';
 import { IForum } from '../types/forum';
 import { endpoints } from '../utils/endpoint';
+import { displayError } from '../utils/helper';
 import Service from '../utils/service';
+import {
+  toastLoading,
+  toastUpdateFailed,
+  toastUpdateSuccess,
+} from '../utils/toast';
 import { useUserAuth } from './user-context';
 
 enum FORUM_FILTER {
@@ -31,6 +37,32 @@ export default function useForum() {
 
   const previousPage = () => isHasPrevPage() && setPage((prev) => prev - 1);
   const resetPage = () => setPage(1);
+
+  const remove = async (forumId: string) => {
+    setLoading(true);
+    const id = toastLoading('Wait were deleting this forum ...');
+    if (!user) return;
+    const data = {
+      forumId: forumId,
+    };
+
+    console.log('data : ', data);
+    const service = new Service(user.token);
+    const response = await service.request(
+      endpoints.forumDelete,
+      undefined,
+      data
+    );
+    setSuccess(!response.isError);
+    if (response.isError) {
+      toastUpdateFailed(id, 'Looks like this forum cannot be deleted!');
+      displayError(response.data);
+      return;
+    }
+    toastUpdateSuccess(id, 'Successfully deleted this forum!');
+    fetchData();
+    setLoading(false);
+  };
 
   const fetchData = async () => {
     setLoading(true);
@@ -94,5 +126,6 @@ export default function useForum() {
     previousPage,
     createForum,
     hasPage,
+    remove,
   };
 }

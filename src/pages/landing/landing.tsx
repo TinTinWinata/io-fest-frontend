@@ -132,7 +132,7 @@ export default function Landing() {
       </div>
       <div
         data-aos="fade-up"
-        className="bg-blue-100 dark:bg-orange-600 min-h-screen  w-full center"
+        className="bg-blue-100 dark:bg-orange-600 min-h-[1000px]  w-full center"
       >
         <TopForum />
       </div>
