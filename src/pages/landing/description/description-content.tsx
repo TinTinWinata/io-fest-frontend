@@ -16,7 +16,7 @@ export default function DescriptionContent({
       </h1>
       <p
         data-aos="fade-up"
-        className="text-gray-500 tracking-wider w-3/4 my-5 text-sm leading-7 font-semibold"
+        className="text-gray-500 dark:text-gray-300 tracking-wider w-3/4 my-5 text-md leading-7 font-semibold"
       >
         {text}
       </p>

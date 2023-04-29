@@ -36,17 +36,17 @@ export default function LandingForum({ forum }: ILandingForumProps) {
       onMouseLeave={handleOnMouseLeave}
       onClick={handleClick}
       data-aos="fade-up"
-      className="hover:cursor-pointer rounded-lg border border-black  m-2 relative overflow-hidden w-96 h-52 bg-gray-50"
+      className="hover:cursor-pointer rounded-lg border border-black  m-2 relative overflow-hidden w-96 h-52 bg-gray-50 dark:bg-transparent"
     >
       <div className={`absolute p-5 w-full h-full ${hover && 'opacity-50'}`}>
         <div className="tracking-widest font-bold text-xl">
           {forum.creator.name}, {forum.creator.username}
         </div>
-        <div className="my-6 truncate text-md text-gray-500 tracking-wide">
+        <div className="my-6 truncate text-md dark:text-gray-200 text-gray-500 tracking-wide">
           {forum.description}
         </div>
         <div className="center">
-          <FaAddressBook className={getSymbolClass() + ' text-orange-500'} />
+          <FaAddressBook className={getSymbolClass() + ' text-blue-500'} />
           <FaFacebook className={getSymbolClass() + ' text-indigo-500'} />
           <FaInstagram className={getSymbolClass() + ' text-pink-500'} />
           <FaLinkedin className={getSymbolClass() + ' text-blue-600'} />

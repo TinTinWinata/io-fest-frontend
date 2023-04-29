@@ -65,7 +65,7 @@ export default function Finish({ answers }: IFormFinishProps) {
         {/* Real Button */}
         <Link
           to="/home"
-          className="absolute px-2 py-3 rounded-b-lg bottom-0 font-semibold bg-blue-600 hover:bg-blue-700 text-gray-50  dark:hover:bg-orange-700 transition-all w-full dark:bg-orange-600"
+          className="absolute px-2 py-3 rounded-b-lg bottom-0 font-semibold bg-blue-600 hover:bg-blue-700 text-gray-50  dark:hover:bg-blue-700 transition-all w-full dark:bg-blue-600"
         >
           Home
         </Link>

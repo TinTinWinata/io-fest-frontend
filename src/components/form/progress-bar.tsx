@@ -17,7 +17,7 @@ export default function ProgressBar({
       <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
         <div
           // style={{width: `${calculateProgress()}`}}
-          className={`w-[${progress}%] transition-all dark:bg-orange-600 bg-blue-600 h-2.5 rounded-full`}
+          className={`w-[${progress}%] transition-all dark:bg-blue-600 bg-blue-600 h-2.5 rounded-full`}
         ></div>
       </div>
     </>

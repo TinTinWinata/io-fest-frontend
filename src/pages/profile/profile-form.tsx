@@ -10,6 +10,9 @@ export default function ProfileForm({ user }: { user: IUser }) {
     const name = e.target.name.value;
     updateUserData(username, name);
   };
+  const getInputClass = () =>
+    'flex-grow dark:text-gray-200 focus:none focus:outline-none focus:border-none bg-transparent';
+
   return (
     <div className="p-20">
       <form onSubmit={handleOnSubmit}>
@@ -32,12 +35,12 @@ export default function ProfileForm({ user }: { user: IUser }) {
                   <input
                     name="name"
                     defaultValue={user.name}
-                    className="flex-grow dark:text-gray-200 focus:none focus:outline-none focus:border-none"
+                    className={getInputClass()}
                   />
                   <span className="ml-4 flex-shrink-0">
                     <button
                       type="submit"
-                      className="bg-white dark:bg-transparent rounded-md font-medium text-blue-600 dark:text-orange-500 dark:hover:text-orange-600 hover:text-blue-500 focus:outline-none   "
+                      className="bg-white dark:bg-transparent rounded-md font-medium text-blue-600 dark:text-blue-500 dark:hover:text-blue-600 hover:text-blue-500 focus:outline-none   "
                     >
                       Update
                     </button>
@@ -53,13 +56,13 @@ export default function ProfileForm({ user }: { user: IUser }) {
                     <input
                       name="username"
                       defaultValue={user.username}
-                      className="flex-grow dark:text-gray-200 focus:none focus:outline-none focus:border-none"
+                      className={getInputClass()}
                     />
                   </span>
                   <span className="ml-4 flex-shrink-0 flex items-start space-x-4">
                     <button
                       type="submit"
-                      className="bg-white dark:bg-transparent rounded-md font-medium text-blue-600 dark:text-orange-500 dark:hover:text-orange-600 hover:text-blue-500 focus:outline-none   "
+                      className="bg-white dark:bg-transparent rounded-md font-medium text-blue-600 dark:text-blue-500 dark:hover:text-blue-600 hover:text-blue-500 focus:outline-none   "
                     >
                       Update
                     </button>
@@ -73,12 +76,12 @@ export default function ProfileForm({ user }: { user: IUser }) {
                 <dd className="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                   <input
                     defaultValue={user.email}
-                    className="flex-grow dark:text-gray-200 focus:none focus:outline-none focus:border-none"
+                    className={getInputClass()}
                   />
                   {/* <span className="ml-4 flex-shrink-0">
                     <button
                       type="submit"
-                      className="bg-white dark:bg-transparent rounded-md font-medium text-blue-600 dark:text-orange-500 dark:hover:text-orange-600 hover:text-blue-500 focus:outline-none   "
+                      className="bg-white dark:bg-transparent rounded-md font-medium text-blue-600 dark:text-blue-500 dark:hover:text-blue-600 hover:text-blue-500 focus:outline-none   "
                     >
                       Update
                     </button>
@@ -90,10 +93,7 @@ export default function ProfileForm({ user }: { user: IUser }) {
                   Role
                 </dt>
                 <dd className="mt-1 flex text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                  <input
-                    defaultValue={user.role}
-                    className="flex-grow dark:text-gray-200 focus:none focus:outline-none focus:border-none"
-                  />
+                  <input defaultValue={user.role} className={getInputClass()} />
                 </dd>
               </div>
             </dl>

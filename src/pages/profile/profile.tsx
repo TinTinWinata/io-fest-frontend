@@ -17,11 +17,11 @@ export default function Profile() {
   return (
     <div className="w-[80vw] min-h-screen mb-20">
       <InvicibleNavbar />
-      <div className="w-full rounded-3xl bg-white dark:bg-transparent border border-green">
+      <div className="w-full rounded-3xl bg-white dark:bg-transparent border dark:border-blue-500">
         {/* Header */}
-        <div className="bg-login bg-cover rounded-3xl w-full bg-blue-300  dark:bg-orange-300 h-[300px] relative">
+        <div className="bg-login bg-cover rounded-3xl w-full bg-blue-300  dark:bg-blue-300 h-[300px] relative">
           <div className="absolute rounded-3xl w-full h-full bg-gray-500 dark:bg-gray-800 opacity-50"></div>
-          <div className="absolute bottom-0 w-full h-[1px] bg-white">
+          <div className="absolute bottom-0 w-full h-[1px] bg-white dark:bg-transparent">
             <div className="flex absolute left-20 bottom-0 translate-y-[50%]">
               <input
                 type="file"

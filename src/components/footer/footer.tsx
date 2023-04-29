@@ -11,7 +11,7 @@ export default function Footer() {
   const getClass = () =>
     'h-20 w-full  center ' +
     (isDarkFooter()
-      ? ' bg-dark-blue-calm dark:bg-dark-blue-calm '
+      ? ' bg-dark-blue-calm dark:bg-gray-950 '
       : ' bg-blue-50 dark:bg-gray-800');
 
   if (isShowFooter()) return <></>;

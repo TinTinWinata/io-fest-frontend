@@ -16,15 +16,27 @@ export default function Landing() {
   const firstRef = createRef<HTMLDivElement>();
   const lottieRef = createRef<LottieRefCurrentProps>();
   const lottieTextRef = createRef<LottieRefCurrentProps>();
+  const [textClass, setTextClass] = useState<string>('');
   const lottieText2Ref = createRef<LottieRefCurrentProps>();
-  const INTRO_DURATION = 5000;
+  const INTRO_DURATION = 3000;
   const WHITE_SCREEN_GAP = 1000;
+  const TEXT_SHOW_IN_PROGRESS = 65;
   const [whiteIntro, setWhiteIntro] = useState<boolean>(true);
 
   const getWhiteScreenClass = () => (whiteIntro ? 'opacity-100' : 'opacity-0');
 
   const getTotalFrames = (animationData: any) => {
     return Math.floor(animationData.op);
+  };
+
+  const checkText = (percentage: number) => {
+    // !Debugging Purpose
+    // console.log('percentage : ', percentage);
+    if (percentage > TEXT_SHOW_IN_PROGRESS) {
+      setTextClass('opacity-100');
+    } else {
+      setTextClass('opacity-0');
+    }
   };
 
   const handleFrameChange = (
@@ -37,6 +49,10 @@ export default function Landing() {
       lottieRef.current.stop();
 
       const percentage = Math.floor((position / INTRO_DURATION) * 100);
+
+      // Checking Percentage Text
+      checkText(percentage);
+
       const totalFrames = getTotalFrames(animationData);
       const frameNumber: number = Math.floor((percentage / 100) * totalFrames);
       // !Debugging Purpose
@@ -93,14 +109,17 @@ export default function Landing() {
       else scrollPos = e.scrollPos;
     });
 
-    setInterval(() => {
+    const intervalId = setInterval(() => {
       delay += (scrollPos - delay) * accelAmount;
       handleFrameChange(animationData, delay, lottieRef);
       handleFrameChange(animationTextData, delay, lottieTextRef);
       handleFrameChange(animationText2Data, delay, lottieText2Ref);
     }, 1);
 
-    return () => {};
+    return () => {
+      clearInterval(intervalId);
+      controller.destroy(true);
+    };
   }, []);
 
   return (
@@ -117,11 +136,11 @@ export default function Landing() {
 
       <div
         ref={introRef}
-        className="relative min-h-screen bg-blue-50 min-w-screen center"
+        className="relative min-h-screen bg-blue-50 dark:bg-gray-900 min-w-screen center"
       >
         <div
           className={
-            'transition-all bg-blue-50 absolute w-full h-full z-50 ' +
+            'transition-all bg-blue-50 dark:bg-gray-900 absolute w-full h-full z-50 ' +
             getWhiteScreenClass()
           }
         ></div>
@@ -132,27 +151,60 @@ export default function Landing() {
             lottieRef={lottieRef}
             animationData={animationData}
           />
-          <Lottie
-            className="absolute z-10 right-10 top-10 w-[500px] h-[300px] "
-            autoplay={false}
-            lottieRef={lottieTextRef}
-            animationData={animationTextData}
-          />
-          <Lottie
-            className="absolute z-10 bottom-10 left-14 w-[700px] h-[300px] "
-            autoplay={false}
-            lottieRef={lottieText2Ref}
-            animationData={animationText2Data}
-          />
+          <div
+            hidden
+            className="bg-blue-50 p-3 rounded overflow-hidden absolute z-10 right-10 top-10 w-[450px] h-[260px] "
+          >
+            <Lottie
+              className="w-[500px] h-[300px] absolute bottom-[-20px] left-[30px]"
+              autoplay={false}
+              lottieRef={lottieTextRef}
+              animationData={animationTextData}
+            />
+          </div>
+          <div
+            hidden
+            className="bg-blue-50 p-3 rounded absolute z-10 bottom-10 left-14 w-[620px] h-[300px]"
+          >
+            <Lottie
+              className="w-[700px] h-[300px] absolute left-[30px]"
+              autoplay={false}
+              lottieRef={lottieText2Ref}
+              animationData={animationText2Data}
+            />
+          </div>
+          <div className="relative w-screen h-screen ">
+            <div
+              className={
+                'text-center font-serif text-8xl font-bold tracking-widest absolute top-[20%] left-[50%] translate-x-[-50%] translate-y-[-50%] transition-all ' +
+                textClass
+              }
+            >
+              EAT HEALTHY!
+            </div>
+            <div
+              className={
+                'sm:text-xl md:text-xl lg:text-4xl text-center  font-thin  tracking-widest absolute sm:top-[35%] lg:top-[30%] left-[50%] translate-x-[-50%] translate-y-[-50%] transition-all ' +
+                textClass
+              }
+            >
+              "There Are Around 463 Million Adults Living With Diabetes in
+              Worldwide."{' '}
+              <span className="ml-3 font-serif text-blue-500  transition-all">
+                {' '}
+                - WHO (2019)
+              </span>
+            </div>
+          </div>
         </div>
       </div>
-      <div className="relative bg-blue-100  dark:bg-orange-600 min-h-[1000px]  w-full center">
+      <div className="relative bg-blue-100 dark:bg-gray-925 min-h-[1000px]  w-full center">
         <TopForum />
       </div>
-      <div className="bg-light-blue h-fit w-screen center">
+      <div className="bg-light-blue dark:bg-gray-900 h-fit w-screen center">
         <Description />
       </div>
-      <div className="w-full h-[400px] bg-dark-blue dark:bg-orange-600">
+      <div className="w-full h-[400px] bg-dark-blue dark:bg-gray-950">
         <BeforeIntro />
       </div>
     </div>

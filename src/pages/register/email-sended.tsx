@@ -18,7 +18,7 @@ export default function RegistrationEmailSended({
         <div className="flex text-gray-500 w-[80%] text-sm mt-1">
           <p>
             To start using Cari Tahu, we need to verify your email{' '}
-            <span className="text-blue-400 dark:text-orange-400">{email}</span>
+            <span className="text-blue-400 dark:text-blue-400">{email}</span>
           </p>
         </div>
       </div>

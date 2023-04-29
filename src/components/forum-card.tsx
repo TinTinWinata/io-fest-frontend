@@ -11,7 +11,7 @@ export default function ForumCard({ forum }: { forum: IForum }) {
       <div
         data-aos="fade-up"
         onClick={handleClick}
-        className="cursor-pointer p-4  border bg-gray-50 dark:bg-transparent dark:border-orange-600 border-gray-500 border-opacity-50 rounded-lg w-[400px] h-80"
+        className="cursor-pointer p-4  border bg-gray-50 dark:bg-transparent dark:border-blue-600 border-gray-500 border-opacity-50 rounded-lg w-[400px] h-80"
       >
         <div className="flex">
           <img
@@ -29,7 +29,7 @@ export default function ForumCard({ forum }: { forum: IForum }) {
           </div>
         </div>
         <div className="mt-3 p-3 h-[155px] line-clamp-6 overflow-hidden">
-          <p className="tracking-wide text-gray-500 dark:text-gray-400">
+          <p className="tracking-wide text-gray-500 dark:text-gray-200">
             {forum.description}
           </p>
         </div>

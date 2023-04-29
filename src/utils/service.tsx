@@ -77,11 +77,13 @@ class Service {
       const url = this.generateUrl(endpoint, id, data, param);
 
       // !Debugging Purposes
-      console.log('url : ', url);
+      // console.log('url : ', url);
 
       const response = await this.getResponse(endpoint.method, data, url);
       result = { data: response.data, isError: false };
-      console.log('response : ', response);
+
+      // !Debugging Purpose
+      // console.log('response : ', response);
     } catch (error) {
       const { response } = error as any;
       console.log('error : ', error);

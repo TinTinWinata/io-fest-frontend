@@ -1,7 +1,9 @@
 import { Player } from '@lottiefiles/react-lottie-player';
+import { useTheme } from '../../../hooks/theme-context';
 import DescriptionContent from './description-content';
 
 export default function Description() {
+  const { isDarkTheme } = useTheme();
   const getDivClass = () => 'text-center center my-24';
   return (
     <div className="relative overflow-hidden">
@@ -16,7 +18,7 @@ export default function Description() {
           >
             <path
               d="M122.078 705C318 305 378 0.5 378 0.5H761.5C761.5 0.5 995.5 142 751.62 727C507.74 1312 731.5 2206.5 731.5 2206.5H272C-38.1576 1748.52 -73.8447 1105 122.078 705Z"
-              fill="#eff6ff"
+              fill={isDarkTheme ? '#141c2e' : '#eff6ff'}
             />
           </svg>
         </div>

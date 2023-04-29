@@ -15,11 +15,11 @@ export default function FormDetail({
   inputRef,
 }: FormDetailProps) {
   const getAnswerClass = (index: number) =>
-    `w-full border border-blue-600 dark:border-gray-700 cursor-pointer dark:border-opacity-30 border-opacity-20 rounded-md p-3 text-sm tracking-wider my-2 dark:hover:bg-orange-600 hover:bg-blue-600 hover:text-gray-50 transition-all dark:text-gray-200 ${
+    `w-full border border-blue-600 dark:border-gray-700 cursor-pointer dark:border-opacity-30 border-opacity-20 rounded-md p-3 text-sm tracking-wider my-2 dark:hover:bg-blue-600 hover:bg-blue-600 hover:text-gray-50 transition-all dark:text-gray-200 ${
       index == activeBox ? getActiveClass() : ' text-gray-500 '
     }`;
 
-  const getActiveClass = () => ' bg-blue-600 text-gray-50 dark:bg-orange-600 ';
+  const getActiveClass = () => ' bg-blue-600 text-gray-50 dark:bg-blue-600 ';
 
   return (
     <div className="relative">

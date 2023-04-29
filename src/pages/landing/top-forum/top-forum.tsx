@@ -30,7 +30,7 @@ export default function TopForum() {
           />
         </div>
         <h1 className="text-4xl font-serif font-bold" data-aos="fade-up">
-          Forum teratas di CariTahu.id
+          Forum Teratas di CariTahu.id
         </h1>
         <p className="opacity-90 text-lg font-semibold p-5" data-aos="fade-up">
           Bertanya Tak Merugikan Cegah Penyakit Sebelum Terlambat, Yuk Cari
@@ -41,7 +41,10 @@ export default function TopForum() {
             <LandingForum forum={forum} key={index} />
           ))}
         </div>
-        <p data-aos="fade-up" className="text-xs text-gray-500">
+        <p
+          data-aos="fade-up"
+          className="text-sm text-gray-500 dark:text-gray-200"
+        >
           Forum tidak mengandung kata SARA, Pornografi, dan Ungkapan kasar
         </p>
         <button

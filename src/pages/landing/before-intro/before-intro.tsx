@@ -38,7 +38,7 @@ export default function BeforeIntro() {
           </h1>
           <button
             onClick={handleClickButton}
-            className="py-4 px-8  text-md bg-blue-600 hover:bg-blue-500 dark:bg-orange-500 dark:hover:bg-orange-400 text-white font-semibold my-3"
+            className="py-4 px-8  text-md bg-blue-600 hover:bg-blue-500 dark:bg-blue-500 dark:hover:bg-blue-400 text-white font-semibold my-3"
           >
             Saya Mau Sehat
           </button>

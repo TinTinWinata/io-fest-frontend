@@ -11,8 +11,8 @@ export default function TabContainer({ tabs }: { tabs: ITab[] }) {
 
   const getActiveHeaderTabClass = (index: number) =>
     tabIndex === index
-      ? ' bg-blue-500 text-white dark:bg-orange-600  '
-      : ' text-blue-500  dark:text-orange-600 ';
+      ? ' bg-blue-500 text-white dark:bg-blue-600  '
+      : ' text-blue-500  dark:text-blue-600 ';
 
   const handleClick = (index: number) => setTabIndex(index);
 
@@ -25,7 +25,7 @@ export default function TabContainer({ tabs }: { tabs: ITab[] }) {
             key={index}
             onClick={() => handleClick(index)}
             className={
-              'cursor-pointer py-3 px-10 text-center w-full font-semibold rounded-md mx-2 border border-blue-500  hover:bg-blue-500 hover:text-white transition-all mb-2 dark:border-orange-500 dark:text-gray-200  dark:hover:text-white dark:hover:bg-orange-600' +
+              'cursor-pointer py-3 px-10 text-center w-full font-semibold rounded-md mx-2 border border-blue-500  hover:bg-blue-500 hover:text-white transition-all mb-2 dark:border-blue-500 dark:text-gray-200  dark:hover:text-white dark:hover:bg-blue-600' +
               getActiveHeaderTabClass(index)
             }
           >

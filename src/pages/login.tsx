@@ -34,7 +34,7 @@ export default function Login() {
       {/* <div className="absolute w-full h-full blur-lg  bg-gray-500 opacity-50 left-0 top-0"></div> */}
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="relative z-40 bg-white dark:bg-gray-900 dark:border-gray-500 dark:border-opacity-50 dark:border py-8 px-4 shadow sm:rounded-lg sm:px-10">
+        <div className="relative z-40 bg-white dark:bg-gray-900 dark:border-blue-500 dark:border-opacity-50 dark:border py-8 px-4 shadow sm:rounded-lg sm:px-10">
           <form
             onSubmit={handleSubmit}
             className="space-y-6"
@@ -102,7 +102,7 @@ export default function Login() {
               <div className="text-sm">
                 <Link
                   to="/register"
-                  className="font-medium text-blue-600 hover:text-blue-500 dark:text-orange-600"
+                  className="font-medium text-blue-600 hover:text-blue-500 dark:text-blue-600"
                 >
                   Buat akun baru disini
                 </Link>
@@ -112,7 +112,7 @@ export default function Login() {
             <div>
               <button
                 type="submit"
-                className="transition-all w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:bg-orange-600 hover:dark:bg-orange-500"
+                className="transition-all w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:bg-blue-600 hover:dark:bg-blue-500"
               >
                 Masuk
               </button>
@@ -132,6 +132,7 @@ export default function Login() {
             </div>
             <div className="w-full center mt-3">
               <GoogleLogin
+                theme={isDarkTheme ? 'filled_blue' : 'outline'}
                 size="large"
                 width="375"
                 onSuccess={handleOnSuccess}
