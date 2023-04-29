@@ -46,7 +46,6 @@ export default function Sidebar() {
   const isLocationAllowed = () =>
     ALLOWED_LINK.some((link) => location.pathname.includes(link));
   const getClass = () => (close ? 'left-[-225px]' : 'left-0');
-  // console.log('result : ', isAuth(), ' | ', isLocationAllowed());
   if (isAuth() && isLocationAllowed())
     return (
       <div

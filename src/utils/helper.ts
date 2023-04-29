@@ -13,14 +13,6 @@ export const removeSliceInfront = (url: string): string =>
   url.startsWith('/') ? url.substring(1) : url;
 
 export const getImageUrl = (url?: string): string => {
-  if (url) {
-    console.log(
-      'url : ',
-      !url.startsWith('http')
-        ? getBackendImageUrl() + removeSliceInfront(url)
-        : url
-    );
-  }
   if (!url) return '/assets/default_profile_picture.webp';
   else
     return !url.startsWith('http')

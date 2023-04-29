@@ -10,7 +10,6 @@ export default function ProgressBar({
   const [progress, setProgress] = useState<number>(0);
   const calculateProgress = () => setProgress(Math.ceil((from / to) * 100));
   useEffect(() => calculateProgress(), [from, to]);
-  console.log('progress : ', progress);
   return (
     <>
       <p className="mb-1 text-md text-gray-500 dark:text-gray-200">{`Question ${from} / ${to}`}</p>

@@ -86,7 +86,6 @@ export default function Forms({ forms }: { forms: IFormQuestion[] }) {
     }
   };
 
-  useEffect(() => console.log('answers : ', answers), [answers]);
 
   if (finish) {
     return (

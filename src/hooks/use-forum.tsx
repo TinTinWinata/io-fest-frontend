@@ -46,7 +46,6 @@ export default function useForum() {
       forumId: forumId,
     };
 
-    console.log('data : ', data);
     const service = new Service(user.token);
     const response = await service.request(
       endpoints.forumDelete,

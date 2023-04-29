@@ -21,14 +21,12 @@ export default function UseDiabetics(answers: IFormAnswer[]) {
 
   const fetch = async () => {
     const data = dataConverter(answers);
-    console.log('data : ', data);
     const service = new Service(undefined, ContentType.JSON, true);
     const response = await service.request(
       endpoints.diabetics,
       undefined,
       data
     );
-    console.log('response : ', response);
     if (response.isError) {
       toastError(response.data);
     } else {
@@ -39,7 +37,7 @@ export default function UseDiabetics(answers: IFormAnswer[]) {
   useEffect(() => {
     if (answers.length > 0) {
       fetch();
-    } else console.log('TIDAK ADA ANSWER');
+    }
   }, [answers]);
 
   return { data };
