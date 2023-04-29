@@ -9,8 +9,14 @@ export default function BeforeIntroText({
 }: IBeforeIntroTextProps) {
   return (
     <div className="flex my-3">
-      <h1 className="font-bold text-5xl">{number}</h1>
-      <p className="ml-5 mt-3 tracking-wider text-xl font-semibold">{text}</p>
+      <div className="center">
+        <h1 className="font-bold text-8xl opacity-40">{number}</h1>
+      </div>
+      <div className="center">
+        <p className="ml-5 mt-2 tracking-wider text-5xl font-semibold">
+          {text}
+        </p>
+      </div>
     </div>
   );
 }

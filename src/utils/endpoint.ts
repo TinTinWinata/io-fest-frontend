@@ -17,6 +17,10 @@ const authEndpoints: EndpointList = {
     url: '/auth/login-google-token',
     method: Method.POST,
   },
+  token: {
+    url: '/auth/token',
+    method: Method.GET,
+  },
 };
 
 const userEndpoints: EndpointList = {

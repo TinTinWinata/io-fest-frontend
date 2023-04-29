@@ -5,7 +5,7 @@ export default function LeftLanding() {
   const navigate = useNavigate();
   const handleClick = () => navigate('/form');
   return (
-    <div className="center" data-aos="fade-up">
+    <div className="center" data-aos="fade-right">
       <div className="">
         <h1 className="font-bold text-7xl font-serif">Yuk Cari Tahu</h1>
         <h1 className="font-bold text-blue-500 font-serif dark:text-orange-600 text-7xl">

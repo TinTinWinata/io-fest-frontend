@@ -8,6 +8,8 @@ export const enum ContentType {
   JSON,
 }
 
+const BACKEND_JWT_EXPIRED_RESPONSE = 'jwt expired';
+
 class Service {
   protected axios: AxiosInstance;
   private getContentType(contentType: ContentType): string {
@@ -41,7 +43,8 @@ class Service {
   ): Promise<any> {
     // Return any because it can return anything (response from backend server)
     if (method === Method.GET) return await this.axios.get(url, data);
-    else if (method === Method.POST) return await this.axios.post(url, data);
+    else if (method === Method.POST)
+      return await this.axios.post(url, data, { withCredentials: true });
     else if (method === Method.PUT) return await this.axios.put(url, data);
     else if (method === Method.PATCH) return await this.axios.patch(url, data);
     else if (method === Method.DELETE)
@@ -78,6 +81,7 @@ class Service {
 
       const response = await this.getResponse(endpoint.method, data, url);
       result = { data: response.data, isError: false };
+      console.log('response : ', response);
     } catch (error) {
       const { response } = error as any;
       console.log('error : ', error);
