@@ -1,26 +1,22 @@
-import { useEffect } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { useUserAuth } from '../hooks/user-context';
-import Detail from '../pages/detail/detail';
+import NotFoundPage from '../pages/404/404';
+import Profile from '../pages/profile/profile';
+import MiddlewareAdminRoutes from './middleware-admin-routes';
 
 export default function MiddlewareRoutes() {
-  const navigate = useNavigate();
-
   // Passing User Auth From (UserContext.tsx)
+
   const { isAuth } = useUserAuth();
 
-  useEffect(() => {
-    if (!isAuth()) {
-      // If not auth then go to '/' (login page at routes)
-      navigate('/');
-    }
-
-    // --------------------------------
-  }, []);
+  if (!isAuth()) {
+    return <NotFoundPage />;
+  }
 
   return (
     <Routes>
-      <Route path="/detail" element={<Detail></Detail>}></Route>
+      <Route path="/profile" element={<Profile />}></Route>
+      <Route path="/*" element={<MiddlewareAdminRoutes />}></Route>
     </Routes>
   );
 }

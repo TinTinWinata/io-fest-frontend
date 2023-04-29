@@ -14,10 +14,8 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { ToastContainer } from 'react-toastify';
-import Admin from './pages/admin/admin';
 import Detail from './pages/detail/detail';
 import Diabetes from './pages/form/diabetes';
-import Profile from './pages/profile/profile';
 import Verification from './pages/verification/verification';
 
 function App() {
@@ -51,30 +49,11 @@ function App() {
                   path="/activation/:id"
                   element={<Verification />}
                 ></Route>
-                <Route path="/admin" element={<Admin />}></Route>
-                <Route path="/profile" element={<Profile />}></Route>
-
-                {/* First Authentication Method Using Authenticate Routes VVV */}
-                {/* 
-            <Route
-            path="/detail"
-            element={
-              <Protected>
-                  <Detail></Detail>
-                </Protected>
-              }
-            ></Route> */}
-
-                {/* ----------------------------------------------------------- */}
-
-                {/* Second Authentication Method Using Middleware Routes VVV (Cleanest)  */}
 
                 <Route
                   path="/*"
                   element={<MiddlewareRoutes></MiddlewareRoutes>}
                 ></Route>
-
-                {/* ---------------------------------------------------------- */}
               </Routes>
             </MainLayout>
           </UserProvider>

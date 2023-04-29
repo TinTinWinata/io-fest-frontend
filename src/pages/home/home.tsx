@@ -1,3 +1,4 @@
+import CreatePostButton from '../../components/create-post-button';
 import ForumCardContainer from '../../components/forum-card-container';
 import InvicibleNavbar from '../../components/invicible-navbar';
 import useForum from '../../hooks/use-forum';
@@ -26,7 +27,7 @@ export default function Home() {
           <ForumCardContainer forums={data}></ForumCardContainer>
         </div>
         {/* I think it's silly */}
-        {/* <CreatePostButton handler={createForum} /> */}
+        <CreatePostButton handler={createForum} />
         <div className="mt-12">
           <Pagination
             setPage={setPage}
