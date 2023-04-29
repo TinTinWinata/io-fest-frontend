@@ -29,9 +29,14 @@ export default function CreatePostButton({ handler }: { handler: any }) {
     if (inputRef.current) inputRef.current.value = '';
   };
 
+  const resetText = () => {
+    setText('');
+  };
+
   return (
     <>
       <CreateForum
+        resetText={resetText}
         handler={handler}
         handleTitle={handleOnChange}
         title={text}
