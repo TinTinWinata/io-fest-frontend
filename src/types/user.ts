@@ -22,14 +22,14 @@ export const EXAMPLE_USER: IUser = {
 };
 
 export type IUserFilterContainer = {
-  admins: IUser[],
-  doctors: IUser[],
-  members: IUser[]
-}
+  admins: IUser[];
+  doctors: IUser[];
+  members: IUser[];
+};
 
 export const enum USER_FILTER {
   ALL,
   MEMBER,
   ADMIN,
-  DOCTOR
+  DOCTOR,
 }

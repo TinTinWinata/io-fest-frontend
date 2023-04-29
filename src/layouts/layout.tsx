@@ -9,7 +9,7 @@ type ContentLayout = {
 export default function MainLayout({ children }: ContentLayout) {
   return (
     <div
-      className="text-secondary bg-gray-100 text-gray-700 dark:bg-gray-900 dark:text-gray-100
+      className="text-secondary bg-blue-50 text-gray-700 dark:bg-gray-900 dark:text-gray-100
     transition-all
     "
     >

@@ -1,5 +1,5 @@
-import { IComment } from "./comment";
-import { IUser } from "./user";
+import { IComment } from './comment';
+import { EXAMPLE_USER, IUser } from './user';
 
 export type IForum = {
   id?: string;
@@ -9,4 +9,14 @@ export type IForum = {
   forumComments: IComment[];
   seen: number;
   createdAt: Date;
+};
+
+export const EXAMPLE_FORUM: IForum = {
+  createdAt: new Date(),
+  creator: EXAMPLE_USER,
+  description: '',
+  forumComments: [],
+  seen: 0,
+  title: '',
+  id: '',
 };

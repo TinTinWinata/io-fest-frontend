@@ -1,3 +1,4 @@
+import { GoogleLogin } from '@react-oauth/google';
 import { Link } from 'react-router-dom';
 import '../css/gradient.css';
 import { useTheme } from '../hooks/theme-context';
@@ -6,7 +7,7 @@ import { ILoginForm } from '../types/auth';
 
 export default function Login() {
   const { isDarkTheme } = useTheme();
-  const { login } = useUserAuth();
+  const { login, loginGoogle } = useUserAuth();
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -19,6 +20,12 @@ export default function Login() {
 
   const getDarkClass = () => (isDarkTheme ? 'bg-gray-900' : 'gradient');
 
+  const handleOnSuccess = (credentialResponse: any) => {
+    if (credentialResponse.credential) {
+      loginGoogle(credentialResponse.credential);
+    }
+  };
+
   return (
     <div className="relative min-h-screen w-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div
@@ -27,15 +34,15 @@ export default function Login() {
       {/* <div className="absolute w-full h-full blur-lg  bg-gray-500 opacity-50 left-0 top-0"></div> */}
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="relative z-40 bg-white dark:bg-gray-900 dark:border-gray-500 dark:border-opacity-50 dark:border py-8 px-4 shadow sm:rounded-lg sm:px-10">
+        <div className="relative z-40 bg-white dark:bg-gray-900 dark:border-blue-500 dark:border-opacity-50 dark:border py-8 px-4 shadow sm:rounded-lg sm:px-10">
           <form
             onSubmit={handleSubmit}
             className="space-y-6"
             action="#"
             method="POST"
           >
-            <h2 className="text-3xl font-bold text-gray-600 dark:text-gray-50">
-              Login
+            <h2 className="font-serif text-3xl font-bold text-gray-600 dark:text-gray-50">
+              Masuk
             </h2>
             <hr className=""></hr>
             <div>
@@ -88,16 +95,16 @@ export default function Login() {
                   htmlFor="remember_me"
                   className="ml-2 block text-sm text-gray-900 dark:text-gray-50"
                 >
-                  Remember me
+                  Ingatkan Saya
                 </label>
               </div>
 
               <div className="text-sm">
                 <Link
                   to="/register"
-                  className="font-medium text-blue-600 hover:text-blue-500 dark:text-orange-600"
+                  className="font-medium text-blue-600 hover:text-blue-500 dark:text-blue-600"
                 >
-                  Create your account here
+                  Buat akun baru disini
                 </Link>
               </div>
             </div>
@@ -105,9 +112,9 @@ export default function Login() {
             <div>
               <button
                 type="submit"
-                className="transition-all w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:bg-orange-600 hover:dark:bg-orange-500"
+                className="transition-all w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:bg-blue-600 hover:dark:bg-blue-500"
               >
-                Sign in
+                Masuk
               </button>
             </div>
           </form>
@@ -119,9 +126,17 @@ export default function Login() {
               </div>
               <div className="relative flex justify-center text-sm">
                 <span className=" px-2 bg-white dark:bg-gray-900 text-gray-500 dark:text-gray-100">
-                  Or continue with
+                  Atau bisa masuk menggunakan
                 </span>
               </div>
+            </div>
+            <div className="w-full center mt-3">
+              <GoogleLogin
+                theme={isDarkTheme ? 'filled_blue' : 'outline'}
+                size="large"
+                width="375"
+                onSuccess={handleOnSuccess}
+              />
             </div>
           </div>
         </div>

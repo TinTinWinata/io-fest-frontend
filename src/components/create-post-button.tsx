@@ -57,13 +57,13 @@ export default function CreatePostButton({ handler }: { handler: any }) {
             onFocus={handleOnFocus}
             type="search"
             id="default-search"
-            className="italic font-medium w-[230px] block p-4 pl-10 text-xl text-gray-50 border placeholder-gray-50 border-blue-500 rounded-lg bg-blue-400 dark:bg-orange-400 dark:border-orange-500 focus:none focus:outline-none focus:w-[400px] transition-all"
+            className="italic font-medium w-[230px] block p-4 pl-10 text-xl text-gray-50 border placeholder-gray-50 border-blue-500 rounded-lg bg-blue-400 dark:bg-blue-400 dark:border-blue-500 focus:none focus:outline-none focus:w-[400px] transition-all"
             placeholder="Create Post"
             required
           />
           <div className="relative">
             <button
-              className="dark:bg-orange-500 dark:hover:bg-orange-600 cursor-pointer absolute left-[-40px] rounded-[100%] w-20 h-20 top-[50%] translate-y-[-50%]  hover:bg-blue-600 transition-all bg-blue-500"
+              className="dark:bg-blue-500 dark:hover:bg-blue-600 cursor-pointer absolute left-[-40px] rounded-[100%] w-20 h-20 top-[50%] translate-y-[-50%]  hover:bg-blue-600 transition-all bg-blue-500"
               type="submit"
             >
               <Player

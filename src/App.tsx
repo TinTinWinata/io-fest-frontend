@@ -10,16 +10,17 @@ import Landing from './pages/landing/landing';
 import Login from './pages/login';
 import Register from './pages/register/register';
 
+import { GoogleOAuthProvider } from '@react-oauth/google';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { ToastContainer } from 'react-toastify';
-import Admin from './pages/admin/admin';
 import Detail from './pages/detail/detail';
 import Diabetes from './pages/form/diabetes';
-import Profile from './pages/profile/profile';
 import Verification from './pages/verification/verification';
 
 function App() {
+  const handleCallback = () => {};
+
   useEffect(() => {
     // Initiate AOS
     AOS.init();
@@ -30,48 +31,34 @@ function App() {
     <BrowserRouter>
       {/* Toast container */}
       <ToastContainer />
-      <ThemeProvider>
-        {/* Bundled with User Provider for getting user context (UserContext.tsx) */}
-        <UserProvider>
-          {/* Bundled with Main Layout (layout.tsx) */}
-          <MainLayout>
-            <Routes>
-              {/* All Routes [Login] (no need authenticate routes) (login.tsx) */}
-              <Route path="/" element={<Landing />}></Route>
-              <Route path="/home" element={<Home />}></Route>
-              <Route path="/register" element={<Register />}></Route>
-              <Route path="/detail/:id" element={<Detail />}></Route>
-              <Route path="/form" element={<Diabetes />}></Route>
-              <Route path="/login" element={<Login />}></Route>
-              <Route path="/activation/:id" element={<Verification />}></Route>
-              <Route path="/admin" element={<Admin />}></Route>
-              <Route path="/profile" element={<Profile />}></Route>
+      <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
+        <ThemeProvider>
+          {/* Bundled with User Provider for getting user context (UserContext.tsx) */}
+          <UserProvider>
+            {/* Bundled with Main Layout (layout.tsx) */}
+            <MainLayout>
+              <Routes>
+                {/* All Routes [Login] (no need authenticate routes) (login.tsx) */}
+                <Route path="/" element={<Landing />}></Route>
+                <Route path="/home" element={<Home />}></Route>
+                <Route path="/register" element={<Register />}></Route>
+                <Route path="/detail/:id" element={<Detail />}></Route>
+                <Route path="/form" element={<Diabetes />}></Route>
+                <Route path="/login" element={<Login />}></Route>
+                <Route
+                  path="/activation/:id"
+                  element={<Verification />}
+                ></Route>
 
-              {/* First Authentication Method Using Authenticate Routes VVV */}
-              {/* 
-            <Route
-            path="/detail"
-            element={
-              <Protected>
-                  <Detail></Detail>
-                </Protected>
-              }
-            ></Route> */}
-
-              {/* ----------------------------------------------------------- */}
-
-              {/* Second Authentication Method Using Middleware Routes VVV (Cleanest)  */}
-
-              <Route
-                path="/*"
-                element={<MiddlewareRoutes></MiddlewareRoutes>}
-              ></Route>
-
-              {/* ---------------------------------------------------------- */}
-            </Routes>
-          </MainLayout>
-        </UserProvider>
-      </ThemeProvider>
+                <Route
+                  path="/*"
+                  element={<MiddlewareRoutes></MiddlewareRoutes>}
+                ></Route>
+              </Routes>
+            </MainLayout>
+          </UserProvider>
+        </ThemeProvider>
+      </GoogleOAuthProvider>
     </BrowserRouter>
   );
 }

@@ -5,13 +5,13 @@ export default function LeftLanding() {
   const navigate = useNavigate();
   const handleClick = () => navigate('/form');
   return (
-    <div className="center" data-aos="fade-up">
+    <div className="center" data-aos="fade-right">
       <div className="">
-        <h1 className="font-bold text-7xl">Yuk Cari Tahu</h1>
-        <h1 className="font-bold text-blue-500 dark:text-orange-600 text-7xl">
+        <h1 className="font-bold text-7xl font-serif">Yuk Cari Tahu</h1>
+        <h1 className="font-bold text-blue-500 font-serif dark:text-blue-600 text-7xl">
           Penyakitmu
         </h1>
-        <p className="text-gray-400 text-2xl w-3/4 my-6 tracking-widest">
+        <p className="text-gray-400 text-2xl dark:text-gray-200 w-3/4 my-6 tracking-widest">
           Diabetes sudah memakan banyak korban. Apakah kamu salah satunya ?
         </p>
         <div className="">
@@ -21,7 +21,7 @@ export default function LeftLanding() {
             handler={handleClick}
           ></SimpleButton>
         </div>
-        <p className="my-3 text-gray-400 tracking-wide">
+        <p className="dark:text-gray-300 my-3 text-gray-400 tracking-wide">
           Cari tahu beberapa berbahaya nya diabetes
         </p>
       </div>

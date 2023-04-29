@@ -45,7 +45,7 @@ export default function Register() {
         getDarkClass()
       }
     >
-      <div className="p-8 rounded-lg bg-white dark:bg-gray-900  dark:border-gray-500 dark:border-opacity-50 dark:border max-w-md w-full space-y-8">
+      <div className="p-8 rounded-lg bg-white dark:bg-gray-900  dark:border-blue-500 dark:border-opacity-50 dark:border max-w-md w-full space-y-8">
         {showEmail ? (
           <RegistrationEmailSended successRef={successRef} email={email} />
         ) : (

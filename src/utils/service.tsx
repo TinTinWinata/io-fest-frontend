@@ -8,9 +8,10 @@ export const enum ContentType {
   JSON,
 }
 
+const BACKEND_JWT_EXPIRED_RESPONSE = 'jwt expired';
+
 class Service {
   protected axios: AxiosInstance;
-
   private getContentType(contentType: ContentType): string {
     return contentType == ContentType.JSON
       ? 'application/json'
@@ -19,9 +20,12 @@ class Service {
 
   constructor(
     accessToken?: string,
-    contentType: ContentType = ContentType.JSON
+    contentType: ContentType = ContentType.JSON,
+    aiService: boolean = false
   ) {
-    const baseURL = import.meta.env.VITE_API_URL;
+    const baseURL = !aiService
+      ? import.meta.env.VITE_API_URL
+      : import.meta.env.VITE_AI_API_URL;
     const axiosConfig: AxiosRequestConfig = {
       baseURL,
       headers: {
@@ -39,11 +43,12 @@ class Service {
   ): Promise<any> {
     // Return any because it can return anything (response from backend server)
     if (method === Method.GET) return await this.axios.get(url, data);
-    else if (method === Method.POST) return await this.axios.post(url, data);
+    else if (method === Method.POST)
+      return await this.axios.post(url, data, { withCredentials: true });
     else if (method === Method.PUT) return await this.axios.put(url, data);
     else if (method === Method.PATCH) return await this.axios.patch(url, data);
     else if (method === Method.DELETE)
-      return await this.axios.delete(url, data);
+      return await this.axios.delete(url, { data: data });
   }
 
   public generateUrl(
@@ -70,9 +75,15 @@ class Service {
     let result: ResponseType;
     try {
       const url = this.generateUrl(endpoint, id, data, param);
+
+      // !Debugging Purposes
       // console.log('url : ', url);
+
       const response = await this.getResponse(endpoint.method, data, url);
       result = { data: response.data, isError: false };
+
+      // !Debugging Purpose
+      // console.log('response : ', response);
     } catch (error) {
       const { response } = error as any;
       console.log('error : ', error);

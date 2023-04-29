@@ -164,6 +164,25 @@ export function UserProvider({ children }: IChildrenOnly) {
     }
   }
 
+  const loginGoogle = async (token: string) => {
+    const service = new Service();
+    const id = toastLoading('Wait the system check in on you');
+    const response = await service.request(endpoints.googleLogin, undefined, {
+      token: token,
+    });
+    if (response.isError) {
+      toastUpdateFailed(
+        id,
+        'Failed to login your profile, please try again later!'
+      );
+      displayError([response.data]);
+    } else {
+      toastUpdateSuccess(id, 'Succesfully login to your account, Welcome!');
+      setUser(responseAdapter(response));
+      navigate('/home');
+    }
+  };
+
   function isAuth() {
     return user !== DEFAULT_USER;
   }
@@ -181,6 +200,7 @@ export function UserProvider({ children }: IChildrenOnly) {
     changeProfilePicture,
     updateUserData,
     isDoctor,
+    loginGoogle,
   };
 
   return <userContext.Provider value={data}>{children}</userContext.Provider>;

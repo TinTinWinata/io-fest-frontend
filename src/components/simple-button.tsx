@@ -6,7 +6,7 @@ export default function SimpleButton({ text, handler, moreClass }: IButton) {
       onClick={handler}
       type="button"
       className={
-        'inline-flex items-center border border-transparent  leading-4 font-medium text-white bg-blue-600 hover:bg-blue-500 focus:outline-none dark:bg-orange-600 ' +
+        'inline-flex items-center border border-transparent  leading-4 font-medium text-white bg-blue-600 hover:bg-blue-500 focus:outline-none dark:bg-blue-600 ' +
         moreClass
       }
     >

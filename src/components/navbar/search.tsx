@@ -28,7 +28,7 @@ export default function Search() {
         <input
           type="search"
           id="default-search"
-          className="w-60 block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:none focus:outline-none focus:w-80 transition-all"
+          className="w-60 block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg dark:text-white dark:bg-transparent focus:none focus:outline-none focus:w-80 transition-all"
           placeholder="Search"
           required
         />

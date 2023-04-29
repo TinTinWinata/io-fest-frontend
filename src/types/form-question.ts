@@ -1,4 +1,6 @@
-export type IFormQuestion  = {
-  question: string
-  answer : string[],
-}
+export type IFormQuestion = {
+  question: string;
+  questionValue: string;
+  answer: string[];
+  answerValue: number[];
+};

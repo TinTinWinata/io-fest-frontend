@@ -11,7 +11,7 @@ export default function ForumCard({ forum }: { forum: IForum }) {
       <div
         data-aos="fade-up"
         onClick={handleClick}
-        className="cursor-pointer p-4 m-4 border bg-gray-50 dark:bg-transparent dark:border-orange-600 border-blue-500 rounded-lg w-[400px] h-80"
+        className="cursor-pointer p-4  border bg-gray-50 dark:bg-transparent dark:border-blue-600 border-gray-500 border-opacity-50 rounded-lg w-[400px] h-80"
       >
         <div className="flex">
           <img
@@ -21,15 +21,15 @@ export default function ForumCard({ forum }: { forum: IForum }) {
           />
           <div className="center">
             <div className="ml-2">
-              <h1 className="font-bold">{forum.title}</h1>
-              <h3 className="text-gray-500 dark:text-gray-400">
+              <h1 className="font-bold font-serif">{forum.title}</h1>
+              <h3 className="text-gray-500 opacity-75 dark:text-gray-400">
                 {forum.creator.name}
               </h3>
             </div>
           </div>
         </div>
         <div className="mt-3 p-3 h-[155px] line-clamp-6 overflow-hidden">
-          <p className="tracking-wide text-gray-500 dark:text-gray-400">
+          <p className="tracking-wide text-gray-500 dark:text-gray-200">
             {forum.description}
           </p>
         </div>

@@ -16,7 +16,7 @@ export default function Detail() {
   return (
     <div className="min-w-screen min-h-screen">
       <InvicibleNavbar />
-      <div className="mb-12 bg-gray-50 dark:bg-transparent w-[80vw] p-3 rounded-md  dark:border-orange-500 border-blue-500 border">
+      <div className="mb-12 bg-gray-50 dark:bg-transparent w-[80vw] p-3 rounded-md  dark:border-blue-500 border-gray-500 border-opacity-50 border">
         {/* creator */}
         <div className="flex ">
           <div className="center">
@@ -29,7 +29,7 @@ export default function Detail() {
           <div className="center">
             <div className="ml-2">
               <div className="ml-1 font-semibold">{data.creator.name}</div>
-              <div className="text-sm">( {data.creator.role} )</div>
+              <div className="text-sm opacity-80">( {data.creator.role} )</div>
             </div>
           </div>
         </div>
