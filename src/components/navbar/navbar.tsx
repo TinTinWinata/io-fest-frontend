@@ -24,7 +24,7 @@ export default function Navbar() {
   return (
     <div
       className={
-        'transition-all backdrop-blur-md  z-[200] w-[80%] mt-2 rounded-full translate-x-[-50%] left-[50%] top-0 fixed flex justify-around font-semibold h-20 center ' +
+        'transition-all backdrop-blur-md  z-[200] w-[100%]  translate-x-[-50%] left-[50%] top-0 fixed flex justify-around font-semibold h-20 center ' +
         getScrollingClass() +
         getColorClass()
       }
