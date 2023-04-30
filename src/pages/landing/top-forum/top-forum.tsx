@@ -2,6 +2,7 @@ import { Player } from '@lottiefiles/react-lottie-player';
 import { useNavigate } from 'react-router-dom';
 import LandingForum from '../../../components/landing-forum';
 import useForum from '../../../hooks/use-forum';
+import TopForumCloud from './top-forum-cloud';
 
 export default function TopForum() {
   const { data } = useForum();
@@ -13,22 +14,7 @@ export default function TopForum() {
         data-aos="fade-up"
         className="relative flex justify-center text-center items-center flex-col"
       >
-        <div className="absolute right-[-150px] z-50 top-[-30px]">
-          <Player
-            autoplay
-            loop
-            className="w-52 h-52"
-            src="/assets/cloud.json"
-          />
-        </div>
-        <div className="transform scale-x-[-1] absolute left-[-150px] z-50 top-[-30px]">
-          <Player
-            autoplay
-            loop
-            className="w-52 h-52"
-            src="/assets/cloud.json"
-          />
-        </div>
+        <TopForumCloud />
         <h1 className="text-4xl font-serif font-bold" data-aos="fade-up">
           Forum Teratas di CariTahu.id
         </h1>

@@ -10,7 +10,7 @@ export default function DescriptionContent({
   text,
 }: IDescriptionContentProps) {
   return (
-    <div className="w-1/2 text-left">
+    <div className="w-5/12 text-left">
       <h1 data-aos="fade-up" className="font-bold text-5xl font-serif">
         {title}
       </h1>

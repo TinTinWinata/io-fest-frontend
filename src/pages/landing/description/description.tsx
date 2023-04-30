@@ -4,7 +4,7 @@ import DescriptionContent from './description-content';
 
 export default function Description() {
   const { isDarkTheme } = useTheme();
-  const getDivClass = () => 'text-center center my-24';
+  const getDivClass = () => 'text-center center my-40';
   return (
     <div className="relative overflow-hidden">
       <div className="absolute opacity-50 left-[-600px] w-full h-full z-0 text-red-300">
@@ -34,9 +34,9 @@ export default function Description() {
         meredakan stresmu agar tubuh dan pikiranmu tetap sehat."
           title="Cara Mengurangi Stres dengan Mudah"
         />
-        <div className="">
+        <div className="pl-14">
           <Player
-            data-aos="fade-up"
+            // data-aos="fade-up"
             className="mt-5 w-96 h-96"
             autoplay
             loop
@@ -46,9 +46,9 @@ export default function Description() {
       </div>
       {/* Second */}
       <div className={getDivClass()}>
-        <div className="mr-10">
+        <div className="pr-20">
           <Player
-            data-aos="fade-up"
+            // data-aos="fade-up"
             className="mt-5 w-96 h-96"
             autoplay
             loop

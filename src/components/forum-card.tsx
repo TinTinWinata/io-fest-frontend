@@ -21,7 +21,7 @@ export default function ForumCard({ forum }: { forum: IForum }) {
           />
           <div className="center">
             <div className="ml-2">
-              <h1 className="font-bold font-serif">{forum.title}</h1>
+              <h1 className="font-bold">{forum.title}</h1>
               <h3 className="text-gray-500 opacity-75 dark:text-gray-400">
                 {forum.creator.name}
               </h3>
