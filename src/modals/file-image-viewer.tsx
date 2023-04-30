@@ -1,6 +1,9 @@
 import { Dispatch, SetStateAction } from 'react';
 import { SlClose } from 'react-icons/sl';
-import { IForumAttachment } from '../types/forum-attachment';
+import {
+  FORUM_ATTACHMENT_TYPE,
+  IForumAttachment,
+} from '../types/forum-attachment';
 import { getForumImage } from '../utils/helper';
 
 interface IFileImageViewer {
@@ -23,7 +26,12 @@ export default function FileImageViewer({
         >
           <SlClose className="w-8 h-8 text-white " />
         </div>
-        <img src={getForumImage(file)} alt={file.forumId} />
+        {file.type === FORUM_ATTACHMENT_TYPE.image && (
+          <img src={getForumImage(file)} alt={file.forumId} />
+        )}
+        {file.type === FORUM_ATTACHMENT_TYPE.video && (
+          <video src={getForumImage(file)} controls />
+        )}
       </div>
     </div>
   );

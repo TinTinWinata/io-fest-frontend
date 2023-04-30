@@ -41,7 +41,11 @@ export default function Detail() {
           <div className="">{data.description}</div>
         </div>
         {/* Preview Attachment */}
-        <div className="flex gap-2 mb-2 ml-4">
+
+        {data.forumAttachments && data.forumAttachments.length > 0 && (
+          <p className="ml-5 text-sm text-gray-500 mb-1">Attachment : </p>
+        )}
+        <div className="flex gap-2 mb-2 ml-5">
           {data.forumAttachments?.map((attachment, index) => (
             <PreviewAttachment attachment={attachment} key={index} />
           ))}

@@ -75,7 +75,6 @@ class Service {
   ) {
     let result: ResponseType;
     try {
-      
       const url = this.generateUrl(endpoint, id, data, param);
 
       // !Debugging Purposes

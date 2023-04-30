@@ -1,5 +1,8 @@
 import useFileViewer from '../../hooks/file-viewer-context';
-import { IForumAttachment } from '../../types/forum-attachment';
+import {
+  FORUM_ATTACHMENT_TYPE,
+  IForumAttachment,
+} from '../../types/forum-attachment';
 import { getForumImage } from '../../utils/helper';
 
 interface IPreviewAttachmentProps {
@@ -14,9 +17,20 @@ export default function PreviewAttachment({
   const handleClick = () => {
     setFile(attachment);
   };
+  const getClass = () => 'w-16 h-16 object-cover';
+
   return (
-    <div onClick={handleClick} className="w-fit cursor-pointer">
-      <img className="w-10 h-10" src={getForumImage(attachment)} />
+    <div
+      onClick={handleClick}
+      className="relative overflow-hidden w-16 h-16 cursor-pointer rounded-md"
+    >
+      <div className="absolute w-full h-full bg-black bg-opacity-10"></div>
+      {attachment.type === FORUM_ATTACHMENT_TYPE.image && (
+        <img className={getClass()} src={getForumImage(attachment)} />
+      )}
+      {attachment.type === FORUM_ATTACHMENT_TYPE.video && (
+        <video className={getClass()} src={getForumImage(attachment)} />
+      )}
     </div>
   );
 }
