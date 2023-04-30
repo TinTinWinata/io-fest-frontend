@@ -7,6 +7,7 @@ import {
   useState,
 } from 'react';
 import EmojiContainer from '../components/emoji-picker/emoji-container';
+import FileViewer from '../components/file-viewer';
 import HandleIcon from '../components/footer/handle-icon';
 import { useUserAuth } from '../hooks/user-context';
 import { getImageUrl } from '../utils/helper';
@@ -30,25 +31,43 @@ export default function CreateForum({
   resetText,
 }: ICreateForumProps) {
   const { user } = useUserAuth();
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+
   const imageInputRef = createRef<HTMLInputElement>();
   const videoInputRef = createRef<HTMLInputElement>();
   const descInputRef = createRef<HTMLTextAreaElement>();
   const [isOpenEmoji, setIsOpenEmoji] = useState<boolean>(false);
 
+  const handleFileInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files) {
+      const files = event.target.files;
+      const fileList = Array.from(files);
+      setSelectedFiles((prev) => [...prev, ...fileList]);
+    }
+  };
+
   const handleImage = () => imageInputRef.current?.click();
   const handleVideo = () => videoInputRef.current?.click();
-  const getEmojiClass = () => (isOpenEmoji ? '' : 'hidden');
   const handleEmoji = () => setIsOpenEmoji(!isOpenEmoji);
+
   const handleOnSubmit = async (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (descInputRef.current) await handler(title, descInputRef.current.value);
+    if (descInputRef.current)
+      await handler(title, descInputRef.current.value, selectedFiles);
     resetText();
+    handler;
+    setSelectedFiles([]);
     setOpen(false);
+  };
+  const removeFile = (key: number) => {
+    setSelectedFiles((prev) => {
+      return prev.filter((item, index) => index !== key);
+    });
   };
 
   const handleEmojiClick = (e: any) => {
     if (descInputRef.current && 'value' in descInputRef.current) {
-      descInputRef.current.value = descInputRef.current.value + e.emoji;
+      descInputRef.current.value = descInputRef.current.value + e;
     }
   };
 
@@ -139,17 +158,31 @@ export default function CreateForum({
                       ref={imageInputRef}
                       type="file"
                       hidden
+                      onChange={handleFileInputChange}
                       accept=".jpg"
+                      multiple
                     />
                     <input
+                      onChange={handleFileInputChange}
                       ref={videoInputRef}
                       type="file"
                       hidden
                       accept=".mp4"
+                      multiple
                     />
                     <p></p>
                   </div>
                 </div>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {selectedFiles.map((file, index) => (
+                  <FileViewer
+                    index={index}
+                    handleRemove={removeFile}
+                    file={file}
+                    key={index}
+                  />
+                ))}
               </div>
               <hr className="w-full h-1 mt-2"></hr>
               <div className="mt-5 sm:mt-6">
@@ -158,14 +191,14 @@ export default function CreateForum({
                     <HandleIcon
                       icon={{
                         image_url: '/assets/icon/video-96.png',
-                        handle: handleImage,
+                        handle: handleVideo,
                         more_class: 'bg-blue-100',
                       }}
                     />
                     <HandleIcon
                       icon={{
                         image_url: '/assets/icon/image-96.png',
-                        handle: handleVideo,
+                        handle: handleImage,
                         more_class: 'bg-sky-100',
                       }}
                     />
@@ -178,14 +211,15 @@ export default function CreateForum({
                         }}
                       />
                       <div
-                        className={`absolute bottom-[70%] left-10 transition-all ${getEmojiClass()}`}
+                        className={`absolute bottom-[70%] left-10 transition-all`}
                       >
-                        <EmojiContainer emojis={['😊', '🙏', '❤️', '😜']} />
-                        {/* <EmojiPicker
-                          emojiStyle={EmojiStyle.GOOGLE}
-                          lazyLoadEmojis={true}
-                          onEmojiClick={handleEmojiClick}
-                        /> */}
+                        {isOpenEmoji && (
+                          <EmojiContainer
+                            setOpen={setIsOpenEmoji}
+                            handler={handleEmojiClick}
+                            emojis={['😊', '🙏', '❤️', '😜']}
+                          />
+                        )}
                       </div>
                     </div>
                   </div>

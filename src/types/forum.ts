@@ -1,4 +1,5 @@
 import { IComment } from './comment';
+import { IForumAttachment } from './forum-attachment';
 import { EXAMPLE_USER, IUser } from './user';
 
 export type IForum = {
@@ -7,6 +8,7 @@ export type IForum = {
   title: string;
   description: string;
   forumComments: IComment[];
+  forumAttachments?: IForumAttachment[];
   seen: number;
   createdAt: Date;
 };

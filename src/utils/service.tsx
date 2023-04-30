@@ -75,10 +75,11 @@ class Service {
   ) {
     let result: ResponseType;
     try {
+      
       const url = this.generateUrl(endpoint, id, data, param);
 
       // !Debugging Purposes
-      console.log('url : ', url);
+      // console.log('url : ', url);
 
       const response = await this.getResponse(endpoint.method, data, url);
       result = { data: response.data, isError: false };

@@ -1,7 +1,20 @@
-export default function Emoji({ emoji }: { emoji: string }) {
+interface IEmojiProps {
+  emoji: string;
+  handler: (e: any) => void;
+}
+
+export default function Emoji({ emoji, handler }: IEmojiProps) {
   return (
-    <div className="rounded-xl cursor-pointer p-1 hover:bg-gray-50 transition-all">
-      {emoji}
+    <div
+      onClick={() => {
+        handler(emoji);
+      }}
+      className="cursor-pointer p-1  transition-all"
+    >
+      <div className="rounded-full  transition-all hover:bg-blue-100 p-1">
+        {emoji}
+        
+      </div>
     </div>
   );
 }

@@ -6,6 +6,7 @@ import { useUserAuth } from '../../hooks/user-context';
 import { getImageUrl } from '../../utils/helper';
 import Comment from './comment';
 import CreateComment from './create-comment';
+import PreviewAttachment from './preview-attachment';
 
 export default function Detail() {
   const { data, loading, createComment } = useForumDetail();
@@ -39,6 +40,13 @@ export default function Detail() {
           <div className="font-bold text-lg">{data.title}</div>
           <div className="">{data.description}</div>
         </div>
+        {/* Preview Attachment */}
+        <div className="flex gap-2 mb-2 ml-4">
+          {data.forumAttachments?.map((attachment, index) => (
+            <PreviewAttachment attachment={attachment} key={index} />
+          ))}
+        </div>
+
         {/* Forum Extras */}
         <div className="flex justify-between px-2">
           <div className="">

@@ -1,3 +1,4 @@
+import { IForumAttachment } from '../types/forum-attachment';
 import { toastError } from './toast';
 
 export const displayError = (errors: string[]) =>
@@ -19,3 +20,6 @@ export const getImageUrl = (url?: string): string => {
       ? getBackendImageUrl() + removeSliceInfront(url)
       : url;
 };
+
+export const getForumImage = (forumAttachment: IForumAttachment) =>
+  import.meta.env.VITE_API_URL + 'public/forum/' + forumAttachment.path;

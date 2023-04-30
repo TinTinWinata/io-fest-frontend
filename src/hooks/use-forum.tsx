@@ -1,9 +1,10 @@
+import { File } from 'buffer';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { IForum } from '../types/forum';
 import { endpoints } from '../utils/endpoint';
 import { displayError } from '../utils/helper';
-import Service from '../utils/service';
+import Service, { ContentType } from '../utils/service';
 import {
   toastLoading,
   toastUpdateFailed,
@@ -72,7 +73,6 @@ export default function useForum() {
     setLoading(true);
     const service = new Service();
     const search = getSearchText();
-    console.log('search text: ', search);
     if (filter === FORUM_FILTER.Top) {
       const response = await service.request(
         endpoints.forumNewest,
@@ -97,12 +97,18 @@ export default function useForum() {
     setLoading(false);
   };
 
-  const createForum = async (title: string, description: string) => {
-    const data = {
-      title,
-      description,
-    };
-    const service = new Service(user.token);
+  const createForum = async (
+    title: string,
+    description: string,
+    files: File[]
+  ) => {
+    const data = new FormData();
+    data.append('title', title);
+    data.append('description', description);
+    for (let i = 0; i < files.length; i++)
+      data.append('forumAttachments', files[i], files[i].name);
+
+    const service = new Service(user.token, ContentType.MULTIPART);
     const response = await service.request(
       endpoints.forumCreate,
       undefined,

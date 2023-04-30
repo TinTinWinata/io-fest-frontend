@@ -29,6 +29,7 @@ module.exports = {
       purple: colors.purple,
       pink: colors.pink,
       violet: colors.violet,
+      sky: colors.sky,
     },
   },
   plugins: [require('@tailwindcss/line-clamp')],
