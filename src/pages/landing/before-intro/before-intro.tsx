@@ -32,7 +32,7 @@ export default function BeforeIntro() {
 
   return (
     <>
-      <div className="flex w-full h-full text-gray-50">
+      <div className="overflow-hidden relative flex w-full h-full text-gray-50">
         <div className="h-full w-full center">
           <div className="w-1/2">
             <h1 className="font-serif mb-5 text-4xl font-semibold">

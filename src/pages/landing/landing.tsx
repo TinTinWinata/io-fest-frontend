@@ -204,7 +204,7 @@ export default function Landing() {
       <div className="bg-light-blue dark:bg-gray-900 h-fit w-screen center">
         <Description />
       </div>
-      <div className="overflow-hidden relative w-full h-[400px] bg-dark-blue dark:bg-gray-950">
+      <div className="w-full h-[400px] bg-dark-blue dark:bg-gray-950">
         <BeforeIntro />
       </div>
     </div>

@@ -4,10 +4,10 @@ import DescriptionContent from './description-content';
 
 export default function Description() {
   const { isDarkTheme } = useTheme();
-  const getDivClass = () => 'text-center center my-40';
+  const getDivClass = () => 'text-center center w-fit my-24 ';
   return (
-    <div className="relative overflow-hidden">
-      <div className="absolute opacity-50 left-[-600px] w-full h-full z-0 text-red-300">
+    <div className="relative overflow-hidden ">
+      {/* <div className="absolute opacity-50 left-[-600px] w-full h-full z-0 text-red-300">
         <div className="transform scale-x-[-1]">
           <svg
             width="863"
@@ -22,25 +22,21 @@ export default function Description() {
             />
           </svg>
         </div>
-      </div>
+      </div> */}
       {/* First */}
       <div className={getDivClass()}>
-        <hr></hr>
         <DescriptionContent
-          text="Stres dapat mempengaruhi kesehatan mental dan fisik seseorang. Ada
-        beberapa cara mudah untuk mengurangi stres, seperti berolahraga,
-        melakukan meditasi atau yoga, atau menghabiskan waktu dengan melakukan
-        kegiatan yang disukai. Cobalah cari kegiatan yang dapat membantu
-        meredakan stresmu agar tubuh dan pikiranmu tetap sehat."
-          title="Cara Mengurangi Stres dengan Mudah"
+          side="right"
+          text="Stres dapat berdampak negatif pada kesehatan mental dan fisik seseorang. Namun, ada cara mudah untuk mengurangi stres, seperti berolahraga, meditasi, dan melakukan kegiatan yang disukai."
+          title="Mengurangi Stres "
         />
-        <div className="pl-14">
+        <div className="flex ml-20 w-[50%]">
           <Player
             // data-aos="fade-up"
-            className="mt-5 w-96 h-96"
+            className="mt-5 w-[500px] h-[500px]"
             autoplay
             loop
-            src={'/assets/health.json'}
+            src={'/assets/work.json'}
           />
         </div>
       </div>
@@ -56,20 +52,23 @@ export default function Description() {
           />
         </div>
         <DescriptionContent
+          side="left"
           text="Memastikan tidur yang cukup dan berkualitas merupakan bagian penting dari menjaga kesehatan. Kurang tidur dapat meningkatkan risiko obesitas, diabetes, dan masalah kesehatan lainnya."
-          title="Tidur yang cukup dan berkualitas"
+          title="Tidur Cukup dan Berkualitas"
         />
       </div>
       {/* Third */}
       <div className={getDivClass()}>
         <DescriptionContent
-          text="Melakukan pemeriksaan kesehatan secara teratur dapat membantu mencegah dan mendeteksi dini penyakit yang mungkin timbul. Pemeriksaan kesehatan yang dilakukan secara teratur dapat membantu menentukan gaya hidup dan pengobatan yang sesuai dengan kondisi kesehatanmu."
-          title="Periksakan kesehatan secara teratur"
+          side="right"
+          text="Melakukan pemeriksaan kesehatan secara teratur dapat membantu mencegah dan mendeteksi dini penyakit yang mungkin timbul. Pemeriksaan kesehatan yang dilakukan secara teratur dapat membantu menentukan gaya hidup."
+          title="Pemeriksaan Kesehatan Rutin"
         />
-        <div className="">
+        <div className="flex justify-end ml-20 w-[50%] transform scale-x-[-1]">
           <Player
+            // style={{ width: '450px' }}
             data-aos="fade-up"
-            className="mt-5 w-[400px] h-[400px]"
+            className="mt-5 w-[450px]"
             autoplay
             loop
             src={'/assets/check-up.json'}

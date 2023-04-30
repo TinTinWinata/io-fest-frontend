@@ -24,14 +24,11 @@ export default function Navbar() {
   return (
     <div
       className={
-        ' transition-all backdrop-blur-md  z-30 w-[80%] mt-2 rounded-full translate-x-[-50%] left-[50%] top-0 fixed flex justify-around font-semibold h-20 center ' +
+        'transition-all backdrop-blur-md  z-[200] w-[80%] mt-2 rounded-full translate-x-[-50%] left-[50%] top-0 fixed flex justify-around font-semibold h-20 center ' +
         getScrollingClass() +
         getColorClass()
       }
     >
-      {/* {isMustWhite() && (
-        <div className="absolute top-0 left-0 w-full h-full rounded-full bg-gray-500 opacity-20"></div>
-      )} */}
       <div className="w-full">{!isMustWhite() && <Search></Search>}</div>
       <div className="w-full center ">
         <Menu name="Home" url="/home" />
