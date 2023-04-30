@@ -8,12 +8,16 @@ export default function Comment({ comment }: { comment: IComment }) {
       <div className="center flex w-36 ">
         <img
           src={getImageUrl(comment.commenter.profilePicture)}
-          className="w-10 h-10 rounded-full"
+          className="w-10 h-10 rounded-full mr-1"
           alt=""
         />
         <div className="ml-1">
-          <div className="font-semibold ml-1">{comment.commenter.name}</div>
-          <div className="text-sm">( {comment.commenter.role} )</div>
+          <div className="font-semibold text-sm ml-1">
+            {comment.commenter.name}
+          </div>
+          <div className="text-xs text-gray-500 dark:text-gray-50">
+            ( {comment.commenter.role} )
+          </div>
         </div>
 
         {/* Right Line */}

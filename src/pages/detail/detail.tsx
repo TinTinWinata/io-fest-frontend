@@ -43,7 +43,9 @@ export default function Detail() {
         {/* Preview Attachment */}
 
         {data.forumAttachments && data.forumAttachments.length > 0 && (
-          <p className="ml-5 text-sm text-gray-500 mb-1">Attachment : </p>
+          <p className="ml-5 dark:text-gray-50 text-sm text-gray-500 mb-1">
+            Attachment :{' '}
+          </p>
         )}
         <div className="flex gap-2 mb-2 ml-5">
           {data.forumAttachments?.map((attachment, index) => (
