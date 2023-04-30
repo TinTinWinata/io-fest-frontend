@@ -12,7 +12,7 @@ import {
 } from '../utils/toast';
 import { useUserAuth } from './user-context';
 
-enum FORUM_FILTER {
+export enum FORUM_FILTER {
   Top,
   Newest,
 }
@@ -40,6 +40,15 @@ export default function useForum() {
 
   const previousPage = () => isHasPrevPage() && setPage((prev) => prev - 1);
   const resetPage = () => setPage(1);
+
+  const getAllData = async () => {
+    const service = new Service(user.token);
+    const response = await service.request(endpoints.forumGetAll);
+    if (!response.isError) {
+      return response.data.forums;
+    }
+    return [];
+  };
 
   const remove = async (forumId: string) => {
     setLoading(true);
@@ -75,7 +84,7 @@ export default function useForum() {
     const search = getSearchText();
     if (filter === FORUM_FILTER.Top) {
       const response = await service.request(
-        endpoints.forumNewest,
+        endpoints.forumTop,
         undefined,
         undefined,
         { page: page, search: search }
@@ -86,12 +95,14 @@ export default function useForum() {
       setSuccess(!response.isError);
     } else if (filter === FORUM_FILTER.Newest) {
       const response = await service.request(
-        endpoints.forumTop,
+        endpoints.forumNewest,
         undefined,
         undefined,
         { page: page, search: search }
       );
-      setData(response.data);
+      setData(response.data.forums);
+      setTotalForum(response.data.totalForums);
+      setPerPage(response.data.perPage);
       setSuccess(!response.isError);
     }
     setLoading(false);
@@ -140,5 +151,6 @@ export default function useForum() {
     hasPage,
     remove,
     fetchData,
+    getAllData,
   };
 }

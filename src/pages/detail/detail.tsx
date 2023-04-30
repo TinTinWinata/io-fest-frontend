@@ -17,7 +17,7 @@ export default function Detail() {
   return (
     <div className="min-w-screen min-h-screen">
       <InvicibleNavbar />
-      <div className="mb-12 bg-gray-50 dark:bg-transparent w-[80vw] p-3 rounded-md  dark:border-blue-500 border-gray-500 border-opacity-50 border">
+      <div className="shadow-sm mb-12 bg-gray-50 dark:bg-transparent w-[80vw] p-3 rounded-md  dark:border-blue-500 border-gray-500 border-opacity-50 border">
         {/* creator */}
         <div className="flex ">
           <div className="center">

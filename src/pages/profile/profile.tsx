@@ -17,7 +17,7 @@ export default function Profile() {
   return (
     <div className="w-[80vw] min-h-screen mb-20">
       <InvicibleNavbar />
-      <div className="w-full rounded-3xl bg-white dark:bg-transparent border dark:border-blue-500">
+      <div className="w-full rounded-3xl shadow-sm bg-white dark:bg-transparent border dark:border-blue-500">
         {/* Header */}
         <div className="bg-login bg-cover rounded-3xl w-full bg-blue-300  dark:bg-blue-300 h-[300px] relative">
           <div className="absolute rounded-3xl w-full h-full bg-gray-500 dark:bg-gray-800 opacity-50"></div>

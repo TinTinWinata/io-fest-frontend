@@ -7,11 +7,12 @@ import ForumTable from './forum-table';
 
 export default function ForumTableContainer() {
   // const [filter, setFilter] = useState<>();
-  const { data, remove } = useForum();
+  const { remove, getAllData } = useForum();
   const [currForums, setCurrForums] = useState<IForum[]>([]);
   const [openRemoveModal, setOpenRemoveModal] = useState<boolean>(false);
   const [selectedForum, setSelectedForum] = useState<IForum>(EXAMPLE_FORUM);
   const [searchText, setSearchText] = useState<string>('');
+  const [data, setData] = useState<IForum[]>([]);
 
   const handleRemoveUserButton = (forum: IForum) => {
     setSelectedForum(forum);
@@ -39,8 +40,15 @@ export default function ForumTableContainer() {
     );
   };
 
+  const fetchData = async () => {
+    setData(await getAllData());
+  };
+
   useEffect(() => checkSearch(), [searchText]);
   useEffect(() => setCurrForums(data), [data]);
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   if (data)
     return (

@@ -19,7 +19,7 @@ export default function ForumTable({
   }
   return (
     <>
-      <div className="w-full relative  overflow-x-auto border border-t-0 dark:border-blue-600 rounded-b-lg">
+      <div className="shadow-md w-full relative  overflow-x-auto border border-t-0 dark:border-blue-600 rounded-b-lg">
         {/* To Do : Make Table Header */}
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-blue-600 dark:text-gray-50">

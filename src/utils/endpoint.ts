@@ -59,6 +59,10 @@ const forumEndpoints: EndpointList = {
     url: '/forums/create',
     method: Method.POST,
   },
+  forumGetAll: {
+    url: '/forums/get-all',
+    method: Method.GET,
+  },
   forumId: {
     url: '/forums/get',
     method: Method.GET,
