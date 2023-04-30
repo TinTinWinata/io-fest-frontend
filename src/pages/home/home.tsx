@@ -18,6 +18,7 @@ export default function Home() {
     hasPage,
     setPage,
   } = useForum();
+
   return (
     <>
       <InvicibleNavbar />

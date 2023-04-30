@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { IForum } from '../types/forum';
 import { endpoints } from '../utils/endpoint';
 import { displayError } from '../utils/helper';
@@ -26,6 +27,7 @@ export default function useForum() {
   const [page, setPage] = useState<number>(1);
   const [perPage, setPerPage] = useState<number>(1);
   const [totalForum, setTotalForum] = useState<number>(1);
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const maxPage = () => Math.ceil(totalForum / perPage);
   const minPage = () => 1;
@@ -63,15 +65,20 @@ export default function useForum() {
     setLoading(false);
   };
 
+  const getSearchText = (): string =>
+    searchParams.get('search') ? searchParams.get('search')!.toString() : '';
+
   const fetchData = async () => {
     setLoading(true);
     const service = new Service();
+    const search = getSearchText();
+    console.log('search text: ', search);
     if (filter === FORUM_FILTER.Top) {
       const response = await service.request(
         endpoints.forumNewest,
         undefined,
         undefined,
-        { page: page }
+        { page: page, search: search }
       );
       setData(response.data.forums);
       setTotalForum(response.data.totalForums);
@@ -82,7 +89,7 @@ export default function useForum() {
         endpoints.forumTop,
         undefined,
         undefined,
-        { page: page }
+        { page: page, search: search }
       );
       setData(response.data);
       setSuccess(!response.isError);
@@ -108,7 +115,7 @@ export default function useForum() {
 
   useEffect(() => {
     fetchData();
-  }, [filter, page]);
+  }, [filter, page, searchParams]);
 
   return {
     perPage,
@@ -126,5 +133,6 @@ export default function useForum() {
     createForum,
     hasPage,
     remove,
+    fetchData,
   };
 }

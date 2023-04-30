@@ -54,7 +54,9 @@ export default function Sidebar() {
           getClass()
         }
       >
-        <SidebarButton handler={handleClick} />
+        <SidebarButton 
+        close={close}
+        handler={handleClick} />
 
         {/* Menu List */}
         <div className="p-2">

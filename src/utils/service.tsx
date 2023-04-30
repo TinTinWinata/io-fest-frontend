@@ -60,8 +60,9 @@ class Service {
     let url = endpoint.url;
     url += id ? `/${id}` : ``;
 
-    Object.keys(param).forEach((key) => {
-      url += `?${key}=${param[key]}`;
+    Object.keys(param).forEach((key, index) => {
+      const prefix = index === 0 ? '?' : '&';
+      url += `${prefix}${key}=${param[key]}`;
     });
     return url;
   }
@@ -77,7 +78,7 @@ class Service {
       const url = this.generateUrl(endpoint, id, data, param);
 
       // !Debugging Purposes
-      // console.log('url : ', url);
+      console.log('url : ', url);
 
       const response = await this.getResponse(endpoint.method, data, url);
       result = { data: response.data, isError: false };

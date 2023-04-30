@@ -1,6 +1,18 @@
+import { ChangeEvent } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 export default function Search() {
+  const navigate = useNavigate();
+  const handleOnSubmit = (e: ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (e.target.searchText) {
+      const search = e.target.searchText.value;
+      const url = `/home?search=${search}`;
+      navigate(url);
+    }
+  };
   return (
-    <form className="center">
+    <form onSubmit={handleOnSubmit} className="center">
       <label
         htmlFor="default-search"
         className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
@@ -26,8 +38,8 @@ export default function Search() {
           </svg>
         </div>
         <input
-          type="search"
-          id="default-search"
+          type="text"
+          name="searchText"
           className="w-60 block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg dark:text-white dark:bg-transparent focus:none focus:outline-none focus:w-80 transition-all"
           placeholder="Search"
           required
