@@ -19,11 +19,15 @@ export default function Footer() {
     return (
       <div className={getClass()}>
         <div className="flex justify-between w-full">
-          <div className="w-full pl-5">
-            <div className="flex flex-col">
-              {/* <p className=" text-gray-500 italic">Copyright ©</p> */}
-              {/* <p className="text-gray-500 italic text-sm">JT - JS - RE</p> */}
-            </div>
+          <div className="w-full relative pl-5">
+            <p
+              className={
+                '  italic text-xs absolute left-5 bottom-0 ' +
+                (isDarkFooter() ? 'text-gray-50' : 'text-gray-500')
+              }
+            >
+              Copyright © JT - JS - RE
+            </p>
           </div>
           <div className="w-full flex justify-center mr-3">
             <Icon

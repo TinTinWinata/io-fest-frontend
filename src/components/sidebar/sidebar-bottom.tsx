@@ -1,4 +1,5 @@
 import { useUserAuth } from '../../hooks/user-context';
+import { getImageUrl } from '../../utils/helper';
 
 export default function SidebarBottom() {
   const { user, logout } = useUserAuth();
@@ -8,7 +9,7 @@ export default function SidebarBottom() {
       <div className="flex absolute top-[50%] translate-y-[-50%] left-2">
         <div className="center mr-2">
           <img
-            src="https://picsum.photos/200"
+            src={getImageUrl(user.profilePicture)}
             className="w-9 h-9 rounded-full"
             alt=""
           />

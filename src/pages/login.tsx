@@ -98,7 +98,6 @@ export default function Login() {
                   Ingatkan Saya
                 </label>
               </div>
-
               <div className="text-sm">
                 <Link
                   to="/register"

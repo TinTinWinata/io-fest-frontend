@@ -2,6 +2,7 @@ import CreatePostButton from '../../components/create-post-button';
 import ForumCardContainer from '../../components/forum-card-container';
 import InvicibleNavbar from '../../components/invicible-navbar';
 import useForum from '../../hooks/use-forum';
+import { useUserAuth } from '../../hooks/user-context';
 import ForumFilter from './forum-filter';
 import Pagination from './pagination';
 
@@ -20,6 +21,7 @@ export default function Home() {
     setPage,
     setFilter,
   } = useForum();
+  const { isAuth } = useUserAuth();
 
   return (
     <>
@@ -33,7 +35,7 @@ export default function Home() {
           <ForumCardContainer forums={data}></ForumCardContainer>
         </div>
         {/* I think it's silly */}
-        <CreatePostButton handler={createForum} />
+        {isAuth() && <CreatePostButton handler={createForum} />}
         <div className="mt-12">
           <Pagination
             setPage={setPage}

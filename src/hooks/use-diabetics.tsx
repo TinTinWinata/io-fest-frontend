@@ -21,6 +21,7 @@ export default function UseDiabetics(answers: IFormAnswer[]) {
 
   const fetch = async () => {
     const data = dataConverter(answers);
+    console.log('data : ', data);
     const service = new Service(undefined, ContentType.JSON, true);
     const response = await service.request(
       endpoints.diabetics,

@@ -31,7 +31,9 @@ export default function ForumContainer({
       <td className="px-6 py-4">{forum.seen}</td>
       <td className="px-6 py-4">
         <div className="flex items-center">
-          <div className={`h-2.5 w-2.5 rounded-full mr-2`}>{forum.title}</div>
+          <div className={`h-2.5 w-2.5 rounded-full mr-2`}>
+            {forum.forumComments?.length}
+          </div>
         </div>
       </td>
       <td className="px-6 py-4 ">

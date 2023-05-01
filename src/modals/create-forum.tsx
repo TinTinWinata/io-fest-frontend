@@ -174,7 +174,7 @@ export default function CreateForum({
                   </div>
                 </div>
               </div>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 mt-1">
                 {selectedFiles.map((file, index) => (
                   <FileViewer
                     index={index}

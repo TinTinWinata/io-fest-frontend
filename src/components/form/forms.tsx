@@ -1,4 +1,4 @@
-import { createRef, useEffect, useState } from 'react';
+import { createRef, useState } from 'react';
 import { IFormAnswer } from '../../types/form-answer';
 import { IFormQuestion } from '../../types/form-question';
 import { toastError } from '../../utils/toast';
@@ -86,7 +86,6 @@ export default function Forms({ forms }: { forms: IFormQuestion[] }) {
     }
   };
 
-
   if (finish) {
     return (
       <div className="relative w-96  p-6 dark:bg-transparent bg-gray-50 rounded-xl dark:border dark:border-opacity-50 dark:border-gray-600">
@@ -98,7 +97,7 @@ export default function Forms({ forms }: { forms: IFormQuestion[] }) {
   return (
     <div
       data-aos="fade-up"
-      className="relative w-96 h-[600px] p-6 dark:bg-transparent dark:border dark:border-opacity-50 dark:border-gray-600 bg-gray-50 rounded-xl"
+      className="shadow-sm border border-gray-500 border-opacity-20 relative w-96 h-[600px] p-6 dark:bg-transparent dark:border dark:border-opacity-50 dark:border-gray-600 bg-gray-50 rounded-xl"
     >
       <ProgressBar from={index + 1} to={forms.length} />
 

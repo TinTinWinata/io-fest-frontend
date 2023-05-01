@@ -13,7 +13,7 @@ export default function ForumCard({ forum }: { forum: IForum }) {
         onClick={handleClick}
         className="cursor-pointer p-4  border shadow-sm bg-gray-50 dark:bg-transparent dark:border-blue-600 border-gray-500 border-opacity-50 rounded-lg w-[400px] h-80"
       >
-        <div className="flex">
+        <div className="flex ">
           <img
             src={getImageUrl(forum.creator.profilePicture)}
             className="w-16 h-16 rounded-[100%]"
@@ -21,7 +21,7 @@ export default function ForumCard({ forum }: { forum: IForum }) {
           />
           <div className="center">
             <div className="ml-2">
-              <h1 className="font-bold">{forum.title}</h1>
+              <h1 className="font-bold  line-clamp-2">{forum.title}</h1>
               <h3 className="text-gray-500 opacity-75 dark:text-gray-400">
                 {forum.creator.name}
               </h3>
