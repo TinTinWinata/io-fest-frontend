@@ -44,6 +44,11 @@ export default function ForumTableContainer() {
     setData(await getAllData());
   };
 
+  const removeProxy = async (forumId: string) => {
+    await remove(forumId);
+    await fetchData();
+  };
+
   useEffect(() => checkSearch(), [searchText]);
   useEffect(() => setCurrForums(data), [data]);
   useEffect(() => {
@@ -53,9 +58,11 @@ export default function ForumTableContainer() {
   if (data)
     return (
       <>
-        <ForumTableSearch handleSearch={handleSearch} />
+        <div className="p-1 mb-1">
+          <ForumTableSearch handleSearch={handleSearch} />
+        </div>
         <ForumRemoveModal
-          remove={remove}
+          remove={removeProxy}
           forum={selectedForum}
           open={openRemoveModal}
           setOpen={setOpenRemoveModal}
