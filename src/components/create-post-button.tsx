@@ -46,7 +46,7 @@ export default function CreatePostButton({ handler }: { handler: any }) {
       <form
         noValidate
         onSubmit={handleOnSubmit}
-        className="fixed bottom-14 z-50 translate-x-[-50%] left-[50%] md:left-[0] md:translate-x-0  md:right-20"
+        className="fixed bottom-14 z-50 translate-x-[-50%] left-[50%] md:left-[auto]  md:translate-x-0  md:right-20"
       >
         <div className="flex">
           <input

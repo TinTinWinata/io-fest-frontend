@@ -179,24 +179,26 @@ export default function Landing() {
           <div className="relative w-screen h-screen ">
             <div
               className={
-                'text-center font-serif text-2xl md:text-8xl font-bold tracking-widest absolute top-[18%] md:top-[20%] left-[50%] translate-x-[-50%] translate-y-[-50%] transition-all ' +
+                ' absolute top-[25%] md:top-[25%] left-[50%] translate-x-[-50%] translate-y-[-50%] transition-all ' +
                 textClass
               }
             >
-              EAT HEALTHY!
-            </div>
-            <div
-              className={
-                'sm:text-xl md:text-xl lg:text-4xl text-center  font-thin  tracking-widest absolute top-[33%] sm:top-[35%] lg:top-[30%] left-[50%] translate-x-[-50%] translate-y-[-50%] transition-all ' +
-                textClass
-              }
-            >
-              "There Are Around 463 Million Adults Living With Diabetes in
-              Worldwide."{' '}
-              <span className="ml-3 font-serif text-blue-500  transition-all">
-                {' '}
-                - WHO (2019)
-              </span>
+              <h1 className="text-center font-serif text-2xl md:text-8xl font-bold tracking-widest">
+                EAT HEALTHY!
+              </h1>
+              <p
+                className={
+                  'mt-4 sm:text-xl md:text-xl lg:text-4xl text-center  font-thin  tracking-widest transition-all ' +
+                  textClass
+                }
+              >
+                "There Are Around 463 Million Adults Living With Diabetes in
+                Worldwide."{' '}
+                <span className="ml-3 font-serif text-blue-500  transition-all">
+                  {' '}
+                  - WHO (2019)
+                </span>
+              </p>
             </div>
           </div>
         </div>

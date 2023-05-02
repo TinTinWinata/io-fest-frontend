@@ -36,13 +36,8 @@ export default function Navbar() {
       </div>
       <div className="w-full center ">
         <Menu name="Home" url="/home" />
-
-        {!isAuth() && (
-          <>
-            <Menu name="Register" url="/register" />
-            <Menu name="Login" url="/login" />
-          </>
-        )}
+        <Menu name="Register" url="/register" />
+        <Menu name="Login" url="/login" />
       </div>
       <div className="center w-full">{<ThemeChanger></ThemeChanger>}</div>
     </div>
