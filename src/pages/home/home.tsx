@@ -29,7 +29,7 @@ export default function Home() {
       <div className="min-h-screen ">
         <div className="">
           <div className="w-full flex  justify-end mb-2">
-            <ForumFilter setFilter={setFilter} />
+            {data.length > 0 && <ForumFilter setFilter={setFilter} />}
           </div>
           {/* <h1 className="text-center text-3xl font-semibold mb-4">Top Forum</h1> */}
           <ForumCardContainer forums={data}></ForumCardContainer>

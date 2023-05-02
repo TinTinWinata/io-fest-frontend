@@ -4,6 +4,7 @@ import '../css/gradient.css';
 import { useTheme } from '../hooks/theme-context';
 import useRemember from '../hooks/use-remember';
 import { useUserAuth } from '../hooks/user-context';
+import { ILoginForm } from '../types/auth';
 
 export default function Login() {
   const { isDarkTheme } = useTheme();
@@ -16,13 +17,13 @@ export default function Login() {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    console.log(e.target.remember_me.checked, e.target.email.value);
+    // console.log(e.target.remember_me.checked, e.target.email.value);
     checkCheked(e.target.remember_me.checked, e.target.email.value);
-    // const data: ILoginForm = {
-    //   email: e.target.email.value,
-    //   password: e.target.password.value,
-    // };
-    // await login(data);
+    const data: ILoginForm = {
+      email: e.target.email.value,
+      password: e.target.password.value,
+    };
+    await login(data);
   };
 
   const getDarkClass = () => (isDarkTheme ? 'bg-gray-900' : 'gradient');

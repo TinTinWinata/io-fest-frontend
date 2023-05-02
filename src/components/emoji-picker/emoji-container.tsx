@@ -15,7 +15,7 @@ export default function EmojiContainer({
   const divRef = createRef<HTMLDivElement>();
 
   useEffect(() => {
-    console.log('set handler!');
+    // console.log('set handler!');
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
