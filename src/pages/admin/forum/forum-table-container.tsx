@@ -57,7 +57,7 @@ export default function ForumTableContainer() {
 
   if (data)
     return (
-      <>
+      <div className="p-2">
         <div className="p-1 mb-1">
           <ForumTableSearch handleSearch={handleSearch} />
         </div>
@@ -71,7 +71,7 @@ export default function ForumTableContainer() {
           handlerRemoveForumButton={handleRemoveUserButton}
           forums={currForums}
         />
-      </>
+      </div>
     );
   else return <></>;
 }

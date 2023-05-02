@@ -14,7 +14,7 @@ export default function ProfileForm({ user }: { user: IUser }) {
     'flex-grow dark:text-gray-200 focus:none focus:outline-none focus:border-none bg-transparent';
 
   return (
-    <div className="p-20">
+    <div className="p-5 md:p-20">
       <form onSubmit={handleOnSubmit}>
         <div className="mt-10 divide-y divide-gray-200">
           <div className="space-y-1">

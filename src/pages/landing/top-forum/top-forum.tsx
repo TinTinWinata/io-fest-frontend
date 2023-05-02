@@ -23,13 +23,12 @@ export default function TopForum() {
         >
           Forum Teratas di CariTahu.id
         </h1>
-        <p
-          className="opacity-90 text-sm md:text-lg font-semibold p-5"
-          data-aos="fade-up"
-        >
-          Bertanya Tak Merugikan Cegah Penyakit Sebelum Terlambat, Yuk Cari
-          Tahu!
-        </p>
+        <div data-aos="fade-up" className="">
+          <p className="dark:opacity-75  opacity-90 text-sm md:text-lg font-semibold p-5">
+            Bertanya Tak Merugikan Cegah Penyakit Sebelum Terlambat, Yuk Cari
+            Tahu!
+          </p>
+        </div>
         <div className="grid-cols-1 md:grid-cols-2 justify-center grid">
           {data.slice(0, 4).map((forum, index) => {
             const getClass = () => (index >= 2 ? 'md:block hidden' : '');
@@ -42,7 +41,7 @@ export default function TopForum() {
         </div>
         <p
           data-aos="fade-up"
-          className="text-sm text-gray-500 dark:text-gray-200"
+          className="text-sm text-gray-500 dark:text-gray-200 dark:opacity-50"
         >
           Forum tidak mengandung kata SARA, Pornografi, dan Ungkapan kasar
         </p>

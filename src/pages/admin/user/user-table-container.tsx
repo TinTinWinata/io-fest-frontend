@@ -60,7 +60,7 @@ export default function UserTableContainer() {
 
   if (data)
     return (
-      <>
+      <div className="p-2">
         <UserTableHeader
           handleSearch={handleSearch}
           handlerFilter={handleFilter}
@@ -74,7 +74,7 @@ export default function UserTableContainer() {
           handlerRemoveUserButton={handleRemoveUserButton}
           users={currUsers}
         />
-      </>
+      </div>
     );
   else return <></>;
 }

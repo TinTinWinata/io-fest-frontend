@@ -2,20 +2,27 @@ import { GoogleLogin } from '@react-oauth/google';
 import { Link } from 'react-router-dom';
 import '../css/gradient.css';
 import { useTheme } from '../hooks/theme-context';
+import useRemember from '../hooks/use-remember';
 import { useUserAuth } from '../hooks/user-context';
-import { ILoginForm } from '../types/auth';
 
 export default function Login() {
   const { isDarkTheme } = useTheme();
   const { login, loginGoogle } = useUserAuth();
+  const { data, setData } = useRemember();
+
+  const checkCheked = (checked: boolean, email: string) => {
+    if (checked) setData(email);
+  };
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    const data: ILoginForm = {
-      email: e.target.email.value,
-      password: e.target.password.value,
-    };
-    await login(data);
+    console.log(e.target.remember_me.checked, e.target.email.value);
+    checkCheked(e.target.remember_me.checked, e.target.email.value);
+    // const data: ILoginForm = {
+    //   email: e.target.email.value,
+    //   password: e.target.password.value,
+    // };
+    // await login(data);
   };
 
   const getDarkClass = () => (isDarkTheme ? 'bg-gray-900' : 'gradient');
@@ -54,6 +61,7 @@ export default function Login() {
               </label>
               <div className="mt-1">
                 <input
+                  defaultValue={data}
                   id="email"
                   name="email"
                   type="email"
