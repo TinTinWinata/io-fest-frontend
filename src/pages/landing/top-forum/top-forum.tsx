@@ -30,14 +30,15 @@ export default function TopForum() {
           </p>
         </div>
         <div className="grid-cols-1 md:grid-cols-2 justify-center grid">
-          {data.slice(0, 4).map((forum, index) => {
-            const getClass = () => (index >= 2 ? 'md:block hidden' : '');
-            return (
-              <div className={getClass()} key={index}>
-                <LandingForum forum={forum} />
-              </div>
-            );
-          })}
+          {data.length > 0 &&
+            data.slice(0, 4).map((forum, index) => {
+              const getClass = () => (index >= 2 ? 'md:block hidden' : '');
+              return (
+                <div className={getClass()} key={index}>
+                  <LandingForum forum={forum} />
+                </div>
+              );
+            })}
         </div>
         <p
           data-aos="fade-up"
