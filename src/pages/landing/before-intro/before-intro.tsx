@@ -32,25 +32,26 @@ export default function BeforeIntro() {
 
   return (
     <>
-      <div className="overflow-hidden relative flex w-full h-full text-gray-50">
+      <div className="overflow-hidden relative  flex-col md:flex-row flex w-full h-full text-gray-50">
         <div className="h-full w-full center">
-          <div className="w-1/2">
-            <h1 className="font-serif mb-5 text-4xl font-semibold">
+          <div className="w-full pt-10 px-10 md:px-0 md:pt-0 md:w-1/2">
+            <h1 className="font-serif mb-5 text:xl md:text-4xl font-semibold">
               Hanya perlu 4 langkah <br /> untuk sehat
             </h1>
             <button
               onClick={handleClickButton}
-              className="py-4 px-8  text-md bg-blue-600 hover:bg-blue-500 dark:bg-blue-500 dark:hover:bg-blue-400 text-white font-semibold my-3"
+              className="py-4 px-8  text-sm md:text-md bg-blue-600 hover:bg-blue-500 dark:bg-blue-500 dark:hover:bg-blue-400 text-white font-semibold my-3"
             >
               Saya Mau Sehat
             </button>
-            <p className="text-sm text-gray-300 dark:text-gray-50 tracking-wide">
+            <p className="text-xs md:text-sm text-gray-300 dark:text-gray-50 tracking-wide">
               Jaga Keseimbangan Hidupmu <br /> untuk Kesehatan Optimal
             </p>
           </div>
         </div>
-        <div className="w-[0.5px] h-ful bg-blue-400 opacity-10 mr-6"></div>
-        <div className="h-full w-full  flex justify-center items-left flex-col">
+        <hr className="mt-16 text-gray-500 opacity-50 md:hidden block" />
+        <div className="w-[0.5px] h-ful hidden md:block bg-blue-400 opacity-10 mr-6"></div>
+        <div className="p-10 md:p-0 h-full w-full  flex justify-center items-left flex-col">
           <BeforeIntroText
             number={BEFORE_INTRO_TEXTS[activeIndex].number}
             text={BEFORE_INTRO_TEXTS[activeIndex].text}

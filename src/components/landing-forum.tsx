@@ -36,7 +36,7 @@ export default function LandingForum({ forum }: ILandingForumProps) {
       onMouseLeave={handleOnMouseLeave}
       onClick={handleClick}
       data-aos="fade-up"
-      className="hover:cursor-pointer rounded-lg border border-black  m-2 relative overflow-hidden w-96 h-52 bg-gray-50 dark:bg-transparent"
+      className="hover:cursor-pointer rounded-lg border border-black  m-2 relative overflow-hidden w-80  md:w-96 h-52 bg-gray-50 dark:bg-transparent"
     >
       <div className={`absolute p-5 w-full h-full ${hover && 'opacity-50'}`}>
         <div className="tracking-widest font-bold text-xl">

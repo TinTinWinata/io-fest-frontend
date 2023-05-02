@@ -46,7 +46,7 @@ export default function CreatePostButton({ handler }: { handler: any }) {
       <form
         noValidate
         onSubmit={handleOnSubmit}
-        className="fixed bottom-14 right-20"
+        className="fixed bottom-14 z-50 translate-x-[-50%] left-[50%] md:left-[0] md:translate-x-0  md:right-20"
       >
         <div className="flex">
           <input
@@ -57,7 +57,7 @@ export default function CreatePostButton({ handler }: { handler: any }) {
             onFocus={handleOnFocus}
             type="search"
             id="default-search"
-            className="italic font-medium w-[230px] block p-4 pl-10 text-xl text-gray-50 border placeholder-gray-50 border-blue-500 rounded-lg bg-blue-400 dark:bg-blue-400 dark:border-blue-500 focus:none focus:outline-none focus:w-[400px] transition-all"
+            className="italic font-medium w-[230px] block p-4 pl-10 text-xl text-gray-50 border placeholder-gray-50 border-blue-500 rounded-lg bg-blue-400 dark:bg-blue-400 dark:border-blue-500 focus:none focus:outline-none  focus:w-[250px] md:focus:w-[400px] transition-all"
             placeholder="Create Post"
             required
           />

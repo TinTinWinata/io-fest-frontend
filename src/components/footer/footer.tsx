@@ -9,7 +9,7 @@ export default function Footer() {
   const isShowFooter = () => NO_FOOTER_PATH.includes(location.pathname);
   const isDarkFooter = () => DARK_FOOTER_PATH.includes(location.pathname);
   const getClass = () =>
-    'h-20 w-full  center ' +
+    'h-32 md:h-20 w-full  center ' +
     (isDarkFooter()
       ? ' bg-dark-blue-calm dark:bg-gray-950 '
       : ' bg-blue-50 dark:bg-gray-800');
@@ -22,7 +22,7 @@ export default function Footer() {
           <div className="w-full relative pl-5">
             <p
               className={
-                '  italic text-xs absolute left-5 bottom-0 ' +
+                '  italic w-1/2 md:w-full text-xs absolute left-5 bottom-0 ' +
                 (isDarkFooter() ? 'text-gray-50' : 'text-gray-500')
               }
             >

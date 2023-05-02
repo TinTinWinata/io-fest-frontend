@@ -3,9 +3,9 @@ import { getImageUrl } from '../../utils/helper';
 
 export default function Comment({ comment }: { comment: IComment }) {
   return (
-    <div className="flex p-2 my-10  rounded-lg">
+    <div className="flex flex-col md:flex-row p-2 my-10  rounded-lg">
       {/* User's who Comment */}
-      <div className="center flex w-36 ">
+      <div className="md:pb-0 pb-5 center flex w-36 ">
         <img
           src={getImageUrl(comment.commenter.profilePicture)}
           className="w-10 h-10 rounded-full mr-1"

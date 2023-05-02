@@ -33,11 +33,11 @@ export default function Login() {
       ></div>
       {/* <div className="absolute w-full h-full blur-lg  bg-gray-500 opacity-50 left-0 top-0"></div> */}
 
-      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="relative z-40 bg-white dark:bg-gray-900 dark:border-blue-500 dark:border-opacity-50 dark:border py-8 px-4 shadow sm:rounded-lg sm:px-10">
+      <div className="mt-8 center   ">
+        <div className="relative z-40 w-[340px]  md:w-[400px]   bg-white dark:bg-gray-900 dark:border-blue-500 dark:border-opacity-50 dark:border py-8 px-4 shadow rounded-lg sm:px-10">
           <form
             onSubmit={handleSubmit}
-            className="space-y-6"
+            className="space-y-6 p-3 md:p-0"
             action="#"
             method="POST"
           >
@@ -129,11 +129,11 @@ export default function Login() {
                 </span>
               </div>
             </div>
-            <div className="w-full center mt-3">
+            <div className="w-full center mt-3 ">
               <GoogleLogin
                 theme={isDarkTheme ? 'filled_blue' : 'outline'}
                 size="large"
-                width="375"
+                width="300"
                 onSuccess={handleOnSuccess}
               />
             </div>

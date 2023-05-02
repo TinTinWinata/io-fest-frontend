@@ -50,13 +50,11 @@ export default function Sidebar() {
     return (
       <div
         className={
-          'z-50 fixed transition-all top-[50%] translate-y-[-50%] w-60 h-[80%] rounded-r-xl bg-blue-500 dark:bg-blue-500 ' +
+          'z-[200] fixed transition-all top-[50%] translate-y-[-50%] w-60 h-[80%] rounded-r-xl bg-blue-500 dark:bg-blue-500 ' +
           getClass()
         }
       >
-        <SidebarButton 
-        close={close}
-        handler={handleClick} />
+        <SidebarButton close={close} handler={handleClick} />
 
         {/* Menu List */}
         <div className="p-2">

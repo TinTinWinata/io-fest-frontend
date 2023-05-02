@@ -1,5 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import useScroll from '../../hooks/use-scroll';
+import { useUserAuth } from '../../hooks/user-context';
 import Menu from './menu';
 import Search from './search';
 import ThemeChanger from './theme-changer';
@@ -8,6 +9,7 @@ const MUST_WHITE_PATH = ['/login', '/register'];
 
 export default function Navbar() {
   const { isScrollingDown } = useScroll();
+  const { isAuth } = useUserAuth();
   const location = useLocation();
 
   const getScrollingClass = () =>
@@ -29,11 +31,18 @@ export default function Navbar() {
         getColorClass()
       }
     >
-      <div className="w-full">{!isMustWhite() && <Search></Search>}</div>
+      <div className="md:block hidden w-full">
+        {!isMustWhite() && <Search></Search>}
+      </div>
       <div className="w-full center ">
         <Menu name="Home" url="/home" />
-        <Menu name="Register" url="/register" />
-        <Menu name="Login" url="/login" />
+
+        {!isAuth() && (
+          <>
+            <Menu name="Register" url="/register" />
+            <Menu name="Login" url="/login" />
+          </>
+        )}
       </div>
       <div className="center w-full">{<ThemeChanger></ThemeChanger>}</div>
     </div>

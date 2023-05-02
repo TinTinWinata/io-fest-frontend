@@ -125,7 +125,10 @@ export default function Landing() {
   return (
     <div className="bg-blue-50 dark:bg-gray-900">
       {/* <div className="bg-black absolute w-full h-full opacity-[60%]"></div> */}
-      <div ref={firstRef} className="relative w-full h-screen center">
+      <div
+        ref={firstRef}
+        className="relative w-full h-screen flex flex-col-reverse justify-center items-center  md:flex-row md:justify-center"
+      >
         <LeftLanding />
         <RightLanding />
         {/* Bird */}
@@ -146,7 +149,7 @@ export default function Landing() {
         ></div>
         <div className=" center w-full h-full relative  ">
           <Lottie
-            className="abs-center z-20 w-[600px]"
+            className="abs-center z-20 w-[300px] md:w-[600px]"
             autoplay={false}
             lottieRef={lottieRef}
             animationData={animationData}
@@ -176,7 +179,7 @@ export default function Landing() {
           <div className="relative w-screen h-screen ">
             <div
               className={
-                'text-center font-serif text-8xl font-bold tracking-widest absolute top-[20%] left-[50%] translate-x-[-50%] translate-y-[-50%] transition-all ' +
+                'text-center font-serif text-2xl md:text-8xl font-bold tracking-widest absolute top-[18%] md:top-[20%] left-[50%] translate-x-[-50%] translate-y-[-50%] transition-all ' +
                 textClass
               }
             >
@@ -184,7 +187,7 @@ export default function Landing() {
             </div>
             <div
               className={
-                'sm:text-xl md:text-xl lg:text-4xl text-center  font-thin  tracking-widest absolute sm:top-[35%] lg:top-[30%] left-[50%] translate-x-[-50%] translate-y-[-50%] transition-all ' +
+                'sm:text-xl md:text-xl lg:text-4xl text-center  font-thin  tracking-widest absolute top-[33%] sm:top-[35%] lg:top-[30%] left-[50%] translate-x-[-50%] translate-y-[-50%] transition-all ' +
                 textClass
               }
             >
@@ -204,7 +207,7 @@ export default function Landing() {
       <div className="bg-light-blue dark:bg-gray-900 h-fit w-screen center">
         <Description />
       </div>
-      <div className="w-full h-[400px] bg-dark-blue dark:bg-gray-950">
+      <div className="w-full h-[500px]] md:h-[400px] bg-dark-blue dark:bg-gray-950">
         <BeforeIntro />
       </div>
     </div>

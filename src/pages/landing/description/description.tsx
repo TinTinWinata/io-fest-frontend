@@ -4,7 +4,8 @@ import DescriptionContent from './description-content';
 
 export default function Description() {
   const { isDarkTheme } = useTheme();
-  const getDivClass = () => 'text-center center w-fit my-24 ';
+  const getDivClass = () =>
+    ' text-center flex justify-center md:flex-row items-center w-fit md:my-24 ';
   return (
     <div className="relative overflow-hidden ">
       {/* <div className="absolute opacity-50 left-[-600px] w-full h-full z-0 text-red-300">
@@ -24,16 +25,16 @@ export default function Description() {
         </div>
       </div> */}
       {/* First */}
-      <div className={getDivClass()}>
+      <div className={getDivClass() + ' flex-col-reverse'}>
         <DescriptionContent
           side="right"
           text="Stres dapat berdampak negatif pada kesehatan mental dan fisik seseorang. Namun, ada cara mudah untuk mengurangi stres, seperti berolahraga, meditasi, dan melakukan kegiatan yang disukai."
           title="Mengurangi Stres "
         />
-        <div className="flex ml-20 w-[50%]">
+        <div className="flex justify-center md:justify-start ml-0 md:ml-20 w-[50%]">
           <Player
             // data-aos="fade-up"
-            className="mt-5 w-[500px] h-[500px]"
+            className="mt-0 md:mt-5 w-[300px] h-[300px] md:w-[500px] md:h-[500px]"
             autoplay
             loop
             src={'/assets/work.json'}
@@ -41,11 +42,11 @@ export default function Description() {
         </div>
       </div>
       {/* Second */}
-      <div className={getDivClass()}>
+      <div className={getDivClass() + 'flex-col'}>
         <div className="pr-20">
           <Player
             // data-aos="fade-up"
-            className="mt-5 w-96 h-96"
+            className="mt-5 md:w-96 md:h-96 w-72 h-72"
             autoplay
             loop
             src={'/assets/sleep.json'}
@@ -58,7 +59,7 @@ export default function Description() {
         />
       </div>
       {/* Third */}
-      <div className={getDivClass()}>
+      <div className={getDivClass() + 'flex-col-reverse'}>
         <DescriptionContent
           side="right"
           text="Melakukan pemeriksaan kesehatan secara teratur dapat membantu mencegah dan mendeteksi dini penyakit yang mungkin timbul. Pemeriksaan kesehatan yang dilakukan secara teratur dapat membantu menentukan gaya hidup."
@@ -68,7 +69,7 @@ export default function Description() {
           <Player
             // style={{ width: '450px' }}
             data-aos="fade-up"
-            className="mt-5 w-[450px]"
+            className="mt-5 w-[250px] md:w-[450px]"
             autoplay
             loop
             src={'/assets/check-up.json'}
