@@ -128,9 +128,23 @@ const EXAMPLE_QUESTIONS: IFormQuestion[] = [
   },
   {
     questionValue: 'age_category',
-    question: 'Berapa usia anda ?',
-    answer: ['1 - 30'],
-    answerValue: [],
+    question: 'Berapa kategori usia anda ?',
+    answer: [
+      'Usia 18 - 24',
+      'Usia 25 - 29',
+      'Usia 30 - 34',
+      'Usia 35 - 39',
+      'Usia 40 - 44',
+      'Usia 45 - 49',
+      'Usia 50 - 54',
+      'Usia 55 - 59',
+      'Usia 60 - 64',
+      'Usia 65 - 69',
+      'Usia 70 - 74',
+      'Usia 75 - 79',
+      'Usia 80 - Lebih Tua',
+    ],
+    answerValue: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
   },
 ];
 

@@ -28,7 +28,7 @@ export default function FormDetail({
       </div>
       <div className="hr"></div>
       {/* Answer */}
-      <div className="">
+      <div className="overflow-y-scroll scrollbar-hide h-[300px]">
         {form.answerValue.length == 0 ? (
           <input
             ref={inputRef}
